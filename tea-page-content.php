@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Tea Page Content
-Plugin URI: http://pods.io/
+Plugin URI: http://tsjuder.github.io/tea-page-content
 Description: This plugin allows create most flexible blocks with any content of any page via widgets or shortcodes, and manage layouts of blocks with help of templates.
 Version: 1.0.0
 Text Domain: tea-page-content
 Domain Path: /languages/
 Author: Danil Kosterin
 Author URI: https://github.com/Tsjuder
-GitHub Plugin URI: https://github.com/pods-framework/pods
+GitHub Plugin URI: https://github.com/Tsjuder/tea-page-content
 GitHub Branch: master
 
 License: MIT (http://directory.fsf.org/wiki/License:Expat)

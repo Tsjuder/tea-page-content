@@ -17,7 +17,7 @@ class TeaPageContent_Shortcodes {
 		$defaults = array(
 			'id' => null,
 			'template' => 'default',
-			'thumbhail' => true,
+			'thumbnail' => true,
 			'order' => 'desc'
 		);
 

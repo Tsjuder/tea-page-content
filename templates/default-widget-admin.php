@@ -64,9 +64,9 @@
 </p>
 
 <p>
-	<label for="<?php echo $bind->get_field_id('thumbhail'); ?>">
-		<?php $checked = $instance['thumbhail'] ? 'checked' : ''; ?>
-		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('thumbhail'); ?>" name="<?php echo $bind->get_field_name('thumbhail'); ?>" value="1" <?php echo $checked ?> />
-		<span><?php _e('Thumbhail', 'tea-page-content'); ?></span>
+	<label for="<?php echo $bind->get_field_id('thumbnail'); ?>">
+		<?php $checked = $instance['thumbnail'] ? 'checked' : ''; ?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('thumbnail'); ?>" name="<?php echo $bind->get_field_name('thumbnail'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Thumbnail', 'tea-page-content'); ?></span>
 	</label>
 </p>

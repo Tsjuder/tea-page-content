@@ -49,16 +49,11 @@ class TeaPageContent {
 		// Adds filters, actions, etc.
 		add_action('init', array(self::$_instance, 'registerShortcodes'));
 		add_action('widgets_init', array(self::$_instance, 'registerWidgets'));
-
-		add_action('wp_enqueue_scripts', array(self::$_instance, 'includeAssets'), 100, 1);
-		add_action('admin_enqueue_scripts', array(self::$_instance, 'includeAdminAssets'), 100, 1);
-
 		add_filter('tpc_get_params', array(self::$_instance, 'flattenEntries'), 10, 1);
 
 		// Includes all css, js, etc.
-
-		
-
+		add_action('wp_enqueue_scripts', array(self::$_instance, 'includeAssets'), 100, 1);
+		add_action('admin_enqueue_scripts', array(self::$_instance, 'includeAdminAssets'), 100, 1);
 	}
 
 	/**

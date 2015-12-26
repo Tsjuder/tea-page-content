@@ -31,7 +31,7 @@ class TeaPageContent_Widget extends WP_Widget {
 		$this->params = array(
 			'title' 	=> '',
 			'posts' 	=> '',
-			'thumbhail' => 1,
+			'thumbnail' => 1,
 			'template'  => 'default',
 			'order'     => 'desc'
 		);

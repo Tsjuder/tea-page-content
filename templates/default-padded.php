@@ -9,8 +9,8 @@
 
 	<?php foreach ($entries as $key => $entry) : ?>
 		<article class="tpc-entry-block">
-			<?php if(isset($instance['thumbhail']) && $instance['thumbhail'] && $entry['thumbnail']) : ?>
-				<div class="tpc-thumbhail">
+			<?php if(isset($instance['thumbnail']) && $instance['thumbnail'] && $entry['thumbnail']) : ?>
+				<div class="tpc-thumbnail">
 					<?php echo $entry['thumbnail'] ?>
 				</div>
 			<?php endif; ?>

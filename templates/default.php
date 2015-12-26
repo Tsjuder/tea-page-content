@@ -1,4 +1,4 @@
-<?php if(isset($entries) && count($entries)) : ?>
+<?php if(isset($entries) && count($entries)) :  ?>
 
 <section class="tpc-block tpc-default">
 	<?php if(isset($instance['title'])) : ?>
@@ -9,7 +9,7 @@
 
 	<?php foreach ($entries as $key => $entry) : ?>
 		<article class="tpc-entry-block">
-			<?php if(isset($instance['thumbhail']) && $instance['thumbhail'] !== 'false' && $entry['thumbnail']) : ?>
+			<?php if(isset($instance['thumbnail']) && $instance['thumbnail'] !== 'false' && $entry['thumbnail']) : ?>
 				<?php echo $entry['thumbnail'] ?>
 			<?php endif; ?>
 

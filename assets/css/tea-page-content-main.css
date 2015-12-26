@@ -14,7 +14,7 @@
 .tpc-widget-title {
 	padding: 1em 2em;
 }
-.tpc-block .tpc-thumbhail {
+.tpc-block .tpc-thumbnail {
 	padding-bottom: 1em;
 }
 
@@ -41,7 +41,7 @@
 
 /* Padded template */
 .tpc-default-padded .tpc-body,
-.tpc-default-padded .tpc-thumbhail {
+.tpc-default-padded .tpc-thumbnail {
 	padding-left: 2em;
 	padding-right: 2em;
 }

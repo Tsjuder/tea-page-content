@@ -60,6 +60,7 @@ class TeaPageContent_Helper {
 			'tpc_render_template',
 			$content
 		);
+
 		ob_end_clean();
 
 		return $content;
@@ -75,10 +76,12 @@ class TeaPageContent_Helper {
 	public static function displayTemplate($template = 'default', $params = array()) {
 		$templatePath = TeaPageContent_Helper::getTemplatePath($template);
 
-		$content = TeaPageContent_Helper::renderTemplate($params, $templatePath);
+		if(isset($params['entries'])) {
+			$content = TeaPageContent_Helper::renderTemplate($params, $templatePath);
 
-		if($content) {
-			echo $content;
+			if($content) {
+				echo $content;
+			}
 		}
 	}
 
