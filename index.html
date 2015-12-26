@@ -57,22 +57,24 @@
 <a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating custom templates</h2>
 
 <p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the  your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file this code (for example):
-`&lt;?php if(isset($entries) &amp;&amp; count($entries)) : ?&gt;
-&lt;?php foreach ($entries as $key =&gt; $entry) : ?&gt;
-    </p><div>
-        <h3>
-<a id="------------php-echo-entrytitle---------" class="anchor" href="#------------php-echo-entrytitle---------" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-            &lt;?php echo $entry['title'] ?&gt;
-        </h3>
+`
+    &lt;?php if(isset($entries) &amp;&amp; count($entries)) : ?&gt;
+    &lt;?php foreach ($entries as $key =&gt; $entry) : ?&gt;
+        </p><div>
+            <h3>
+<a id="----------------php-echo-entrytitle-------------" class="anchor" href="#----------------php-echo-entrytitle-------------" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+                &lt;?php echo $entry['title'] ?&gt;
+            </h3>
 
-<pre><code>    &lt;div class="tpc-content post-content"&gt;
-        &amp;lt;?php echo $entry['content'] ?&amp;gt;
+<pre><code>        &lt;div class="tpc-content post-content"&gt;
+            &lt;?php echo $entry['content'] ?&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-&lt;/div&gt;
+&lt;?php endforeach; ?&gt;
+&lt;?php endif; ?&gt;
 </code></pre>
 
-<p>&lt;?php endforeach; ?&gt;
-&lt;?php endif; ?&gt;`</p>
+<p>`</p>
 
 <p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
 
