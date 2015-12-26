@@ -56,25 +56,21 @@
 <h2>
 <a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating custom templates</h2>
 
-<p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the  your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file this code (for example):
-`
-    &lt;?php if(isset($entries) &amp;&amp; count($entries)) : ?&gt;
-    &lt;?php foreach ($entries as $key =&gt; $entry) : ?&gt;
-        </p><div>
-            <h3>
-<a id="----------------php-echo-entrytitle-------------" class="anchor" href="#----------------php-echo-entrytitle-------------" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-                &lt;?php echo $entry['title'] ?&gt;
-            </h3>
+<p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the  your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file this code (for example):</p>
 
-<pre><code>        &lt;div class="tpc-content post-content"&gt;
-            &lt;?php echo $entry['content'] ?&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;?php endforeach; ?&gt;
-&lt;?php endif; ?&gt;
-</code></pre>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">if</span>(<span class="pl-c1">isset</span>(<span class="pl-smi">$entries</span>) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">count</span>(<span class="pl-smi">$entries</span>)) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">foreach</span> (<span class="pl-smi">$entries</span> <span class="pl-k">as</span> <span class="pl-smi">$key</span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$entry</span>) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-entry-block<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">h3</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-title<span class="pl-pds">"</span></span>&gt;
+            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+        &lt;/<span class="pl-ent">h3</span>&gt;
 
-<p>`</p>
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-content post-content<span class="pl-pds">"</span></span>&gt;
+            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endforeach</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endif</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 
 <p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
 
@@ -103,7 +99,6 @@
 <a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's next?</h2>
 
 <p>I have very many ideas about future of this plugin. In next versions I planning add bootstrap, masonry and waterfall templates, some new options and more. Stay tuned!</p>
-</div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Tsjuder/tea-page-content">Tea Page Content</a> is maintained by <a href="https://github.com/Tsjuder">Tsjuder</a>.</span>
