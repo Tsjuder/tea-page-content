@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tea-page-content by Tsjuder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Tea-page-content</h1>
+      <h2 class="project-tagline">Plugin for Wordpress that allows create blocks with any content of any page or post</h2>
+      <a href="https://github.com/Tsjuder/tea-page-content" class="btn">View on GitHub</a>
+      <a href="https://github.com/Tsjuder/tea-page-content/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Tsjuder/tea-page-content/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="tea-page-content" class="anchor" href="#tea-page-content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tea Page Content</h1>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p><img src="http://tsjuder_5xqcva.radius-host.net/icon-rounded.png" alt="tea page content"> Tea Page Content is a powerful plugin for Wordpress, that allows create blocks with content of any page, post, etc, and customize look of blocks via template system.</p>
+
+<h2>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p>I created this plugin because too many times features of simple small plugins was not enough for my tasks, and big powerful frameworks was too big for little specialized tasks. This plugin lies between these two edges.</p>
+
+<h2>
+<a id="how" class="anchor" href="#how" aria-hidden="true"><span class="octicon octicon-link"></span></a>How?</h2>
+
+<p>Just install this via Wordpress Plugin Catalog or manually (upload, then unpack), and enable it. Then create widget or add shortcode into your post, and enjoy! You also can customize appearance of widget or shortcode by changing settings or built-in templates.</p>
+
+<h2>
+<a id="by-the-way-about-templates" class="anchor" href="#by-the-way-about-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>By the way, about templates...</h2>
+
+<p>Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select.</p>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>There is some built-in options for more flexibility. This is thumbnail, order and template.</p>
+
+<ul>
+<li>Thumbnail allows you enable or disable displaying thumbnail of entry. If you don't want see page thumbnail in widget or shortcode, just uncheck checkbox (for widget) or type <code>thumbnail="false"</code> (for shortcode).</li>
+<li>Order allows you set entries order. All posts and pages will be sorted by date, and you can choose a direction - by ascending or by descending. Sorting by descending is a default behaviour.</li>
+<li>Template allows you choose layout which will look as you want. In shortcode just type full name of your template without extension, for example <code>default</code> or <code>your-template-name</code>.</li>
+</ul>
+
+<h2>
+<a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating custom templates</h2>
+
+<p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the  your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file this code (for example):
+`
+&lt;?php if(isset($entries) &amp;&amp; count($entries)) : ?&gt;</p>
+
+<p>&lt;?php foreach ($entries as $key =&gt; $entry) : ?&gt;
+    </p><div>
+        <h3>
+<a id="------------php-echo-entrytitle---------" class="anchor" href="#------------php-echo-entrytitle---------" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+            &lt;?php echo $entry['title'] ?&gt;
+        </h3>
+
+<pre><code>    &lt;div class="tpc-content post-content"&gt;
+        &lt;?php echo $entry['content'] ?&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>&lt;?php endforeach; ?&gt;</p>
+
+<p>&lt;?php endif; ?&gt;
+`</p>
+
+<p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
+
+<h2>
+<a id="variables-in-template" class="anchor" href="#variables-in-template" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables in template</h2>
+
+<p>Above you can see very simple example of custom template with <code>title</code> and <code>content</code> variables. But this is not all - there is a full list of allowed variables which you can use.</p>
+
+<ul>
+<li>$entries - List of posts, pages, etc.</li>
+<li>* title - Title of current entry</li>
+<li>* content - Content of current entry. When page have more tag, will be used <code>the_content</code> function, in other cases will be used <code>the_excerpt</code>
+</li>
+<li>* thumbnail - Thumbnail of entry (if exists)</li>
+<li>* link - Link of entry</li>
+<li>* id - Entry ID</li>
+<li>$instance - Array with user defined and default parameters</li>
+</ul>
+
+<h2>
+<a id="filters-and-actions" class="anchor" href="#filters-and-actions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filters and actions</h2>
+
+<p>Will be soon...</p>
+
+<h2>
+<a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's next?</h2>
+
+<p>I have very many ideas about future of this plugin. In next versions I planning add bootstrap, masonry and waterfall templates, some new options and more. Stay tuned!</p>
+</div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Tsjuder/tea-page-content">Tea-page-content</a> is maintained by <a href="https://github.com/Tsjuder">Tsjuder</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
