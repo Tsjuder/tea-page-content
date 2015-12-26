@@ -80,13 +80,17 @@
 <p>Above you can see very simple example of custom template with <code>title</code> and <code>content</code> variables. But this is not all - there is a full list of allowed variables which you can use.</p>
 
 <ul>
-<li>$entries - List of posts, pages, etc.</li>
-<li>* title - Title of current entry</li>
-<li>* content - Content of current entry. When page have more tag, will be used <code>the_content</code> function, in other cases will be used <code>the_excerpt</code>
+<li>$entries - List of posts, pages, etc.
+
+<ul>
+<li>title - Title of current entry</li>
+<li>content - Content of current entry. When page have more tag, will be used <code>the_content</code> function, in other cases will be used <code>the_excerpt</code>
 </li>
-<li>* thumbnail - Thumbnail of entry (if exists)</li>
-<li>* link - Link of entry</li>
-<li>* id - Entry ID</li>
+<li>thumbnail - Thumbnail of entry (if exists)</li>
+<li>link - Link of entry</li>
+<li>id - Entry ID</li>
+</ul>
+</li>
 <li>$instance - Array with user defined and default parameters</li>
 </ul>
 
