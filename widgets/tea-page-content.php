@@ -38,33 +38,37 @@ class TeaPageContent_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Creates and render form for
-	 * frontend part of this widget
+	 * Creates and render form for frontend part of this widget
 	 * 
 	 * @param array $args 
 	 * @param array $instance 
 	 * @return void
 	 */
 	public function widget($args, $instance) {
-		$template = apply_filters(
-			'tpc_get_template_path',
-			$instance['template']
-		);
+		$data = $args;
+
+		$ids = unserialize($instance['posts']);
+
+		$template = apply_filters('tpc_template_name', $instance['template']);
 
 		$params = array(
 			'instance' => $instance
 		);
-
-		$ids = unserialize($instance['posts']);
-
+		
 		if(!empty($ids)) {
 			$params['entries'] = TeaPageContent_Helper::getPosts($ids);
 		}
 
 		$params = apply_filters('tpc_get_params', $params);
 
-		// Render form
-		TeaPageContent_Helper::displayTemplate($template, $params);
+		if(!empty($args) && !empty($params['entries'])) {
+			$data['title'] = apply_filters('widget_title', $instance['title']);
+			$data['markup'] = TeaPageContent_Helper::getRenderedTemplate($template, $params);
+
+			$content = $this->renderWidget($data);
+
+			echo $content;
+		}
 	}
 
 	/**
@@ -76,6 +80,7 @@ class TeaPageContent_Widget extends WP_Widget {
 	 */
 	public function update($newInstance, $oldInstance) {
 		$instance = $oldInstance;
+
 		// Set the instance
 		foreach ($this->params as $param => $value) {
 			if($param == 'posts') {
@@ -103,17 +108,34 @@ class TeaPageContent_Widget extends WP_Widget {
 			'default-widget-admin'
 		);
 
-		$params = apply_filters(
-			'tpc_get_admin_params',
-			array(
-				'instance' => $instance,
-				'bind' => $this,
-				'entries' => TeaPageContent_Helper::getPosts(),
-				'templates' => TeaPageContent_Helper::getTemplates()
-			)
+		$params = array(
+			'instance' => $instance,
+			'bind' => $this,
+			'entries' => TeaPageContent_Helper::getPosts(),
+			'templates' => TeaPageContent_Helper::getTemplates()
 		);
+		$params = apply_filters('tpc_get_admin_params',	$params);
 
 		// Render form
 		TeaPageContent_Helper::displayTemplate($template, $params);
+	}
+
+	/**
+	 * Private method for render widget's layout
+	 * with pre-rendered template. Returns html-code of widget
+	 * 
+	 * @param array $data 
+	 * @return string
+	 */
+	private function renderWidget($data) {
+		ob_start();
+		set_query_var('widget', $data);
+
+		load_template(TEA_PAGE_CONTENT_PATH . '/templates/default-widget-client.php', false);
+
+		$content = ob_get_contents();
+		ob_end_clean();
+
+		return $content;
 	}
 }

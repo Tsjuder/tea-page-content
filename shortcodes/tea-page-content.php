@@ -32,7 +32,7 @@ class TeaPageContent_Shortcodes {
 			$params['entries'] = TeaPageContent_Helper::getPosts($attrs['id'], $attrs['order']);
 
 			$params = apply_filters('tpc_get_params', $params);
-
+			
 			$output = TeaPageContent_Helper::getRenderedTemplate($attrs['template'], $params);
 		}
 

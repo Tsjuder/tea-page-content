@@ -1,12 +1,6 @@
 <?php if(isset($entries) && count($entries)) :  ?>
 
 <section class="tpc-block tpc-default">
-	<?php if(isset($instance['title'])) : ?>
-	<header class="tpc-widget-title">
-		<h3><?php echo $instance['title'] ?></h3>
-	</header>
-	<?php endif; ?>
-
 	<?php foreach ($entries as $key => $entry) : ?>
 		<article class="tpc-entry-block">
 			<?php if(isset($instance['thumbnail']) && $instance['thumbnail'] !== 'false' && $entry['thumbnail']) : ?>
