@@ -27,10 +27,7 @@ class TeaPageContent_Helper {
 			$templatePath = TEA_PAGE_CONTENT_PATH . '/templates/' . $template . '.php';
 		}
 
-		$templatePath = apply_filters(
-			'tpc_get_template_path_in_render',
-			$templatePath
-		);
+		$templatePath = apply_filters('tpc_get_template_path', $templatePath);
 
 		return $templatePath;
     }
@@ -55,11 +52,7 @@ class TeaPageContent_Helper {
 		load_template($template, false);
 
 		$content = ob_get_contents();
-		
-		$content = apply_filters(
-			'tpc_render_template',
-			$content
-		);
+		$content = apply_filters('tpc_render_template',	$content);
 
 		ob_end_clean();
 
@@ -71,17 +64,19 @@ class TeaPageContent_Helper {
      * 
      * @param string $template 
      * @param array $params 
-     * @return mixed
+     * @return void
      */
 	public static function displayTemplate($template = 'default', $params = array()) {
+		$content = null;
+
 		$templatePath = TeaPageContent_Helper::getTemplatePath($template);
 
 		if(isset($params['entries'])) {
 			$content = TeaPageContent_Helper::renderTemplate($params, $templatePath);
+		}
 
-			if($content) {
-				echo $content;
-			}
+		if($content) {
+			echo $content;
 		}
 	}
 
@@ -128,22 +123,21 @@ class TeaPageContent_Helper {
 			'post_type' => $types,
 			'order' => $order
 		);
-		$postsParams = apply_filters('tpc_post_params', $postsParams);
 
 		if(count($ids) && array_filter($ids)) {
 			$postsParams['post__in'] = $ids;
 		}
 
-		$custom_query = new WP_Query($postsParams);
+		$postsParams = apply_filters('tpc_post_params', $postsParams);
 
-		while($custom_query->have_posts()) {
-			$custom_query->the_post();
+		$postsQuery = new WP_Query($postsParams);
+		while($postsQuery->have_posts()) {
+			$postsQuery->the_post();
 
-			$post = $custom_query->post;
+			$post = $postsQuery->post;
 
-			$content = $post->post_content;
-			
-			if(strpos($content, '<!--more-->') === false) {
+			$content = null;
+			if(strpos($post->post_content, '<!--more-->') === false) {
 				$content = get_the_excerpt();
 
 				if(!trim($content)) {
@@ -165,10 +159,7 @@ class TeaPageContent_Helper {
 
 		// Here you can filter all returned posts
 		// as assoc 2-dimensional array
-		$postsPrepared = apply_filters(
-			'tpc_prepared_posts',
-			$postsPrepared
-		);
+		$postsPrepared = apply_filters('tpc_prepared_posts', $postsPrepared);
 
 		return $postsPrepared;
 	}
@@ -191,6 +182,7 @@ class TeaPageContent_Helper {
 
 		foreach ($directories as $type => $dir) {
 			if(!is_dir($dir)) continue;
+
 			$templates = array_merge($templates, array_filter(scandir($dir), function(&$item) {
 				if(!is_dir($item) && substr($item, 0, 4) == 'tpc-') {
 					$item = str_replace('.php', '', $item);
@@ -202,10 +194,7 @@ class TeaPageContent_Helper {
 		}
 
 		// Here you can manage template list
-		$templates = apply_filters(
-			'tpc_get_templates',
-			$templates
-		);
+		$templates = apply_filters('tpc_get_templates',	$templates);
 
 		if(count($templates)) {
 			return $templates;

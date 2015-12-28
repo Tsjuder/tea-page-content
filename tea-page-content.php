@@ -12,6 +12,7 @@ GitHub Plugin URI: https://github.com/Tsjuder/tea-page-content
 GitHub Branch: master
 
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /*

@@ -12,7 +12,7 @@
 
 .tpc-body,
 .tpc-widget-title {
-	padding: 1em 2em;
+	padding: 1em 0;
 }
 .tpc-block .tpc-thumbnail {
 	padding-bottom: 1em;
@@ -32,7 +32,7 @@
 	margin-top: 0;
 }
 .entry-content .tpc-entry-block + .tpc-entry-block {
-	margin-top: 2em;
+	margin-top: 1em;
 }
 .entry-content .tpc-body {
 	padding-right: 0;
@@ -42,6 +42,6 @@
 /* Padded template */
 .tpc-default-padded .tpc-body,
 .tpc-default-padded .tpc-thumbnail {
-	padding-left: 2em;
-	padding-right: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
