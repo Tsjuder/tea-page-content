@@ -1,8 +1,8 @@
 <p>
-	<label for="<?php echo $bind->get_field_id('title'); ?>">
+	<label for="<?php echo $bind->get_field_id('title') ?>">
 		<?php _e('Title', 'tea-page-content'); ?>:
 	</label>
-	<input class="widefat" type="text" id="<?php echo $bind->get_field_id('title'); ?>" name="<?php echo $bind->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" />
+	<input class="widefat" type="text" id="<?php echo $bind->get_field_id('title') ?>" name="<?php echo $bind->get_field_name('title') ?>" value="<?php echo $instance['title'] ?>" />
 </p>
 
 <?php if(is_array($entries) && count($entries)) : ?>
@@ -24,7 +24,7 @@
 			<?php foreach ($postsByType as $postKey => $postData) : ?>
 				<?php $checked = in_array($postData['id'], $instance['posts']) ? 'checked' : ''; ?>
 				<label>
-					<input type="checkbox" name="<?php echo $bind->get_field_name('posts'); ?>[]" id="<?php echo $bind->get_field_id('posts'); ?>" value="<?php echo $postData['id'] ?>" <?php echo $checked ?> />
+					<input type="checkbox" name="<?php echo $bind->get_field_name('posts') ?>[]" id="<?php echo $bind->get_field_id('posts') ?>" value="<?php echo $postData['id'] ?>" <?php echo $checked ?> />
 					<span><?php echo $postData['title'] ?></span>
 				</label>
 			<?php endforeach; ?>
@@ -35,11 +35,11 @@
 	</div>
 <?php endif; ?>
 
-<p>
-	<label for="<?php echo $bind->get_field_id('template'); ?>">
+<p class="tpc-preloader is-hidden">
+	<label for="<?php echo $bind->get_field_id('template') ?>">
 		<?php _e('Template', 'tea-page-content'); ?>:
 	</label>
-	<select class="widefat" id="<?php echo $bind->get_field_id('template'); ?>" name="<?php echo $bind->get_field_name('template'); ?>">
+	<select class="widefat tpc-template-list" data-variables-area="tpc-<?php echo $bind->get_field_id('template-variables') ?>-wrapper" id="<?php echo $bind->get_field_id('template') ?>" name="<?php echo $bind->get_field_name('template') ?>" autocomplete="off">
 		<?php foreach ($templates as $alias) : ?>
 			<?php $selected = $alias == $instance['template'] ? 'selected' : ''; ?>
 			<option value="<?php echo $alias ?>" <?php echo $selected ?>>
@@ -49,11 +49,15 @@
 	</select>
 </p>
 
+<div class="tpc-template-params" id="tpc-<?php echo $bind->get_field_id('template-variables') ?>-wrapper" data-mask-name="<?php echo $bind->get_field_name('{mask}') ?>">
+	<?php echo $partials['template_variables'] ?>
+</div>
+
 <p>
-	<label for="<?php echo $bind->get_field_id('order'); ?>">
+	<label for="<?php echo $bind->get_field_id('order') ?>">
 		<?php _e('Order (by date)', 'tea-page-content'); ?>:
 	</label>
-	<select class="widefat" id="<?php echo $bind->get_field_id('order'); ?>" name="<?php echo $bind->get_field_name('order'); ?>">
+	<select class="widefat" id="<?php echo $bind->get_field_id('order') ?>" name="<?php echo $bind->get_field_name('order') ?>">
 		<option value="desc" <?php if($instance['order'] == 'desc') : echo 'selected'; endif; ?>>
 			<?php _e('Descending', 'tea-page-content') ?>
 		</option>
@@ -64,9 +68,46 @@
 </p>
 
 <p>
-	<label for="<?php echo $bind->get_field_id('thumbnail'); ?>">
-		<?php $checked = $instance['thumbnail'] ? 'checked' : ''; ?>
-		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('thumbnail'); ?>" name="<?php echo $bind->get_field_name('thumbnail'); ?>" value="1" <?php echo $checked ?> />
-		<span><?php _e('Thumbnail', 'tea-page-content'); ?></span>
+	<label for="<?php echo $bind->get_field_id('show_page_thumbnail'); ?>">
+		<?php 
+		$checked = $instance['show_page_thumbnail'] ? 'checked' : ''; 
+
+		// @deprecated since 1.1
+		if(array_key_exists('thumbnail', $instance) && !$instance['thumbnail']) $checked = '';
+		?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('show_page_thumbnail'); ?>" name="<?php echo $bind->get_field_name('show_page_thumbnail'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Show page thumbnail', 'tea-page-content'); ?></span>
+	</label>
+
+	<br />
+
+	<label for="<?php echo $bind->get_field_id('show_page_title'); ?>">
+		<?php $checked = $instance['show_page_title'] ? 'checked' : ''; ?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('show_page_title'); ?>" name="<?php echo $bind->get_field_name('show_page_title'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Show page title', 'tea-page-content'); ?></span>
+	</label>
+
+	<br />
+
+	<label for="<?php echo $bind->get_field_id('show_page_content'); ?>">
+		<?php $checked = $instance['show_page_content'] ? 'checked' : ''; ?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('show_page_content'); ?>" name="<?php echo $bind->get_field_name('show_page_content'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Show page content', 'tea-page-content'); ?></span>
+	</label>
+
+	<br />
+
+	<label for="<?php echo $bind->get_field_id('linked_page_title'); ?>">
+		<?php $checked = $instance['linked_page_title'] ? 'checked' : ''; ?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('linked_page_title'); ?>" name="<?php echo $bind->get_field_name('linked_page_title'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Linked page title (if possible)', 'tea-page-content'); ?></span>
+	</label>
+
+	<br />
+
+	<label for="<?php echo $bind->get_field_id('linked_page_thumbnail'); ?>">
+		<?php $checked = $instance['linked_page_thumbnail'] ? 'checked' : ''; ?>
+		<input class="widefat" type="checkbox" id="<?php echo $bind->get_field_id('linked_page_thumbnail'); ?>" name="<?php echo $bind->get_field_name('linked_page_thumbnail'); ?>" value="1" <?php echo $checked ?> />
+		<span><?php _e('Linked page thumbnail (if possible)', 'tea-page-content'); ?></span>
 	</label>
 </p>

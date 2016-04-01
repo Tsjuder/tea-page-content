@@ -82,28 +82,43 @@
 .action-links > * + * {
 	margin-left: 10px;
 }
-.iqbc-mods-list label {
-	display: block;
-	float: left;
-	clear: both;
-	width: 100%;
-}
-.iqbc-mods-list label span {
-	display: block;
-	white-space: nowrap;
-    overflow: hidden;
 
-    text-overflow: ellipsis;
+.tpc-template-params hr {
+	margin: 0;
 }
-.iqbc-mods-list label input[type=checkbox] {
-	float: left;
-	margin-top: 2px;
+
+.tpc-preloader {
+	position: relative;
 }
-.iqbc-mods-list .col {
-	width: 20%;
-	float: left;
+.tpc-preloader:before {
+	content: "";
+	display: block;
+	position: absolute;
+
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	opacity: 0;
+
+	transition: opacity 500ms ease;
+	-webkit-transition: opacity 500ms ease;
+	-moz-transition: opacity 500ms ease;
+	-ms-transition: opacity 500ms ease;
+	-o-transition: opacity 500ms ease;
+
+	z-index: 1000;
+
+	background-image: url(/wp-admin/images/spinner-2x.gif);
+	background-color: rgba(255,255,255,0.4);
+	background-position: center center;
+	background-repeat: no-repeat;
 }
-.iqbc-mods-list .submit,
-.iqbc-mods-list > p {
-	clear: both;
+.tpc-preloader.is-loading {}
+.tpc-preloader.is-hidden:before {
+	z-index: -1000;
+}
+.tpc-preloader.is-loading:before {
+	opacity: 1;
 }
