@@ -11,7 +11,7 @@ Just install this via Wordpress Plugin Catalog or manually (upload, then unpack)
 ## By the way, about templates...
 Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select. Since version 1.1.x, templates have a special variables that I called **template-level variables**.
 
-## Template-level Variables
+## Template-Level Variables
 Template variables is a feature for extreme flexibility. Now you can 
 
 In short, this is a set of parameters, which are set in the template header, and which can then be changed in the widget or shortcode. There is support of default values, names, and several types of parameters: select, checkbox, textarea and text. For example, in the case of the bootstrap-template, you can explicitly specify the number of columns you want to see on each breakpoint, or choose the order of output records. In the case of custom templates, you can create any variable and to make with the help of it any conditions, managing all of this from the admin panel. Wonderful, isn't it? Let's take a closer look.
@@ -27,6 +27,16 @@ if($template_variables['show-greeting']) {
 }
 ```
 Please note that all variables exists. This means that you don't need check variable with `isset()`.
+
+## Template Overview
+### Default
+Simple but effective template with one column. Ideal for sidebars or small blocks on site pages. Support two layouts: padded and standart. **Padded** means that around content of template will be padding with count of 1em. Standart don't have paddings around.
+
+### Bootstrap 3.x
+Powerful template for sites that builted with Bootstrap 3. This template have six variables. Let's take a closer look.
+* **container-type** is a css class of wrapping div. You can select `container` or `container-fluid` (for responsive). Please note that `container` is unsuitable for sidebars.
+* **ordering-type** is a order of matrix output. In bootstrap, we have rows and cols, i.e. a kind of associative array. With horizontal ordering type output order "left to right" will remain unchanged, but with transposed ordering type rows will be swapped with the columns and vice versa. Matrix will be **transposed**. Please note, that in `transposed` mode order of entries will be broken at lower resolutions.
+* **column-count-x** is a count of columns for each of available breakpoints. If you select 3 columns, css class for every col will be `col-x-4` (because 12 will be divided on 3). Please note, that correct functioning depends of your mix of columns.
 
 ## Options
 There is some built-in options for more flexibility, that can be used in shortcodes (or can be checked \ unchecked in widgets). This is:
