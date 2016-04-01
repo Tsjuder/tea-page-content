@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tea-page-content\n"
 "Report-Msgid-Bugs-To: Translator Name <saquad@hotmail.com>\n"
-"POT-Creation-Date: 2015-12-26 10:51+0400\n"
+"POT-Creation-Date: 2016-04-01 14:34+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,12 +18,37 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;"
-"_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;"
-"__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
+"_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: modules/widget.php:27
+msgid "Tea Page Content"
+msgstr "Tea Page Content"
+
+#: modules/widget.php:29
+msgid "Allows display any content of any page or post."
+msgstr "Позволяет отображать любой контент любой записи."
+
+#: tea-page-content.class.php:170
+msgid ""
+"Warning! Since Tea Page Content 1.1 some parameters is <b>deprecated</b>, "
+"and will be <b>deleted</b> in the next release. We strongly recommend you "
+"check out the <a href=\"https://wordpress.org/plugins/tea-page-content/"
+"changelog/\">changelog</a>. <b>This notice appears only once!</b>"
+msgstr ""
+"Внимание! Начиная с версии Tea Page Content 1.1, некоторые параметры "
+"<b>устарели</b>, и будут <b>удалены</b> в одном из следующих релизов. Мы "
+"рекомендуем ознакомиться с <a href=\"https://wordpress.org/plugins/tea-page-"
+"content/changelog/\">логом изменений</a>. <b>Это уведомление появляется "
+"только один раз!</b>"
+
+#: templates/default-widget-admin-variables-area.php:5
+msgid "Template Variables"
+msgstr "Переменные шаблона"
 
 #: templates/default-widget-admin.php:3
 msgid "Title"
@@ -37,26 +62,45 @@ msgstr "Выберите одну или несколько записей из 
 msgid "Template"
 msgstr "Шаблон"
 
-#: templates/default-widget-admin.php:54
+#: templates/default-widget-admin.php:58
 msgid "Order (by date)"
 msgstr "Сортировка (по дате)"
 
-#: templates/default-widget-admin.php:58
+#: templates/default-widget-admin.php:62
 msgid "Descending"
 msgstr "По убыванию"
 
-#: templates/default-widget-admin.php:61
+#: templates/default-widget-admin.php:65
 msgid "Ascending"
 msgstr "По возрастанию"
 
-#: templates/default-widget-admin.php:70
-msgid "Thumbnail"
-msgstr "Миниатюра"
+#: templates/default-widget-admin.php:79
+msgid "Show page thumbnail"
+msgstr "Показывать миниатюру"
 
-#: widgets/tea-page-content.php:24
-msgid "Tea Page Content"
-msgstr "Tea Page Content"
+#: templates/default-widget-admin.php:87
+msgid "Show page title"
+msgstr "Показывать заголовок страниц"
 
-#: widgets/tea-page-content.php:26
-msgid "Allows display any content of any page or post."
-msgstr "Позволяет отображать любой контент любой записи."
+#: templates/default-widget-admin.php:95
+msgid "Show page content"
+msgstr "Показывать контент страниц"
+
+#: templates/default-widget-admin.php:103
+msgid "Linked page title (if possible)"
+msgstr "Линковать заголовки (при возможности)"
+
+#: templates/default-widget-admin.php:111
+msgid "Linked page thumbnail (if possible)"
+msgstr "Линковать миниатюры (при возможности)"
+
+#~ msgid ""
+#~ "Warning! Starts from Tea Page Content 1.1 some parameters is "
+#~ "<b>deprecated</b>, and will be <b>deleted</b> in the next release. We "
+#~ "strongly recommend you check out the <a href=\"https://wordpress.org/"
+#~ "plugins/tea-page-content/changelog/\">changelog</a>. <b>This notice "
+#~ "appears only once!</b>"
+#~ msgstr "Внимание!"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Миниатюра"
