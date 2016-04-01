@@ -120,5 +120,5 @@ Above you can see very simple example of custom template with `title` and `conte
 	* **thumbnail** - Thumbnail of entry (if exists)
 	* **link** - Link of entry
 	* **id** - Entry ID
-	* **count** - Count of all passed entries
+* **$count** - Count of all passed entries
 * **$instance** - Array with user defined and default parameters. There is all list of options from self-titled section above.
