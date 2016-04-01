@@ -4,23 +4,36 @@
 }
 
 .tpc-body .tpc-title {
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
+}
+.tpc-body .tpc-title:first-child {
+	margin-top: 0;
+}
+.tpc-body .tpc-title:last-child {
+	margin-bottom: 0;
+}
+
+.tpc-content,
+.tpc-thumbnail {
+	padding-bottom: 1em;
+}
+.tpc-thumbnail:last-child {
+	padding-bottom: 0;
+}
+
+.tpc-thumbnail > a:hover {
+	opacity: 0.85;
 }
 
 .tpc-entry-block {}
 .tpc-entry-block + .tpc-entry-block {}
 
-.tpc-body,
+
 .tpc-widget-title {
 	padding: 1em 0;
 }
-.tpc-block .tpc-thumbnail {
-	padding-bottom: 1em;
-}
 
-.tpc-widget-title + .tpc-entry-block .tpc-body {
-	/* padding-top: 0; */
-}
+.tpc-widget-title + .tpc-entry-block .tpc-body {}
 
 .tpc-widget-title h3 {
 	font-size: 1.5em;
@@ -39,9 +52,25 @@
 	padding-left: 0;
 }
 
-/* Padded template */
+/* Default Template */
+.tpc-default + .tpc-default {
+	margin-top: 1.5em;
+}
+
+/* Padded Template */
 .tpc-default-padded .tpc-body,
 .tpc-default-padded .tpc-thumbnail {
 	padding-left: 1em;
 	padding-right: 1em;
+}
+.tpc-default-padded .tpc-thumbnail {
+	padding-bottom: 1em;
+}
+
+/* Bootstrap Template */
+.tpc-bootstrap .tpc-entry-block {
+	margin-bottom: 30px; // default bootstrap gutter width
+}
+.tpc-bootstrap .row:last-child .tpc-entry-block:last-child {
+	margin-bottom: 0;
 }

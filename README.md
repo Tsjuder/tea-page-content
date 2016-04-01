@@ -9,16 +9,42 @@ I created this plugin because too many times features of simple small plugins wa
 Just install this via Wordpress Plugin Catalog or manually (upload, then unpack), and enable it. Then create widget or add shortcode into your post, and enjoy! You also can customize appearance of widget or shortcode by changing settings or built-in templates.
 
 ## By the way, about templates...
-Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select.
+Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select. Since version 1.1.x, templates have a special variables that I called **template-level variables**.
+
+## Template-level Variables
+Template variables is a feature for extreme flexibility. Now you can 
+
+In short, this is a set of parameters, which are set in the template header, and which can then be changed in the widget or shortcode. There is support of default values, names, and several types of parameters: select, checkbox, textarea and text. For example, in the case of the bootstrap-template, you can explicitly specify the number of columns you want to see on each breakpoint, or choose the order of output records. In the case of custom templates, you can create any variable and to make with the help of it any conditions, managing all of this from the admin panel. Wonderful, isn't it? Let's take a closer look.
+```php
+@param color select White|Red|Yellow|Blue // List with all available colors
+@param greeting text Hello! // Just text input with default value
+@param show-greeting checkbox 0 // Checkbox, unchecked by default.
+```
+In the foregoing example, we create a few variables. All the variables should be created by mask `{name} {type} {default value}`. Names should be written in Latin letters, and the default value may be either a single word \ number, and a list separated by symbol `|`. In the template you can access to the parameters that stored in the variable `$template_variables`:
+```php
+if($template_variables['show-greeting']) {
+	echo $template_variables['greeting'];
+}
+```
+Please note that all variables exists. This means that you don't need check variable with `isset()`.
 
 ## Options
-There is some built-in options for more flexibility. This is thumbnail, order and template.
-* Thumbnail allows you enable or disable displaying thumbnail of entry. If you don't want see page thumbnail in widget or shortcode, just uncheck checkbox (for widget) or type `thumbnail="false"` (for shortcode).
-* Order allows you set entries order. All posts and pages will be sorted by date, and you can choose a direction - by ascending or by descending. Sorting by descending is a default behaviour.
-* Template allows you choose layout which will look as you want. In shortcode just type full name of your template without extension, for example `default` or `your-template-name`.
+There is some built-in options for more flexibility, that can be used in shortcodes (or can be checked \ unchecked in widgets). This is:
+* **show_page_thumbnail** allows you enable or disable displaying thumbnail of entry. If you don't want see page thumbnail in widget or shortcode, just uncheck checkbox (for widget) or type `show_page_thumbnail="false"` (for shortcode). Default - **true**.
+* **show_page_content** allows you enable or disable displaying content of entry. Default - **true**.
+* **show_page_title** allows you enable or disable displaying title of entry. Default - **true**.
+* **linked_page_title** allows you enable or disable linking title of entry. In other words, title will be link to full article. Default - **false**.
+* **linked_page_thumbnail** allows you enable or disable linking thumbnail of entry. In other words, thumbnail will be link to full article. Default - **false**.
+* **order** allows you set entries order. All posts and pages will be sorted by date, and you can choose a direction - by ascending or by descending. Sorting by descending is a default behaviour.
+* **template** allows you choose layout which will look as you want. In shortcode just type full name of your template without extension, for example `default` or `tpc-your-template-name`.
+* **posts** allows you choose posts what you want to display. In widget, all what you need is just check desired posts, but in shortcode you need write ids of posts manually. F.e., `posts="12,4,63"`.
+
+Please note: some of these options is just flags that depends of used template. This means that if you used your own template and set parameter `show_page_content`, don't forget add condition in your template file. Without condition content will be appear in any case. All built-in templates **have** support for all options. 
+
+**Independent** options (depends of plugin) is: `order`, `template`, `posts`.
 
 ## Creating custom templates
-By default plugin will be search custom templates in a folder named "templates" in your theme. For create the  your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file this code (for example):
+By default plugin will be search custom templates in a folder named "templates" in your theme. For create the your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file template code. Here you can see simplest example:
 ```php
 <?php if(isset($entries) && count($entries)) : ?>
 <?php foreach ($entries as $key => $entry) : ?>
@@ -37,18 +63,31 @@ By default plugin will be search custom templates in a folder named "templates" 
 
 Very well! Now you can select your template via selectbox (in widget), or type `template="tpc-test-template"` in shortcode.
 
-## Variables in template
+## Parameters \ Variables in template
 Above you can see very simple example of custom template with `title` and `content` variables. But this is not all - there is a full list of allowed variables which you can use.
-* $entries - List of posts, pages, etc.
-	* title - Title of current entry
-	* content - Content of current entry. When page have more tag, will be used `the_content` function, in other cases will be used `the_excerpt`
-	* thumbnail - Thumbnail of entry (if exists)
-	* link - Link of entry
-	* id - Entry ID
-* $instance - Array with user defined and default parameters
+* **$entries** - List of posts, pages, etc.
+	* **title** - Title of current entry
+	* **content** - Content of current entry. When page have more tag, will be used `the_content` function, in other cases will be used `the_excerpt`
+	* **thumbnail** - Thumbnail of entry (if exists)
+	* **link** - Link of entry
+	* **id** - Entry ID
+	* **count** - Count of all passed entries
+* **$instance** - Array with user defined and default parameters. There is all list of options from self-titled section above.
 
 ## Filters and actions
-Will be soon...
+Will be very soon...
 
 ## What's next?
-I have very many ideas about future of this plugin. In next versions I planning add bootstrap, masonry and waterfall templates, some new options and more. Stay tuned!
+In next versions will be released these features:
+* Page-level variables
+* Waterfall template
+* Customize ordering
+* UI improvements
+* **And more!**
+
+## Migration Guide
+### From 1.0.x to 1.1.x
+Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We strongly recommend do these steps:
+1. If you're using **default padded** template, change it on **default** with layout what you prefer.
+2. If you're using shortcodes, replace parameter `id` to `posts`.
+3. If you're using widgets with **turned off** thumbnail option, re-save each of it.

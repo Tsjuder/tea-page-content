@@ -3,10 +3,14 @@
 <section class="tpc-block tpc-default-padded">
 	<?php foreach ($entries as $key => $entry) : ?>
 		<article class="tpc-entry-block">
-			<?php if(isset($instance['thumbnail']) && $instance['thumbnail'] && $entry['thumbnail']) : ?>
+			<?php if(isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail'] && $entry['thumbnail']) : ?>
+			<?php if(array_key_exists('thumbnail', $instance) && !$instance['thumbnail']) :
+				// @deprecated thumbnail param since 1.1
+			else : ?>
 				<div class="tpc-thumbnail">
 					<?php echo $entry['thumbnail'] ?>
 				</div>
+			<?php endif; ?>
 			<?php endif; ?>
 
 			<div class="tpc-body">
