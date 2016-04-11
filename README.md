@@ -97,7 +97,7 @@ In next versions will be released these features:
 
 ## Migration Guide
 ### From 1.0.x to 1.1.x
-Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We strongly recommend do these steps:
+Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We recommend do these steps:
 1. If you're using **default padded** template, change it on **default** with layout what you prefer.
 2. If you're using shortcodes, replace parameter `id` to `posts`.
 3. If you're using widgets with **turned off** thumbnail option, re-save each of it.

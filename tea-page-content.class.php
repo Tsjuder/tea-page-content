@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 class TeaPageContent {
@@ -167,7 +167,7 @@ class TeaPageContent {
 	 * @return void
 	 */
 	public function displayDeprecatedNotice() {
-		$message = __('Warning! Since Tea Page Content 1.1 some parameters is <b>deprecated</b>, and will be <b>deleted</b> in the next release. We strongly recommend you check out the <a href="https://wordpress.org/plugins/tea-page-content/changelog/">changelog</a>. <b>This notice appears only once!</b>');
+		$message = __('Please note, that since Tea Page Content 1.1 some parameters is <b>deprecated</b>. We recommend you check out the <a href="https://wordpress.org/plugins/tea-page-content/changelog/">changelog</a>. <b>This notice appears only once!</b>');
 		$content = '<div id="tpc-deprecated-notice" class="error notice tpc-deprecated-notice is-dismissible"><p>' . $message . '</p></div>';
 
 		echo $content;

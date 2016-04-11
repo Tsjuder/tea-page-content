@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 class TeaPageContent_Shortcode {
@@ -31,6 +31,8 @@ class TeaPageContent_Shortcode {
 		// @todo вынести в отдельную функцию, be DRY
 		$attrs['template_variables'] = array();
 		foreach ($variables as $variable => $value) {
+			if($value['type'] === 'caption') continue;
+			
 			if(isset($userAttrs[$variable])) {
 				$attrs['template_variables'][$variable] = $userAttrs[$variable];
 			} else {
