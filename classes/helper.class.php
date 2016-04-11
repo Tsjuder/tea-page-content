@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 class TeaPageContent_Helper {
@@ -196,7 +196,7 @@ class TeaPageContent_Helper {
 		if(!$templatePath) return null;
 		
 		$variables = array();
-		$regexp = '/(?![@param*])([\S\-\|]+)/i';
+		$regexp = '/(?![@param*])((?:"[^"]+")|(?:[\S]+))/i';
 
 		// Try to read template file
 		if($handle = fopen($templatePath, 'r')) {

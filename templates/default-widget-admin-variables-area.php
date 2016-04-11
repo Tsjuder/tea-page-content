@@ -17,30 +17,38 @@
 			$variableValue = $instance['template_variables'][$variable['name']];
 		} else {
 			$variableValue = reset($variable['defaults']);
-		} ?>
+		}?>
 		
 		<p>
-			<label for="<?php echo $variableID ?>">
-				<?php echo ucwords(str_replace(array('-','_'), ' ', $variable['name'])) ?>:
-			</label>
+			<?php if($variable['type'] !== 'caption') : ?>
+				<label for="<?php echo $variableID ?>">
+					<?php echo ucwords(str_replace(array('-','_'), ' ', $variable['name'])) ?>:
+				</label>
+			<?php endif; ?>
 			
 			<?php switch ($variable['type']) : default: break; ?>
+				<?php case 'caption': ?>
+					<span class="tpc-template-caption">
+						<?php echo trim($variableValue, '"') ?>
+					</span>
+				<?php break; ?>
 
 				<?php case 'text': ?>
 					<input type="text" class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>" value="<?php echo $variableValue ?>" />
 				<?php break; ?>
 
 				<?php case 'textarea': ?>
-					<textarea class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>"><?php echo $variableValue ?></textarea>
+					<textarea class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>">
+						<?php echo $variableValue ?>
+					</textarea>
 				<?php break; ?>
 
 				<?php case 'checkbox': ?>
-					<?php 
-					$checked = '';
+					<?php $checked = '';
 					if(!empty($instance['params'][$variable['name']]) || $variableValue) {
 						$checked = 'checked';
-					}
-					?>
+					} ?>
+
 					<input type="checkbox" class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>" value="<?php echo $variable['name'] ?>" <?php echo $checked ?> />
 				<?php break; ?>
 

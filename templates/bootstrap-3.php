@@ -1,7 +1,11 @@
 <?php 
 /**
+ * @param caption caption "This is a Bootstrap 3.x template. Feel free to read <a href='http://tsjuder.github.io/tea-page-content/' target='_blank'>docs</a> with explain of every variable. Enjoy!"
+ * 
  * @param container-type select container-fluid|container
  * @param ordering-type select horizontal|transposed
+ * 
+ * @param use-rows checkbox 1
  * 
  * @param column-count-large select 1|2|3|4|6|12
  * @param column-count-medium select 1|2|3|4|6|12
@@ -78,9 +82,12 @@ if($template_variables['ordering-type'] === 'transposed') {
 
 			<?php
 			$counter++;
-			if($counter % $itemsPerRow === 0) :
+			if($counter % $itemsPerRow === 0 && $template_variables['use-rows']) :
 				$counter = 0; 
 				// here optionally clear row
+
+				echo '</div><div class="row">';
+
 			endif; ?>
 		<?php endforeach; ?>
 
@@ -144,6 +151,10 @@ if($template_variables['ordering-type'] === 'transposed') {
 				if($counter >= $itemsCount) break;
 
 			endfor; 
+
+			if($counter < $itemsCount && $template_variables['use-rows']) {
+				echo '</div><div class="row">';
+			}
 
 		endfor;
 		?>

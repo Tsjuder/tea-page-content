@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 class TeaPageContent_Widget extends WP_Widget {
@@ -97,6 +97,8 @@ class TeaPageContent_Widget extends WP_Widget {
 		// @todo вынести в отдельную функцию, be DRY
 		$instance['template_variables'] = array();
 		foreach ($variables as $variable => $value) {
+			if($value['type'] === 'caption') continue;
+			
 			if(!isset($newInstance[$variable])) {
 				switch ($value['type']) {
 					case 'checkbox':

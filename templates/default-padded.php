@@ -1,3 +1,10 @@
+<?php
+/**
+ * @param caption caption "This template is deprecated. Use 'default' instead."
+ */
+
+?>
+
 <?php if(isset($entries) && count($entries)) : ?>
 
 <section class="tpc-block tpc-default-padded">
