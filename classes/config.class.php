@@ -1,12 +1,12 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.1
+ * @version 1.2.0
  */
 
 class TeaPageContent_Config {
 	private static $_instance;
-	private static $_config;
+	private $_config;
 
 	/**
 	 * Private constructor
@@ -27,10 +27,10 @@ class TeaPageContent_Config {
      * @return boolean
      */
     private static function initialize() {
-    	include(TEA_PAGE_CONTENT_PATH . '/config.php');
+    	$config = include(TEA_PAGE_CONTENT_PATH . '/config.php');
 
-    	if(isset($config)) {
-    		self::$_config = apply_filters('tpc_config_array', $config);
+    	if(is_array($config)) {
+    		self::$_instance->_config = apply_filters('tpc_config_array', $config);
 
     		unset($config);
 
@@ -63,12 +63,12 @@ class TeaPageContent_Config {
 	 * @param string $param Dot-separated path to needly parameter
 	 * @return mixed|null
 	 */
-	public static function get($param, $except = null) {
+	public function get($param, $except = null) {
 		$pieces = explode('.', $param);
 		$piecesCount = count($pieces);
 
 		$result = null;
-		$stack = self::$_config;
+		$stack = $this->_config;
 		for ($i = 0; $i <= $piecesCount; $i++) {
 			if(isset($pieces[$i]) && isset($stack[$pieces[$i]])) {
 				$stack = $stack[$pieces[$i]];

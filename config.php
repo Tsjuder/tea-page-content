@@ -1,10 +1,10 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.1
+ * @version 1.2.0
  */
 
-$config = array(
+return array(
 	// Predefined default values, e.g. default parameters
 	'defaults' => array(
 		'widget' => array(
@@ -17,9 +17,12 @@ $config = array(
 			'linked_page_thumbnail' => false,
 			'template' => 'default',
 			'order' => 'desc',
-			'per-page' => -1
+			'per-page' => -1,
+
+			'caller' => 'widget',
 		),
 		'shortcode' => array(
+			'title' => '',
 			'posts' => '',
 			'id' => '', // @deprecated since 1.1
 			'template' => 'default',
@@ -29,6 +32,8 @@ $config = array(
 			'linked_page_title' => false,
 			'linked_page_thumbnail' => false,
 			'order' => 'desc',
+
+			'caller' => 'shortcode',
 		),
 		'post-types' => array(
 			'public' => true
@@ -37,6 +42,20 @@ $config = array(
 			'type' => 'text',
 			'defaults' => '',
 		),
+		'page-variables' => array(
+			'title' => array(
+				'type' => 'text',
+				'title' => __('Title', 'tea-page-content')
+			),
+			'content' => array(
+				'type' => 'textarea',
+				'title' => __('Content', 'tea-page-content')
+			),
+			'thumbnail' => array(
+				'type' => 'media',
+				'title' => __('Thumbnail', 'tea-page-content')
+			)
+		)
 	),
 
 	// Predefined system values, e.g. logical operators, needly constants or system paths
@@ -58,9 +77,9 @@ $config = array(
 			'theme' => get_template_directory() . '/templates/'
 		),
 		'versions' => array(
-			'plugin' => '1.1.0',
-			'scripts' => '1.1',
-			'styles' => '1.1'
+			'plugin' => '1.2.0',
+			'scripts' => '1.2',
+			'styles' => '1.2'
 		)
 	)
 );

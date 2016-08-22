@@ -1,9 +1,8 @@
-<?php if(!empty($variables)) : ?>
+<?php if(!empty($template_variables)) : ?>
 
 <div class="tpc-template-params-inner">
-	<hr />
 	<h4><?php _e('Template Variables', 'tea-page-content') ?></h4>
-	<?php foreach ($variables as $variable) : ?>
+	<?php foreach ($template_variables as $variable) : ?>
 		<?php if(isset($mask)) : ?>
 			<?php $variableID = str_replace('{mask}', $variable['name'], $mask); ?>
 			<?php $variableName = str_replace('{mask}', $variable['name'], $mask); ?>
@@ -12,10 +11,12 @@
 			<?php $variableName = $bind->get_field_name($variable['name']); ?>
 		<?php else : continue; endif; ?>
 		
-		<?php $variableValue = '';
-		if(isset($instance) && isset($instance['template_variables'][$variable['name']])) {
+		<?php $variableValue = ''; $isDefault = false; $isExists = false;
+		if(isset($instance) && isset($instance['template_variables']) && array_key_exists($variable['name'], $instance['template_variables'])) {
+			$isExists = true;
 			$variableValue = $instance['template_variables'][$variable['name']];
 		} else {
+			$isDefault = true;
 			$variableValue = reset($variable['defaults']);
 		}?>
 		
@@ -38,14 +39,18 @@
 				<?php break; ?>
 
 				<?php case 'textarea': ?>
-					<textarea class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>">
-						<?php echo $variableValue ?>
-					</textarea>
+					<textarea class="widefat" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>"><?php echo $variableValue ?></textarea>
 				<?php break; ?>
 
 				<?php case 'checkbox': ?>
 					<?php $checked = '';
-					if(!empty($instance['params'][$variable['name']]) || $variableValue) {
+					if
+						(
+							(isset($instance['template_variables'][$variable['name']]) && !empty($variableValue)) 
+							OR
+							($variableValue && $isDefault && !$isExists)
+						) 
+					{
 						$checked = 'checked';
 					} ?>
 
@@ -67,7 +72,6 @@
 		</p>
 
 	<?php endforeach; ?>
-	<hr />
 </div>
 
-<?php endif; ?>
+<?php endif;

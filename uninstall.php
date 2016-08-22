@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.1
+ * @version 1.2.0
  */
 
 if (!defined('WP_UNINSTALL_PLUGIN')) {

@@ -1,7 +1,5 @@
 <?php 
 /**
- * @param caption caption "This is a Bootstrap 3.x template. Feel free to read <a href='http://tsjuder.github.io/tea-page-content/' target='_blank'>docs</a> with explain of every variable. Enjoy!"
- * 
  * @param container-type select container-fluid|container
  * @param ordering-type select horizontal|transposed
  * 
@@ -38,6 +36,10 @@ if($template_variables['ordering-type'] === 'transposed') {
 	$empties = ($itemsPerCol - $itemsCount / $itemsPerRow) / (1 / $itemsPerRow);
 }
 ?>
+
+<?php if(isset($instance['title']) && $caller === 'shortcode') : ?>
+	<h2 class="tpc-shortcode-main-title"><?php echo $instance['title']; ?></h2>
+<?php endif; ?>
 
 <?php if($itemsCount) : ?>
 <section class="tpc-block tpc-bootstrap <?php echo $template_variables['container-type'] ?>">

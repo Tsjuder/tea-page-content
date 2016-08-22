@@ -7,12 +7,17 @@
 $isPadded = false;
 if(isset($template_variables['is-padded']) && $template_variables['is-padded']) {
 	$isPadded = true;
-}
-?>
+}?>
+
+<?php if(isset($instance['title']) && $caller === 'shortcode') : ?>
+	<h2 class="tpc-shortcode-main-title"><?php echo $instance['title']; ?></h2>
+<?php endif; ?>
+
 <?php if(isset($entries) && $count) : ?>
 
 <section class="tpc-block tpc-default<?php if($isPadded) echo '-padded'; ?>">
 	<?php foreach ($entries as $key => $entry) : ?>
+
 		<article class="tpc-entry-block">
 			<?php if(isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail'] && $entry['thumbnail']) : ?>
 			<?php if(array_key_exists('thumbnail', $instance) && !$instance['thumbnail']) :

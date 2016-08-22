@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.1
+ * @version 1.2.0
  */
 
 class TeaPageContent_Widget extends WP_Widget {
@@ -27,6 +27,9 @@ class TeaPageContent_Widget extends WP_Widget {
 			__('Tea Page Content', 'tea-page-content'),
 			array(
 				'description' => __('Allows display any content of any page or post.', 'tea-page-content')
+			),
+			array(
+				'width' => 480
 			)
 		);
 
@@ -37,7 +40,7 @@ class TeaPageContent_Widget extends WP_Widget {
 		$this->_config = TeaPageContent_Config::getInstance();
 
 		// Set defaults
-		$this->params = $this->_config->get('defaults.widget');
+		$this->params = $this->_config->get('defaults.widget', 'per-page');
 	}
 
 	/**
@@ -82,38 +85,52 @@ class TeaPageContent_Widget extends WP_Widget {
 
 		// We need pre-load template params
 		$template = $newInstance['template'];
-		$variables = $this->_helper->getVariables($template);
+		$template_variables = $this->_helper->getVariables($template);
 
-		// Set the instance
-		foreach ($this->params as $param => $value) {
-			if($param == 'posts') {
+		$preparedInstance = $newInstance + $this->params + $template_variables;
+
+		// @todo make dis shit dry {1}
+		foreach ($preparedInstance as $param => $value) {
+			if($param === 'posts') {
 				$instance[$param] = serialize($newInstance[$param]);
+			} elseif(array_key_exists($param, $this->params)) {
+				if(isset($newInstance[$param])) {
+					$instance[$param] = $newInstance[$param];
+				} else {
+					$instance[$param] = null;
+				}
 			} else {
-				$instance[$param] = $newInstance[$param];
-			}
-		}
+				// Build up template params
+				if(array_key_exists($param, $template_variables)) {
+					$variable = $template_variables[$param];
 
-		// Build up additional params
-		// @todo вынести в отдельную функцию, be DRY
-		$instance['template_variables'] = array();
-		foreach ($variables as $variable => $value) {
-			if($value['type'] === 'caption') continue;
-			
-			if(!isset($newInstance[$variable])) {
-				switch ($value['type']) {
-					case 'checkbox':
-						if(reset($value['defaults'])) {
-							$attrs['template_variables'][$variable] = $variable;	
-						}
-					break;
-					
-					default:
-						$attrs['template_variables'][$variable] = reset($value['defaults']);
-					break;
+					if($variable['type'] === 'caption') {
+						continue;
+					}
+
+					if(!isset($instance['template_variables'])) {
+						$instance['template_variables'] = array();
+					}
+
+					if(isset($newInstance[$param])) {
+						$instance['template_variables'][$param] = $newInstance[$param];
+					} else {
+						$instance['template_variables'][$param] = null;
+					}
+
+				// Build up page level params
+				} elseif($param === 'page_variables') {
+					if(!isset($instance['page_variables'])) {
+						$instance['page_variables'] = array();
+					}
+
+					foreach ($newInstance[$param] as $page_id => $variable_data) {
+						if(!trim($variable_data)) continue;
+
+						$instance['page_variables'][$page_id] = $variable_data;
+					}
 				}
 			}
-
-			$instance['template_variables'][$variable] = $newInstance[$variable];
 		}
 
 		return $instance;
@@ -131,7 +148,7 @@ class TeaPageContent_Widget extends WP_Widget {
 		$instance = array_merge($this->params, (array)$instance);
 		
 		// Specify admin template
-		$template = 'default-widget-admin';
+		$template = 'default-widget-admin'; // @todo вынести в конфиг
 		$template = apply_filters('tpc_get_admin_template_path', $template);
 
 		// Gets a path to the template
@@ -143,8 +160,9 @@ class TeaPageContent_Widget extends WP_Widget {
 			'bind' => $this,
 			'entries' => $this->_helper->getPosts(),
 			'templates' => $this->_helper->getTemplates(),
-			'variables' => $this->_helper->getVariables($instance['template']),
-			'partials' => array()
+			'template_variables' => $this->_helper->getVariables($instance['template']),
+			'page_variables' => array(),
+			'partials' => array(),
 		);
 
 		// Build up partials. Partials - small layouts of widget form,
@@ -154,6 +172,10 @@ class TeaPageContent_Widget extends WP_Widget {
 		$layoutPath = $this->_helper->getTemplatePath($layout);
 
 		$params['partials']['template_variables'] = $this->_helper->renderTemplate($params, $layoutPath);
+
+		if(isset($instance['page_variables'])) {
+			$params['page_variables'] = $this->_helper->getPageVariables($instance['page_variables']);
+		}
 
 		// Here you can filter params
 		$params = apply_filters('tpc_get_admin_params',	$params);
@@ -177,7 +199,7 @@ class TeaPageContent_Widget extends WP_Widget {
 		ob_start();
 		set_query_var('widget', $data);
 
-		load_template($templatePath . 'default-widget-client.php', false);
+		load_template($templatePath . 'default-widget-client.php', false); // @todo вынести в конфиг
 
 		$content = ob_get_contents();
 		ob_end_clean();

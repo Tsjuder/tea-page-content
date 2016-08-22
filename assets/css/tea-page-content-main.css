@@ -1,3 +1,9 @@
+.tpc-shortcode-main-title {
+	margin-bottom: 1.5em;
+	color: inherit;
+	font-size: 2em;
+}
+
 .tpc-block {
 	margin: 1em auto;
 	font-size: inherit;
@@ -13,9 +19,8 @@
 	margin-bottom: 0;
 }
 
-.tpc-content,
 .tpc-thumbnail {
-	padding-bottom: 1em;
+	padding-bottom: 0.5em;
 }
 .tpc-thumbnail:last-child {
 	padding-bottom: 0;
@@ -26,11 +31,13 @@
 }
 
 .tpc-entry-block {}
-.tpc-entry-block + .tpc-entry-block {}
+.tpc-entry-block {
+	padding-bottom: 1.5em;
+}
 
 
 .tpc-widget-title {
-	padding: 1em 0;
+	padding: 0.5em 0;
 }
 
 .tpc-widget-title + .tpc-entry-block .tpc-body {}
@@ -64,12 +71,12 @@
 	padding-right: 1em;
 }
 .tpc-default-padded .tpc-thumbnail {
-	padding-bottom: 1em;
+	padding-bottom: 0.5em;
 }
 
 /* Bootstrap Template */
 .tpc-bootstrap .tpc-entry-block {
-	margin-bottom: 30px; // default bootstrap gutter width
+	margin-bottom: 30px; /* default bootstrap gutter width */
 }
 .tpc-bootstrap .row:last-child .tpc-entry-block:last-child {
 	margin-bottom: 0;

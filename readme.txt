@@ -2,8 +2,8 @@
 Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
 Requires at least: 4.0, PHP 5.3
-Tested up to: 4.5
-Stable tag: 1.1.1
+Tested up to: 4.6
+Stable tag: 1.2.0
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
@@ -24,6 +24,8 @@ Tea Page Content is a powerful plugin that allows create blocks with content of 
 
 = Migration Guides =
 Stay tuned with new versions. For make updates safe and fast, check changelog at <a href="https://wordpress.org/plugins/tea-page-content/changelog/">Changelog</a> tab.
+
+If you found a bug or have a suggestion, please create topic on forum or send me email (raymondcostner at gmail.com).
 
 = Documentation =
 You can find primary description at <a href="https://wordpress.org/plugins/tea-page-content/other_notes/">Other Notes</a> tab, and details at <a href="http://tsjuder.github.io/tea-page-content/">Github Page</a>.
@@ -59,6 +61,13 @@ Links to full entry appears automatically - this feature depends of theme settin
 You can create new topic in forum at wordpress.org, or send me email. I will answer you as soon as possible.
 
 == Changelog ==
+
+= 1.2.0
+* \+ New feature - page-level variables
+* \+ Added button for inserting shortcode in editor
+* \+ New availaibe property in templates - `caller`. Value of caller maybe `widget` or `shortcode` if template in this moment using in shortcode or widget resp.
+* \+ Enclosed shortcodes availaible
+* \* Checked for Wordpress 4.6 support
 
 = 1.1.1 =
 * \+ Added new template-variable type "caption" that allows you describe your template

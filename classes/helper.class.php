@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.1.1
+ * @version 1.2.0
  */
 
 class TeaPageContent_Helper {
@@ -101,6 +101,7 @@ class TeaPageContent_Helper {
 	 * All posts will be sorted by type.
 	 * 
 	 * @param mixed $ids String or array with ID of desired posts
+	 * @param string $mode
 	 * @return array
 	 */
 	public function getPosts($params = array(), $mode = 'group') {
@@ -203,54 +204,54 @@ class TeaPageContent_Helper {
 			$isHeader = false;
 
 			// Read all variables from template, parse it and validate
-		    while(($line = fgets($handle)) !== false) {
-		    	if($isHeader && strpos($line, '@param') !== false) {
-		    		$variable = preg_grep($regexp, preg_split($regexp, $line, -1, PREG_SPLIT_DELIM_CAPTURE));
-		    		$variable = array_values($variable);
+			while(($line = fgets($handle)) !== false) {
+				if($isHeader && strpos($line, '@param') !== false) {
+					$variable = preg_grep($regexp, preg_split($regexp, $line, -1, PREG_SPLIT_DELIM_CAPTURE));
+					$variable = array_values($variable);
 
-		    		// Pass empty or incorrect variables - first field is required
-		    		if(empty($variable)) continue;
+					// Pass empty or incorrect variables - first field is required
+					if(empty($variable)) continue;
 
-		    		// Default mask is: {name} {type} {defaults}
-		    		$mask = $this->_config->get('system.template-variables.mask');
-		    		$defaults = $this->_config->get('defaults.template-variables');
+					// Default mask is: {name} {type} {defaults}
+					$mask = $this->_config->get('system.template-variables.mask');
+					$defaults = $this->_config->get('defaults.template-variables');
 
-		    		// Filter every part of variable by mask
-		    		foreach ($mask as $index => $item) {
-		    			$is_index = isset($variable[$index]);
+					// Filter every part of variable by mask
+					foreach ($mask as $index => $item) {
+						$is_index = isset($variable[$index]);
 
-		    			if(!$is_index && isset($defaults[$item])) {
-		    				$variable[$item] = $defaults[$item];
-		    			} elseif($is_index) {
-		    				$variable[$item] = $variable[$index];
-		    			}
+						if(!$is_index && isset($defaults[$item])) {
+							$variable[$item] = $defaults[$item];
+						} elseif($is_index) {
+							$variable[$item] = $variable[$index];
+						}
 
-		    			if($item === 'defaults') {
-		    				$variable[$item] = explode('|', $variable[$item]);
-		    			}
+						if($item === 'defaults') {
+							$variable[$item] = explode('|', $variable[$item]);
+						}
 
-		    			if($is_index) {
-		    				unset($variable[$index]);
-		    			}
-		    		}
+						if($is_index) {
+							unset($variable[$index]);
+						}
+					}
 
-		    		// Here possible to modify current variable
-		    		$variable = apply_filters('tpc_get_template_variable', $variable);
+					// Here you can modify current variable
+					$variable = apply_filters('tpc_get_template_variable', $variable);
 
-		    		$variables[$variable['name']] = $variable;
-		        }
+					$variables[$variable['name']] = $variable;
+				}
 
-		        // Check for header of the variable-part...
-		        if(strpos($line, '/**') !== false) {
-		        	$isHeader = true;
-		        } elseif(strpos($line, '*/') !== false) { // ...and out if the variable-part is over
-		        	$isHeader = false;
+				// Check for header of the variable-part...
+				if(strpos($line, '/**') !== false) {
+					$isHeader = true;
+				} elseif(strpos($line, '*/') !== false) { // ...and out if the variable-part is over
+					$isHeader = false;
 
-		        	break;
-		        }
-		    }
+					break;
+				}
+			}
 
-		    fclose($handle);
+			fclose($handle);
 		}
 
 		// Filter for all variables for passed template
@@ -267,18 +268,15 @@ class TeaPageContent_Helper {
 	 * First param should be an associative array
 	 * 
 	 * @param array $instance 
+	 * @param string $mode
 	 * @return array
 	 */
 	public function getParams($instance, $mode = 'group') {
-		// Instance should be in every case
-		$params = array(
-			'instance' => $instance + $this->_config->get('defaults.widget', 'per-page') // @deprecated since 1.1
-			// @todo сделать так, чтобы айдишники постов были десериализованы и превращены в строку
-		);
+		$params = array();
 
 		// Set the correct value of post ids. It may be string or array
 		$post__in = null;
-		if(!empty($instance['posts']) || !empty($instance['id'])) {
+		if(!empty($instance['posts']) || !empty($instance['id'])) { // @todo сделать так, чтобы айдишники постов были десериализованы и превращены в строку
 			// @deprecated since 1.1, for shortcodes only
 			$actual = !empty($instance['posts']) ? $instance['posts'] : $instance['id'];
 
@@ -312,12 +310,167 @@ class TeaPageContent_Helper {
 			$params['template_variables'] = array();
 			if(isset($instance['template_variables'])) {
 				$params['template_variables'] = $instance['template_variables'];
+
+				unset($instance['template_variables']);
 			}
+
+			// ... and page variables array too
+			// At this case we should merge every entry array
+			// with page variables array from instance.
+			if(isset($instance['page_variables'])) {
+				foreach ($params['entries'] as &$entry) {
+					$entry_id = $entry['id'];
+
+					// Get array with page variables
+					$page_variables = $this->getPageVariables($instance['page_variables'], $entry_id);
+
+					// Then we can merge it with original entry.
+					// By default, original values in entry will be OVERRIDE,
+					// and if you want change this behavior,
+					// you can use filter `tpc_get_page_variables`
+					$entry = array_merge($entry, $page_variables);
+				}
+				unset($entry);
+
+				unset($instance['page_variables']);
+			}
+		}
+
+		// Instance should be in every case
+		$params['instance'] = $instance + $this->_config->get('defaults.widget', 'per-page'); // @deprecated since 1.1
+
+		// Set caller
+		if(isset($params['instance']['caller'])) {
+			$params['caller'] = $params['instance']['caller'];
+			unset($params['instance']['caller']);
 		}
 
 		$params = apply_filters('tpc_get_params', $params);
 
 		return $params;
+	}
+
+	public function getPageVariables($page_variables, $entry_id = null) {
+		$result = array();
+
+		if(is_array($page_variables) && !empty($page_variables)) {
+
+			if(!is_null($entry_id) && isset($page_variables[$entry_id])) {
+				$query_string = $page_variables[$entry_id];
+
+				$result = $this->decodePageVariables($query_string, $entry_id);
+			} elseif(is_null($entry_id)) {
+				foreach ($page_variables as $pv_entry_id => $query_string) {
+					$result[$pv_entry_id] = $this->decodePageVariables($query_string, $pv_entry_id);
+				}
+			}
+
+		}
+
+		return $result;
+	}
+
+	/**
+	 * This function gets params that have a direct impact on content
+	 * and appearance of it. This is entries, page- and template-level variables.
+	 * 
+	 * @param array $instance Original instance
+	 * @param array $params Original params array
+	 * @param array $exclude Determine field what we want exclude from final array
+	 * 
+	 * @return array
+	 */
+	public function getContentRelevantParams($instance, $params, $exclude = array()) {
+		if(!in_array('page_variables', $exclude)) {
+			// ... and page variables array too
+			// At this case we should merge every entry array
+			// with page variables array from instance.
+			if(isset($instance['page_variables'])) {
+				foreach ($params['entries'] as &$entry) {
+					$entry_id = $entry['id'];
+
+					// If page variables for current entry is exists...
+					if(array_key_exists($entry_id, $instance['page_variables'])) {
+						// ... cet string with raw encoded data...
+						$query_string = $instance['page_variables'][$entry_id];
+						
+						// ... and parse it
+						$page_variables = $this->decodePageVariables($query_string, $entry_id);
+						
+						// Then we can merge it with original entry.
+						// By default, original values in entry will be OVERRIDE,
+						// and if you want change this behavior,
+						// you can use filter `tpc_get_page_variables`
+						$entry = array_merge($entry, $page_variables);
+					}
+				}
+
+				unset($instance['page_variables']);
+			}
+		}
+
+		return $params;
+	}
+
+	/**
+	 * Parse passed query string with raw page variables data
+	 * to associative array with decoded page variables
+	 * 
+	 * @param string $query_string 
+	 * @param int $entry_id
+	 * @return array
+	 */
+	public function decodePageVariables($query_string, $entry_id = null, $apply_rules = true) {
+		$page_variables = array();
+
+		if(trim($query_string)) {
+			// Here you can change original query string
+			$query_string = apply_filters('tpc_page_variables_raw', $query_string, $entry_id);
+
+			// Parse query and decode every piece of cake
+			foreach(explode('&', $query_string) as $elem) {
+				$exploded = array_map(function($elem) {
+					return urldecode($elem);
+				}, explode('=', $elem));
+
+				if($exploded[0] && isset($exploded[1]) && trim($exploded[1])) {
+
+					// @todo использовать правила (rules)
+					if($apply_rules) {
+						switch ($exploded[0]) {
+							case 'thumbnail':
+								if(is_numeric($exploded[1])) {
+									if(is_admin()) {
+										$exploded[1] = wp_get_attachment_url($exploded[1]);
+									} else {
+										$exploded[1] = wp_get_attachment_image($exploded[1], 'post-thumbnail'); // @todo в конфиг
+									}
+								}
+							break;
+						}
+					}
+
+					$page_variables[$exploded[0]] = $exploded[1];
+				}
+			}
+		}
+
+		// Here you can manage structure and data of page variables for every entry
+		$page_variables = apply_filters('tpc_page_variables', $page_variables, $entry_id);
+
+		return $page_variables;
+	}
+
+	/**
+	 * Extract page variables from shortcode attributes
+	 * 
+	 * @param array $attrs 
+	 * @return array
+	 */
+	public function extractPageVariables($attrs) {
+		$existed_variables = $this->_config->get('defaults.page-variables');
+
+		return array_intersect_key($attrs, $existed_variables);
 	}
 
 	/**
@@ -340,7 +493,7 @@ class TeaPageContent_Helper {
 			// Filter files by mask
 			$templates = array_merge($templates, array_filter(scandir($dir), function(&$item) {
 				// If current file has a substring 'tpc-', return it
-				if(!is_dir($item) && substr($item, 0, 4) == 'tpc-') {
+				if(!is_dir($item) && substr($item, 0, 4) === 'tpc-') {
 					$item = str_replace(array('.php', '.html', '.htm', '.tpl'), '', $item);
 					return true;
 				}
