@@ -20,13 +20,20 @@
 }
 
 .tpc-thumbnail {
+	font-size: 0; /* Need for fix spaces between inline-block elements */
 	padding-bottom: 0.5em;
 }
 .tpc-thumbnail:last-child {
 	padding-bottom: 0;
 }
 
-.tpc-thumbnail > a:hover {
+/* Need cascade here */
+.tpc-thumbnail .tpc-thumbnail-link {
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 0 none;
+}
+.tpc-thumbnail .tpc-thumbnail-link:hover {
 	opacity: 0.85;
 }
 

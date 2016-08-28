@@ -30,7 +30,7 @@
 							<?php $checked = in_array($postData['id'], $instance['posts']) ? 'checked' : ''; ?>
 							<?php $raw_page_variables = isset($instance['page_variables'][$postData['id']]) ? $instance['page_variables'][$postData['id']] : '' ; ?>
 							<?php $item_class = trim($raw_page_variables) ? 'configured-item' : 'empty-item'; ?>
-							<?php $data_thumbnail_url = isset($page_variables[$postData['id']]['thumbnail']) ? $page_variables[$postData['id']]['thumbnail'] : ''; ?>
+							<?php $data_thumbnail_url = isset($page_variables[$postData['id']]['page_thumbnail']) ? $page_variables[$postData['id']]['page_thumbnail'] : ''; ?>
 
 							<label for="<?php echo $bind->get_field_id('posts') . '-' . $postData['id'] ?>" class="tpc-accordeon-item <?php echo $item_class ?>" id="<?php echo $bind->get_field_id('item') . '-' . $postData['id'] ?>">
 								<a href="#" data-item="<?php echo $bind->get_field_id('item') . '-' . $postData['id'] ?>" data-title="<?php echo $postData['title'] ?>" data-id="<?php echo $postData['id'] ?>" 

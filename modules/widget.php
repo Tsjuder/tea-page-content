@@ -40,7 +40,7 @@ class TeaPageContent_Widget extends WP_Widget {
 		$this->_config = TeaPageContent_Config::getInstance();
 
 		// Set defaults
-		$this->params = $this->_config->get('defaults.widget', 'per-page');
+		$this->params = $this->_config->get('defaults.widget', array('per-page', 'caller'));
 	}
 
 	/**
@@ -125,9 +125,17 @@ class TeaPageContent_Widget extends WP_Widget {
 					}
 
 					foreach ($newInstance[$param] as $page_id => $variable_data) {
-						if(!trim($variable_data)) continue;
+						
+						if(trim($variable_data)) {
+							$parsed_data = $this->_helper->decodePageVariables($variable_data, null, false);
 
-						$instance['page_variables'][$page_id] = $variable_data;
+							if(empty($parsed_data)) {
+								continue;
+							}
+
+							$instance['page_variables'][$page_id] = $variable_data;
+						}
+						
 					}
 				}
 			}

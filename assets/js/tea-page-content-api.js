@@ -87,7 +87,7 @@ var TeaPageContent_API = {
 							$input.val(exists[0].value);
 
 							switch(name) {
-								case 'thumbnail':
+								case 'page_thumbnail':
 									var $mediaElement = $input.closest('.tpc-modal-media-element');
 									var previewArea = $mediaElement.attr('data-preview-area');
 

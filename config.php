@@ -43,15 +43,15 @@ return array(
 			'defaults' => '',
 		),
 		'page-variables' => array(
-			'title' => array(
+			'page_title' => array( // @todo include {prefix} placeholder for DRY
 				'type' => 'text',
 				'title' => __('Title', 'tea-page-content')
 			),
-			'content' => array(
+			'page_content' => array(
 				'type' => 'textarea',
 				'title' => __('Content', 'tea-page-content')
 			),
-			'thumbnail' => array(
+			'page_thumbnail' => array(
 				'type' => 'media',
 				'title' => __('Thumbnail', 'tea-page-content')
 			)
@@ -71,6 +71,9 @@ return array(
 			'mask' => array(
 				'name', 'type', 'defaults'
 			),
+		),
+		'page-variables' => array(
+			'prefix' => 'page_'
 		),
 		'template-directories' => array(
 			'plugin' => TEA_PAGE_CONTENT_PATH . '/templates/',

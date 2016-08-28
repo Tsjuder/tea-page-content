@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tea-page-content\n"
 "Report-Msgid-Bugs-To: Translator Name <saquad@hotmail.com>\n"
-"POT-Creation-Date: 2016-04-01 14:34+0400\n"
+"POT-Creation-Date: 2016-08-29 00:27+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,11 +19,23 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
-"_nc:4c,1,2\n"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: config.php:48 templates/default-widget-admin-dialog-insert-shortcode.php:6
+#: templates/default-widget-admin.php:5
+msgid "Title"
+msgstr "Заголовок"
+
+#: config.php:52
+msgid "Content"
+msgstr "Контент"
+
+#: config.php:56
+msgid "Thumbnail"
+msgstr "Миниатюра"
 
 #: modules/widget.php:27
 msgid "Tea Page Content"
@@ -33,66 +45,105 @@ msgstr "Tea Page Content"
 msgid "Allows display any content of any page or post."
 msgstr "Позволяет отображать любой контент любой записи."
 
-#: tea-page-content.class.php:170
+#: tea-page-content.class.php:67
+msgid "Tea Page Content Shortcode"
+msgstr "Шорткод Tea Page Content"
+
+#: tea-page-content.class.php:377
 msgid ""
-"Warning! Since Tea Page Content 1.1 some parameters is <b>deprecated</b>, "
-"and will be <b>deleted</b> in the next release. We strongly recommend you "
-"check out the <a href=\"https://wordpress.org/plugins/tea-page-content/"
-"changelog/\">changelog</a>. <b>This notice appears only once!</b>"
+"Thanks for update! In Tea Page Content 1.2 was added some new features. We "
+"recommend you check out the <a href=\"https://wordpress.org/plugins/tea-page-"
+"content/changelog/\">changelog</a>. <b>This notice appears only once!</b>"
 msgstr ""
-"Внимание! Начиная с версии Tea Page Content 1.1, некоторые параметры "
-"<b>устарели</b>, и будут <b>удалены</b> в одном из следующих релизов. Мы "
-"рекомендуем ознакомиться с <a href=\"https://wordpress.org/plugins/tea-page-"
-"content/changelog/\">логом изменений</a>. <b>Это уведомление появляется "
-"только один раз!</b>"
+"Спасибо за обновление! В Tea Page Content 1.2 были добавлены новые "
+"возможности. Мы рекомендуем ознакомиться с ними в <a href=\"https://"
+"wordpress.org/plugins/tea-page-content/changelog/\">логе изменений</a>. "
+"<b>Это сообщение появляется только один раз!</b>"
 
-#: templates/default-widget-admin-variables-area.php:5
-msgid "Template Variables"
-msgstr "Переменные шаблона"
-
-#: templates/default-widget-admin.php:3
-msgid "Title"
-msgstr "Заголовок"
-
-#: templates/default-widget-admin.php:12
+#: templates/default-widget-admin-dialog-insert-shortcode.php:16
+#: templates/default-widget-admin.php:17
 msgid "Please, select one or more posts from lists below:"
 msgstr "Выберите одну или несколько записей из списков ниже:"
 
-#: templates/default-widget-admin.php:40
-msgid "Template"
-msgstr "Шаблон"
+#: templates/default-widget-admin-dialog-insert-shortcode.php:31
+#: templates/default-widget-admin.php:37
+msgid "Open page level options"
+msgstr "Открыть переменные уровня страницы"
 
-#: templates/default-widget-admin.php:58
+#: templates/default-widget-admin-dialog-insert-shortcode.php:51
+#: templates/default-widget-admin.php:57
 msgid "Order (by date)"
 msgstr "Сортировка (по дате)"
 
-#: templates/default-widget-admin.php:62
+#: templates/default-widget-admin-dialog-insert-shortcode.php:55
+#: templates/default-widget-admin.php:61
 msgid "Descending"
 msgstr "По убыванию"
 
-#: templates/default-widget-admin.php:65
+#: templates/default-widget-admin-dialog-insert-shortcode.php:58
+#: templates/default-widget-admin.php:64
 msgid "Ascending"
 msgstr "По возрастанию"
 
-#: templates/default-widget-admin.php:79
+#: templates/default-widget-admin-dialog-insert-shortcode.php:68
+#: templates/default-widget-admin.php:78
 msgid "Show page thumbnail"
 msgstr "Показывать миниатюру"
 
-#: templates/default-widget-admin.php:87
+#: templates/default-widget-admin-dialog-insert-shortcode.php:77
+#: templates/default-widget-admin.php:86
 msgid "Show page title"
 msgstr "Показывать заголовок страниц"
 
-#: templates/default-widget-admin.php:95
+#: templates/default-widget-admin-dialog-insert-shortcode.php:86
+#: templates/default-widget-admin.php:94
 msgid "Show page content"
 msgstr "Показывать контент страниц"
 
-#: templates/default-widget-admin.php:103
+#: templates/default-widget-admin-dialog-insert-shortcode.php:95
+#: templates/default-widget-admin.php:102
 msgid "Linked page title (if possible)"
 msgstr "Линковать заголовки (при возможности)"
 
-#: templates/default-widget-admin.php:111
+#: templates/default-widget-admin-dialog-insert-shortcode.php:104
+#: templates/default-widget-admin.php:110
 msgid "Linked page thumbnail (if possible)"
 msgstr "Линковать миниатюры (при возможности)"
+
+#: templates/default-widget-admin-dialog-insert-shortcode.php:114
+#: templates/default-widget-admin.php:120
+msgid "Template"
+msgstr "Шаблон"
+
+#: templates/default-widget-admin-dialog-page-variables.php:3
+msgid ""
+"Here you can <b>override</b> each parameter of selected page that you see "
+"below. For example, you can set specific thumbnail for widget even if you "
+"set another thumbnail for page via edit post interface before."
+msgstr ""
+"Злесь вы можете <b>перезаписать</b> каждый параметр выбранной страницы, "
+"которые перечислены ниже. Например, вы можете установить для виджета "
+"отдельную миниатюру, даже если вы уже установили миниатюру у страницы ранее."
+
+#: templates/default-widget-admin-dialog-page-variables.php:32
+msgid "Select image..."
+msgstr "Выберите изображение..."
+
+#: templates/default-widget-admin-variables-area.php:4
+msgid "Template Variables"
+msgstr "Переменные шаблона"
+
+#~ msgid ""
+#~ "Warning! Since Tea Page Content 1.1 some parameters is <b>deprecated</b>, "
+#~ "and will be <b>deleted</b> in the next release. We strongly recommend you "
+#~ "check out the <a href=\"https://wordpress.org/plugins/tea-page-content/"
+#~ "changelog/\">changelog</a>. <b>This notice appears only once!</b>"
+#~ msgstr ""
+#~ "Внимание! Начиная с версии Tea Page Content 1.1, некоторые параметры "
+#~ "<b>устарели</b>, и будут <b>удалены</b> в одном из следующих релизов. Мы "
+#~ "рекомендуем ознакомиться с <a href=\"https://wordpress.org/plugins/tea-"
+#~ "page-content/changelog/\">логом изменений</a>. <b>Это уведомление "
+#~ "появляется только один раз!</b>"
 
 #~ msgid ""
 #~ "Warning! Starts from Tea Page Content 1.1 some parameters is "
@@ -101,6 +152,3 @@ msgstr "Линковать миниатюры (при возможности)"
 #~ "plugins/tea-page-content/changelog/\">changelog</a>. <b>This notice "
 #~ "appears only once!</b>"
 #~ msgstr "Внимание!"
-
-#~ msgid "Thumbnail"
-#~ msgstr "Миниатюра"

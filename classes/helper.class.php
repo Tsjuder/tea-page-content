@@ -297,6 +297,7 @@ class TeaPageContent_Helper {
 			}
 
 			// ...then we can get the entries
+			// make dis shit dry {3}
 			$params['entries'] = $this->getPosts(array(
 				'post__in' => $post__in,
 				'order' => $order
@@ -328,7 +329,7 @@ class TeaPageContent_Helper {
 					// By default, original values in entry will be OVERRIDE,
 					// and if you want change this behavior,
 					// you can use filter `tpc_get_page_variables`
-					$entry = array_merge($entry, $page_variables);
+					$entry = array_merge($entry, $this->preparePageVariablesForMerge($page_variables));
 				}
 				unset($entry);
 
@@ -337,6 +338,7 @@ class TeaPageContent_Helper {
 		}
 
 		// Instance should be in every case
+		// @todo why i always use widget defaults, when i use this function in shortcode too? need fix it
 		$params['instance'] = $instance + $this->_config->get('defaults.widget', 'per-page'); // @deprecated since 1.1
 
 		// Set caller
@@ -358,16 +360,37 @@ class TeaPageContent_Helper {
 			if(!is_null($entry_id) && isset($page_variables[$entry_id])) {
 				$query_string = $page_variables[$entry_id];
 
-				$result = $this->decodePageVariables($query_string, $entry_id);
+				$decoded = $this->decodePageVariables($query_string, $entry_id);
+
+				if($decoded) {
+					$result = $decoded;
+				}
 			} elseif(is_null($entry_id)) {
 				foreach ($page_variables as $pv_entry_id => $query_string) {
-					$result[$pv_entry_id] = $this->decodePageVariables($query_string, $pv_entry_id);
+					$decoded = $this->decodePageVariables($query_string, $pv_entry_id);
+					
+					if($decoded) {
+						$result[$pv_entry_id] = $decoded;
+					}
 				}
 			}
 
 		}
 
 		return $result;
+	}
+
+	public function preparePageVariablesForMerge($page_variables) {
+		$page_var_prefix = $this->_config->get('system.page-variables.prefix');
+
+		$prepared_variables = array();
+		foreach ($page_variables as $variable => $value) {
+			$unprefixed_title = str_replace($page_var_prefix, '', $variable);
+
+			$prepared_variables[$unprefixed_title] = $value;
+		}
+
+		return $prepared_variables;
 	}
 
 	/**
@@ -436,9 +459,10 @@ class TeaPageContent_Helper {
 				if($exploded[0] && isset($exploded[1]) && trim($exploded[1])) {
 
 					// @todo использовать правила (rules)
+					// @todo make dis shit dry {2}
 					if($apply_rules) {
 						switch ($exploded[0]) {
-							case 'thumbnail':
+							case 'page_thumbnail':
 								if(is_numeric($exploded[1])) {
 									if(is_admin()) {
 										$exploded[1] = wp_get_attachment_url($exploded[1]);
@@ -467,10 +491,29 @@ class TeaPageContent_Helper {
 	 * @param array $attrs 
 	 * @return array
 	 */
-	public function extractPageVariables($attrs) {
+	public function extractPageVariables($attrs, $apply_rules = true) {
 		$existed_variables = $this->_config->get('defaults.page-variables');
 
-		return array_intersect_key($attrs, $existed_variables);
+		$extracted_variables = array_intersect_key($attrs, $existed_variables);
+
+		// @todo make dis shit dry {2}
+		if($apply_rules) {
+			foreach ($extracted_variables as $title => &$value) {
+				switch ($title) {
+					case 'page_thumbnail':
+						if(is_numeric($value)) {
+							if(is_admin()) {
+								$value = wp_get_attachment_url($value);
+							} else {
+								$value = wp_get_attachment_image($value, 'post-thumbnail'); // @todo в конфиг
+							}
+						}
+					break;
+				}
+			}
+		}
+
+		return $extracted_variables;
 	}
 
 	/**

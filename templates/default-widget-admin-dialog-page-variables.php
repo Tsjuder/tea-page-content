@@ -1,4 +1,8 @@
 <form id="tpc-call-item-options-modal" class="tpc-dialog hidden" autocomplete="off">
+	<div class="tpc-note">
+		<?php _e('Here you can <b>override</b> each parameter of selected page that you see below. For example, you can set specific thumbnail for widget even if you set another thumbnail for page via edit post interface before.', 'tea-page-content'); ?>
+	</div>
+
 	<?php if(isset($page_variables) && is_array($page_variables)) : ?>
 		<?php foreach ($page_variables as $variable => $params) : ?>
 			<div class="tpc-dialog-ui-wrapper">

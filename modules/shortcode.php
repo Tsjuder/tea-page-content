@@ -22,9 +22,23 @@ class TeaPageContent_Shortcode {
 
 		// Shortcode defaults
 		$defaults = $config->get('defaults.shortcode');
+
+		$attrs = array();
+
+		foreach ($defaults as $attr_title => $attr_value) {
+			if($attr_title === 'caller') { // @todo не очень явно, магическое слово, нужно как-то вынести в конфиг или еще куда
+				continue;
+			}
+
+			if(isset($userAttrs[$attr_title])) {
+				$attrs[$attr_title] = $attr_value;
+			} else {
+				$attrs[$attr_title] = null;
+			}
+		}
 		
-		// Merge defaults and user attrs
-		$attrs = shortcode_atts($defaults, $userAttrs, 'tea-page-content');
+		// Merge existing attrs and user attrs
+		$attrs = shortcode_atts($attrs, $userAttrs);
 
 		// Get template variables for chosen template
 		$template_variables = $helper->getVariables($attrs['template']);
@@ -47,6 +61,11 @@ class TeaPageContent_Shortcode {
 
 				return false;
 			});
+
+			// Get the entries for every piece
+			$params['entries'] = array();
+			$entries_list = array();
+			$pageVariables = array();
 
 			// Then, grep parsed data step by step
 			foreach ($content as $index => $shortcode) {
@@ -75,35 +94,42 @@ class TeaPageContent_Shortcode {
 						$i++;
 					}
 				}
-			}
 
-			// Get the entries for every piece
-			$params['entries'] = array();
-			foreach ($innerAttrsBundle as $innerAttrs) {
+				$innerAttrs = $innerAttrsBundle[$index];
 				if(!array_key_exists('posts', $innerAttrs)) {
 					continue;
 				}
 
-				$pageVariables = $helper->extractPageVariables($innerAttrs);
+				$current_posts = explode(',', $innerAttrs['posts']);
 
-				$entries = $helper->getPosts(array(
-					'post__in' => $innerAttrs['posts']
-				), 'flatten');
+				foreach ($current_posts as $current_post_id) {
 
-				foreach ($entries as &$entry) {
-					
-					// Then we can merge it with original entry.
-					// By default, original values in entry will be OVERRIDE,
-					// and if you want change this behavior,
-					// you can use filter `tpc_get_page_variables`
-					$entry = array_merge($entry, $pageVariables);
+					$pageVariables[(int)$current_post_id] = $helper->extractPageVariables($innerAttrs);
 				}
-				unset($entry);
 
-				$params['entries'] = array_merge($params['entries'], $entries);
+				// make dis shit dry {3}
+				$entries_list = array_merge($entries_list, $current_posts);
 			}
+			
+			$params['entries'] = $helper->getPosts(array(
+				'post__in' => $entries_list,
+				'order' => $attrs['order']
+			), 'flatten');
+
+			foreach ($params['entries'] as &$entry) {
+				// Then we can merge it with original entry.
+				// By default, original values in entry will be OVERRIDE,
+				// and if you want change this behavior,
+				// you can use filter `tpc_get_page_variables`
+				$entry = array_merge($entry, $helper->preparePageVariablesForMerge($pageVariables[$entry['id']]));
+			}
+			unset($entry);
+
+			$params['count'] = count($params['entries']);
 
 			$params = array_merge($params, $helper->getParams($attrs, 'flatten'));
+
+			
 
 		} else { // If we haven't content. It means that this is usual shortcode
 			

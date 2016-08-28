@@ -1,3 +1,13 @@
+.tpc-note {
+	background-color: #fafafa;
+	margin-bottom: 10px;
+
+	padding: 10px 15px;
+
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
 .tpc-columns-wrapper,
 .tpc-columns-group {
 	display: flex;
@@ -105,6 +115,14 @@
 	display: table;
 }
 
+.tpc-template-params-inner {
+	margin-left: -15px;
+	margin-right: -15px;
+
+	padding: 10px 15px;
+
+	background-color: #fafafa;
+}
 
 .action-links > * {
 	display: inline-block;
