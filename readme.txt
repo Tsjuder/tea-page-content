@@ -67,6 +67,7 @@ You can create new topic in forum at wordpress.org, or send me email. I will ans
 * \+ Added button for inserting shortcode in editor
 * \+ New availaibe property in templates - `caller`. Value of caller maybe `widget` or `shortcode` if template in this moment using in shortcode or widget resp.
 * \+ Enclosed shortcodes availaible
+* \* User Interface was improved for more usability
 * \* Checked for Wordpress 4.6 support
 
 = 1.1.1 =

@@ -60,7 +60,9 @@ class TeaPageContent_Config {
 	 * Public getter. Returns a config parameter,
 	 * if it exists. In other case returns null.
 	 * 
-	 * @param string $param Dot-separated path to needly parameter
+	 * @param string $params Dot-separated path to needly parameter
+	 * @param string|array $except Determine parameters that will be excluded
+	 * 
 	 * @return mixed|null
 	 */
 	public function get($param, $except = null) {
@@ -74,7 +76,11 @@ class TeaPageContent_Config {
 				$stack = $stack[$pieces[$i]];
 				continue;
 			} elseif($i == $piecesCount) {
-				if($except && array_key_exists($except, $stack)) {
+				if(is_array($except) && ($intersect = array_intersect($except, array_keys($stack)))) {
+					foreach ($intersect as $key) {
+						unset($stack[$key]);
+					}
+				} elseif(is_string($except) && array_key_exists($except, $stack)) {
 					unset($stack[$except]);
 				}
 				

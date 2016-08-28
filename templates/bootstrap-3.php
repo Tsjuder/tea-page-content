@@ -53,7 +53,7 @@ if($template_variables['ordering-type'] === 'transposed') {
 				<?php if(isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail'] && $entry['thumbnail']) : ?>
 					<div class="tpc-thumbnail">
 						<?php if($instance['linked_page_thumbnail'] && $entry['link']) : ?>
-							<a href="<?php echo $entry['link'] ?>"><?php echo $entry['thumbnail'] ?></a>
+							<a class="tpc-thumbnail-link" href="<?php echo $entry['link'] ?>"><?php echo $entry['thumbnail'] ?></a>
 						<?php else : ?>
 							<?php echo $entry['thumbnail'] ?>
 						<?php endif; ?>
@@ -117,7 +117,7 @@ if($template_variables['ordering-type'] === 'transposed') {
 					<?php if(isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail'] && $entry['thumbnail']) : ?>
 						<div class="tpc-thumbnail">
 							<?php if($instance['linked_page_thumbnail'] && $entry['link']) : ?>
-								<a href="<?php echo $entry['link'] ?>"><?php echo $entry['thumbnail'] ?></a>
+								<a class="tpc-thumbnail-link" href="<?php echo $entry['link'] ?>"><?php echo $entry['thumbnail'] ?></a>
 							<?php else : ?>
 								<?php echo $entry['thumbnail'] ?>
 							<?php endif; ?>

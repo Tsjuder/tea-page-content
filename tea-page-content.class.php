@@ -241,7 +241,7 @@ class TeaPageContent {
 
 			foreach ($prepared_data['posts'] as $post_id) {
 				if(isset($prepared_data['page_variables'][$post_id])) {
-					$current_page_variables = $this->_helper->decodePageVariables(urldecode($prepared_data['page_variables'][$post_id]), $post_id);
+					$current_page_variables = $this->_helper->decodePageVariables(urldecode($prepared_data['page_variables'][$post_id]), $post_id, false);
 
 					$shortcodes[$post_id] = array_merge(array(
 						'posts' => $post_id,
@@ -410,7 +410,7 @@ class TeaPageContent {
 
 		// Specify a params for template
 		$params = array(
-			'instance' => array(),
+			'instance' => $this->_config->get('defaults.shortcode', 'caller'), // @todo add deprecated `id` to exclude
 			'entries' => $this->_helper->getPosts(),
 			'templates' => $this->_helper->getTemplates(),
 			'template_variables' => $this->_helper->getVariables('default'), // @todo через конфиг

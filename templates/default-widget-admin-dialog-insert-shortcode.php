@@ -62,35 +62,45 @@
 
 				<p>
 					<label for="tpc-show_page_thumbnail">
-						<input class="widefat" type="checkbox" id="tpc-show_page_thumbnail" name="show_page_thumbnail" value="1" />
+						<?php $checked = (isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail']) ? 'checked' : '';  ?>
+
+						<input class="widefat" type="checkbox" id="tpc-show_page_thumbnail" name="show_page_thumbnail" value="1" <?php echo $checked ?> />
 						<span><?php _e('Show page thumbnail', 'tea-page-content'); ?></span>
 					</label>
 
 					<br />
 
 					<label for="tpc-show_page_title">
-						<input class="widefat" type="checkbox" id="tpc-show_page_title" name="show_page_title" value="1" />
+						<?php $checked = (isset($instance['show_page_title']) && $instance['show_page_title']) ? 'checked' : '';  ?>
+
+						<input class="widefat" type="checkbox" id="tpc-show_page_title" name="show_page_title" value="1" <?php echo $checked ?> />
 						<span><?php _e('Show page title', 'tea-page-content'); ?></span>
 					</label>
 
 					<br />
 
 					<label for="tpc-show_page_content">
-						<input class="widefat" type="checkbox" id="tpc-show_page_content" name="show_page_content" value="1" />
+						<?php $checked = (isset($instance['show_page_content']) && $instance['show_page_content']) ? 'checked' : '';  ?>
+
+						<input class="widefat" type="checkbox" id="tpc-show_page_content" name="show_page_content" value="1" <?php echo $checked ?> />
 						<span><?php _e('Show page content', 'tea-page-content'); ?></span>
 					</label>
 
 					<br />
 
 					<label for="tpc-linked_page_title">
-						<input class="widefat" type="checkbox" id="tpc-linked_page_title" name="linked_page_title" value="1" />
+						<?php $checked = (isset($instance['linked_page_title']) && $instance['linked_page_title']) ? 'checked' : '';  ?>
+
+						<input class="widefat" type="checkbox" id="tpc-linked_page_title" name="linked_page_title" value="1" <?php echo $checked ?> />
 						<span><?php _e('Linked page title (if possible)', 'tea-page-content'); ?></span>
 					</label>
 
 					<br />
 
 					<label for="tpc-linked_page_thumbnail">
-						<input class="widefat" type="checkbox" id="tpc-linked_page_thumbnail" name="linked_page_thumbnail" value="1" />
+						<?php $checked = (isset($instance['linked_page_thumbnail']) && $instance['linked_page_thumbnail']) ? 'checked' : '';  ?>
+						
+						<input class="widefat" type="checkbox" id="tpc-linked_page_thumbnail" name="linked_page_thumbnail" value="1" <?php echo $checked ?> />
 						<span><?php _e('Linked page thumbnail (if possible)', 'tea-page-content'); ?></span>
 					</label>
 				</p>
