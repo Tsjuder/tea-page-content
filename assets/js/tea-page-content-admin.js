@@ -24,7 +24,9 @@
 		// tpc-call-shortcode-modal
 		// tpc-call-item-options-modal
 
-		$('.tpc-call-modal-button[data-modal]').each(function() {
+		//$('.tpc-call-modal-button[data-modal]').each();
+// 
+		$document.on('click', '.tpc-call-modal-button[data-modal]', function(e) {
 			var $this = $(this);
 			var modal = $this.attr('data-modal');
 
@@ -37,37 +39,41 @@
 			var $dialog = modal ? $('#' + modal) : null;
 
 			if($dialog && $dialog.length) {
-				$this.on('click', function() {
-					var params = {
-						'autoOpen': false,
-						'draggable': false,
-						'hide': 250,
-						'show': 250,
-						'modal': true,
-						'resizable': false,
-						'closeText': '',
-						'buttons': [
-							{
-								text: _buttons[modal_button].title,
-								class:'button button-primary',
-								click: API.listeners['dialog_' + modal_button + '_button_click']
-							}, {
-								text: 'Cancel',
-								class:'button',
-								click: API.listeners.dialog_cancel_button_click
-							}
-						],
-						'close': API.callbacks.dialog_on_close
-					};
+				var params = {
+					'autoOpen': false,
+					'draggable': false,
+					'hide': 250,
+					'show': 250,
+					'modal': true,
+					'resizable': false,
+					'closeText': '',
+					'buttons': [
+						{
+							text: _buttons[modal_button].title,
+							class:'button button-primary',
+							click: API.listeners['dialog_' + modal_button + '_button_click']
+						}, {
+							text: 'Cancel',
+							class:'button',
+							click: API.listeners.dialog_cancel_button_click
+						}
+					],
+					'close': API.callbacks.dialog_on_close
+				};
 
-					API.storage.set('dialog-' + modal, $dialog);
+				API.storage.set('dialog-' + modal, $dialog);
 
-					$dialog.dialog(params);
-				});
+				$dialog.dialog(params);
+
+				TeaPageContent_API.storage.set('dialog', $dialog);
+
+				if(modal in TeaPageContent_API.handlers.modals) {
+					TeaPageContent_API.handlers.modals[modal](e, $this);
+				}
 			}
-		});
 
-		$document.on('click', '.tpc-call-modal-button[data-modal]', API.listeners.call_modal);
+			e.preventDefault();
+		});
 
 		// Exit if widgets area is empty
 		if(!$widgets_area || !$document) {
