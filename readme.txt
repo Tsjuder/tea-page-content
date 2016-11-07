@@ -22,9 +22,6 @@ Tea Page Content is a powerful plugin that allows create blocks with content of 
 * Developer and user friendly
 * Easy to use and beautiful UI
 
-= Migration Guides =
-Stay tuned with new versions. For make updates safe and fast, check changelog at <a href="https://wordpress.org/plugins/tea-page-content/changelog/">Changelog</a> tab.
-
 If you found a bug or have a suggestion, please create topic on forum or send me email (raymondcostner at gmail.com).
 
 = Documentation =
@@ -61,6 +58,8 @@ Links to full entry appears automatically - this feature depends of theme settin
 You can create new topic in forum at wordpress.org, or send me email. I will answer you as soon as possible.
 
 == Changelog ==
+= 1.2.1
+* \* Fix bug with non-opening modal window of page level variables
 
 = 1.2.0
 * \+ New feature - page-level variables
@@ -81,8 +80,8 @@ You can create new topic in forum at wordpress.org, or send me email. I will ans
 * \+ New feature - template-level variables
 * \+ New template: Bootstrap 3.x
 * \+ Added possibility hide title, content and link it. This feature depends of used template (all built-in templates except deprecated supports it)
-* \- Default-Padded template, `thumbnail` widget and shortcode parameter, `id` shortcode parameter is **deprecated**. See docs for migration guide
-* \* CSS for frontend part changed, improved paddings, adds hover effects
+* \- Default-Padded template, `thumbnail` widget and shortcode parameter, `id` shortcode parameter is **deprecated**
+* \* CSS for frontend part changed, improved paddings, added some hover effects
 * \* Global code refactoring. We are friendly for developers!
 * \* Bug fixes
 
@@ -139,10 +138,3 @@ Above you can see very simple example of custom template with `title` and `conte
 
 = Details =
 Because full manual is too long, you can see it at <a href="http://tsjuder.github.io/tea-page-content/">Github Page</a>. Get details and updating information about new features includes filters, template-level variables and more.
-
-= Migration Guide =
-**From 1.0.x to 1.1.x**
-Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We recommend do these steps:
-* If you're using **default padded** template, change it on **default** with layout what you prefer.
-* If you're using shortcodes, replace parameter `id` to `posts`.
-* If you're using widgets with **turned off** thumbnail option, re-save each of it.
