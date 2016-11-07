@@ -23,9 +23,25 @@
 <a id="tea-page-content" class="anchor" href="#tea-page-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tea Page Content</h1>
 
 <h2>
+<a id="roadmap" class="anchor" href="#roadmap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Roadmap</h2>
+
+<ol>
+<li><a href="#introduction">Inroduction \ Why \ How</a></li>
+<li><a href="#template-level-variables">Template-level Variables</a></li>
+<li><a href="#page-level-variables">Page-level Variables</a></li>
+<li><a href="#templates-overview">Templates Overview</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#creating-custom-templates">Creating custom templates</a></li>
+<li><a href="#parameters-in-template">Parameters \ Variables in template</a></li>
+<li><a href="#filters">Filters</a></li>
+</ol>
+
+<p><a name="introduction"></a></p>
+
+<h2>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
 
-<p><strong>Tea Page Content</strong> is a powerful plugin for Wordpress, that allows create blocks with content of any page, post, etc, and customize look of blocks via template system.</p>
+<p><strong>Tea Page Content</strong> is a powerful plugin for Wordpress, that allows create blocks (widgets and shortcodes) with content of any page, post, etc, and customize look of blocks via template system.</p>
 
 <h2>
 <a id="why" class="anchor" href="#why" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why?</h2>
@@ -35,31 +51,38 @@
 <h2>
 <a id="how" class="anchor" href="#how" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How?</h2>
 
-<p>Just install this via Wordpress Plugin Catalog or manually (upload, then unpack), and enable it. Then create widget or add shortcode into your post, and enjoy! You also can customize appearance of widget or shortcode by changing settings or built-in templates.</p>
+<p>Just install this via Wordpress Plugin Catalog or manually (upload, then unpack), and enable it. Then create widget or add shortcode into your post, and enjoy! You also can customize appearance of widget or shortcode. Just change settings or choose one of built-in templates.</p>
 
 <h2>
 <a id="by-the-way-about-templates" class="anchor" href="#by-the-way-about-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>By the way, about templates...</h2>
 
-<p>Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select. Since version 1.1.x, templates have a special variables that I called <strong>template-level variables</strong>.</p>
+<p>Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select. Since version 1.1.x, templates have a special variables that I call <strong>template-level variables</strong>.</p>
 
 <h2>
 <a id="template-level-variables" class="anchor" href="#template-level-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template-Level Variables</h2>
 
-<p>Template variables is a feature for extreme flexibility. Now you can </p>
-
-<p>In short, this is a set of parameters, which are set in the template header, and which can then be changed in the widget or shortcode. There is support of default values, names, and several types of parameters: select, checkbox, textarea and text. For example, in the case of the bootstrap-template, you can explicitly specify the number of columns you want to see on each breakpoint, or choose the order of output records. In the case of custom templates, you can create any variable and to make with the help of it any conditions, managing all of this from the admin panel. Wonderful, isn't it? Let's take a closer look.</p>
+<p>In short, this is a set of parameters, which are set in the template header, and which can then be changed in the widget or shortcode. There is support of default values, names, and several types of parameters: select, checkbox, textarea and text. For example, in the case of the bootstrap-template, you can explicitly specify the number of columns you want to see on each breakpoint, or choose the order of output records. In the case of custom templates, you can create any variable and use it in your template to implement any conditions and manage its content from the admin panel. Wonderful, isn't it? Let's take a closer look.</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">param</span> <span class="pl-c1">color</span> <span class="pl-c1">select</span> <span class="pl-c1">White</span><span class="pl-k">|</span><span class="pl-c1">Red</span><span class="pl-k">|</span><span class="pl-c1">Yellow</span><span class="pl-k">|</span><span class="pl-c1">Blue</span> <span class="pl-c">// List with all available colors</span></span>
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">param</span> <span class="pl-c1">greeting</span> <span class="pl-c1">text</span> <span class="pl-c1">Hello</span><span class="pl-k">!</span> <span class="pl-c">// Just text input with default value</span></span>
 <span class="pl-s1"><span class="pl-k">@</span><span class="pl-c1">param</span> <span class="pl-c1">show</span><span class="pl-k">-</span><span class="pl-c1">greeting</span> <span class="pl-c1">checkbox</span> <span class="pl-c1">0</span> <span class="pl-c">// Checkbox, unchecked by default.</span></span></pre></div>
 
-<p>In the foregoing example, we create a few variables. All the variables should be created by mask <code>{name} {type} {default value}</code>. Names should be written in Latin letters, and the default value may be either a single word \ number, and a list separated by symbol <code>|</code>. In the template you can access to the parameters that stored in the variable <code>$template_variables</code>:</p>
+<p>In the foregoing example, we create a few variables. All the variables should be created by mask <code>{name} {type} {default value}</code>. Names must be presented the Latin alphabet, and the default value can be a word, number or list за words, separated by symbol <code>|</code>. In the template you can access to this variables via variable named <code>$template_variables</code>:</p>
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">if</span>(<span class="pl-smi">$template_variables</span>[<span class="pl-s"><span class="pl-pds">'</span>show-greeting<span class="pl-pds">'</span></span>]) {</span>
 <span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$template_variables</span>[<span class="pl-s"><span class="pl-pds">'</span>greeting<span class="pl-pds">'</span></span>];</span>
 <span class="pl-s1">}</span></pre></div>
 
-<p>Please note that all variables exists. This means that you don't need check variable with <code>isset()</code>.</p>
+<p>Please note that all variables exists. This means that you don't need check property in <code>$template_variables</code> with <code>isset()</code>.</p>
+
+<h2>
+<a id="page-level-variables" class="anchor" href="#page-level-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Page-level variables</h2>
+
+<p>Sometimes there are situations when you need to change the widget thumbnail or introductory text of entry, keeping a link to it. Sometimes the built-in Wordpress tools are not sufficient to implement this functionality. One way is to use a text widget, but with the Tea Page Content has become possible to overwrite the title of displayed content and thumbnail of entry without losing the link to it. Great, isn't it? Page-level variables are strictly predetermined, but you can use filters to add another variable.</p>
+
+<p>To set page-level variables for the selected page, click on gear icon next to the name of a page in a widget interface. This will open a modal window in which you can specify a new title, content and thumbnail of the page in this particular widget.</p>
+
+<p>In template will be available variable <code>$entries</code>, combined with page-level variables that you set before. In other words, you can not get the original title if it has been overwritten by you earlier. You can change this behavior by using filters.</p>
 
 <h2>
 <a id="template-overview" class="anchor" href="#template-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template Overview</h2>
@@ -67,7 +90,7 @@
 <h3>
 <a id="default" class="anchor" href="#default" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default</h3>
 
-<p>Simple but effective template with one column. Ideal for sidebars or small blocks on site pages. Support two layouts: padded and standart. <strong>Padded</strong> means that around content of template will be padding with count of 1em. Standart don't have paddings around.</p>
+<p>Simple but effective template with one column. Ideal for sidebars or small blocks on site pages. Support two layouts: padded and standart. <strong>Padded</strong> means that around content of template will be 1em of padding. Standart layout don't have paddings around.</p>
 
 <h3>
 <a id="bootstrap-3x" class="anchor" href="#bootstrap-3x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bootstrap 3.x</h3>
@@ -83,10 +106,20 @@
 <strong>column-count-x</strong> is a count of columns for each of available breakpoints. If you select 3 columns, css class for every col will be <code>col-x-4</code> (because 12 will be divided on 3). Please note, that correct functioning depends of your mix of columns.</li>
 </ul>
 
+<h3>
+<a id="bootstrap-4x" class="anchor" href="#bootstrap-4x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bootstrap 4.x</h3>
+
+<p>Similar with Bootstrap 3.x template, but for new version of the framework.</p>
+
+<h3>
+<a id="waterfall" class="anchor" href="#waterfall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Waterfall</h3>
+
+<p>Flexible multi-column template.</p>
+
 <h2>
 <a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
 
-<p>There is some built-in options for more flexibility, that can be used in shortcodes (or can be checked \ unchecked in widgets). This is:</p>
+<p>There is some built-in options for more flexibility, that can be used in shortcodes or widgets.</p>
 
 <ul>
 <li>
@@ -109,28 +142,9 @@
 
 <p>Please note: some of these options is just flags that depends of used template. This means that if you used your own template and set parameter <code>show_page_content</code>, don't forget add condition in your template file. Without condition content will be appear in any case. All built-in templates <strong>have</strong> support for all options. </p>
 
-<p><strong>Independent</strong> options (depends of plugin) is: <code>order</code>, <code>template</code>, <code>posts</code>.</p>
+<p>Independent options (depends of plugin) is: <code>order</code>, <code>template</code>, <code>posts</code>.</p>
 
-<h2>
-<a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating custom templates</h2>
-
-<p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the your one just create a new file with name like "tpc-{template-name}.php". Every template should be named by that mask! Then put in created file template code. Here you can see simplest example:</p>
-
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">if</span>(<span class="pl-c1">isset</span>(<span class="pl-smi">$entries</span>) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">count</span>(<span class="pl-smi">$entries</span>)) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
-<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">foreach</span> (<span class="pl-smi">$entries</span> <span class="pl-k">as</span> <span class="pl-smi">$key</span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$entry</span>) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-entry-block<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">h3</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-title<span class="pl-pds">"</span></span>&gt;
-            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
-        &lt;/<span class="pl-ent">h3</span>&gt;
-
-        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-content post-content<span class="pl-pds">"</span></span>&gt;
-            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
-        &lt;/<span class="pl-ent">div</span>&gt;
-    &lt;/<span class="pl-ent">div</span>&gt;
-<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endforeach</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
-<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endif</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
-
-<p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
+<p><strong>Also note</strong> that in shortcode you should always specify the desired options explicitly. This means that if you do not write <code>show_page_content="true"</code>, the value of this option will be considered false, regardless of its default value.</p>
 
 <h2>
 <a id="parameters--variables-in-template" class="anchor" href="#parameters--variables-in-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters \ Variables in template</h2>
@@ -159,39 +173,148 @@
 <strong>$count</strong> - Count of all passed entries</li>
 <li>
 <strong>$instance</strong> - Array with user defined and default parameters. There is all list of options from self-titled section above.</li>
+<li>
+<strong>$template_variables</strong> - Array with template-level variables.</li>
+<li>
+<strong>$caller</strong> - A special flag that indicates where the template was called: from the widget or shortcode. May have values <code>widget</code> or <code>shortcode</code>.</li>
 </ul>
 
 <h2>
-<a id="filters-and-actions" class="anchor" href="#filters-and-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filters and actions</h2>
+<a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating custom templates</h2>
 
-<p>Will be very soon...</p>
+<p>By default plugin will be search custom templates in a folder named "templates" in your theme. For create the your one just create a new file with name like <code>tpc-{template-name}.php</code>, where <code>template-name</code> - desired name of your template in "templates" directory. Every template should be named by that mask! Then put in created file template code. Here you can see simplest example:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">if</span>(<span class="pl-c1">isset</span>(<span class="pl-smi">$entries</span>) <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">count</span>(<span class="pl-smi">$entries</span>)) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">foreach</span> (<span class="pl-smi">$entries</span> <span class="pl-k">as</span> <span class="pl-smi">$key</span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$entry</span>) : </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-entry-block<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">h3</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-title<span class="pl-pds">"</span></span>&gt;
+            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+        &lt;/<span class="pl-ent">h3</span>&gt;
+
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tpc-content post-content<span class="pl-pds">"</span></span>&gt;
+            <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-c1">echo</span> <span class="pl-smi">$entry</span>[<span class="pl-s"><span class="pl-pds">'</span>content<span class="pl-pds">'</span></span>] </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endforeach</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span>
+<span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endif</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
+
+<p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
 
 <h2>
-<a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's next?</h2>
-
-<p>In next versions will be released these features:</p>
-
-<ul>
-<li>Page-level variables</li>
-<li>Waterfall template</li>
-<li>Customize ordering</li>
-<li>UI improvements</li>
-<li><strong>And more!</strong></li>
-</ul>
-
-<h2>
-<a id="migration-guide" class="anchor" href="#migration-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Migration Guide</h2>
+<a id="filters" class="anchor" href="#filters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filters</h2>
 
 <h3>
-<a id="from-10x-to-11x" class="anchor" href="#from-10x-to-11x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From 1.0.x to 1.1.x</h3>
+<a id="tpc_config_array" class="anchor" href="#tpc_config_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_config_array</h3>
 
-<p>Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We strongly recommend do these steps:</p>
+<p><em>Parameters:</em> <code>$config</code> Array Store itself loaded config associative array.
+This filter allows change config before its using, if config was loaded correctly.</p>
 
-<ul>
-<li>If you're using <strong>default padded</strong> template, change it on <strong>default</strong> with layout what you prefer.</li>
-<li>If you're using shortcodes, replace parameter <code>id</code> to <code>posts</code>.</li>
-<li>If you're using widgets with <strong>turned off</strong> thumbnail option, re-save each of it.</li>
-</ul>
+<h3>
+<a id="tpc_get_template_path" class="anchor" href="#tpc_get_template_path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_path</h3>
+
+<p><em>Parameters:</em> <code>$template_path</code> String Store itself full calculated path to template file.
+Allows change path to template file, and therefore change template in admin-part or entire site.
+This filter is universal and applying in all places where plugin getting path to template file.</p>
+
+<h3>
+<a id="tpc_get_admin_template" class="anchor" href="#tpc_get_admin_template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_admin_template</h3>
+
+<p><em>Parameters:</em> <code>$template_title</code> String Title of the template for admin-part.
+Allows replace template for admin-part on your one. Actual for widget and shortcode UI.</p>
+
+<h3>
+<a id="tpc_render_template" class="anchor" href="#tpc_render_template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_render_template</h3>
+
+<p><em>Parameters:</em> <code>$content</code> String Loaded content of the template.
+Allows change content of rendered template just before it's display. For example, you can change some separate tags via regexp. This filter is universal and works great in admin-part and entire site.</p>
+
+<h3>
+<a id="tpc_post_types_operator" class="anchor" href="#tpc_post_types_operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types_operator</h3>
+
+<p><em>Parameters:</em> <code>$operator</code> String Comparsion operator for function <code>get_post_types</code>. Value can be OR or AND.
+Allows change comparsion operator for function <code>get_post_types</code>. Using in admin-part for getting list of availaibe post types.</p>
+
+<h3>
+<a id="tpc_post_types_args" class="anchor" href="#tpc_post_types_args" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types_args</h3>
+
+<p><em>Parameters:</em> <code>$args</code> Array Array with attributes for function <code>get_post_types</code>.
+Filter for changing list of attributes for post types query. With help of this filter you can, f.e., exclude some types from final result. Using in admin-part for getting list of available post types.</p>
+
+<h3>
+<a id="tpc_post_types" class="anchor" href="#tpc_post_types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types</h3>
+
+<p><em>Parameters:</em> <code>$types</code> Array Array with received post types.
+Allows change final result with post types after its have been received.</p>
+
+<h3>
+<a id="tpc_post_params" class="anchor" href="#tpc_post_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_params</h3>
+
+<p><em>Parameters:</em> <code>$params</code> Array Associative array with attributes for function <code>get_posts</code>.
+One of key filters, using in function <code>getPosts()</code>. Allows filter input array for getting list of entries and subsequent output of this list in template. This filter is universal, and using in admin-part and in entire site.</p>
+
+<h3>
+<a id="tpc_prepared_posts" class="anchor" href="#tpc_prepared_posts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_prepared_posts</h3>
+
+<p><em>Parameters:</em> <code>$prepared_posts</code> Array Associative array with result of function <code>get_posts</code>.
+One of key filters, using in function <code>getPosts()</code>. Allows filter entries that was received before. The <code>$prepared_posts</code> parameter represents either one-dimensional array that stores list of <code>WP_Post</code> objects; or two-dimensional array that stores entries which divided by its post type. This filter is universal, and using in admin-part and in entire site.</p>
+
+<h3>
+<a id="tpc_get_template_variable" class="anchor" href="#tpc_get_template_variable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_variable</h3>
+
+<p><em>Parameters:</em> <code>$variable</code> Array Associative array with currently handling template-level variable.
+           <code>$template</code> String Name of the template from which are extracted variables.
+Allows filter template-level variables at the stage of variables extraction from template. The <code>$variable</code> parameter represent an array with some elements that set in config at address <code>system.template-variables.mask</code>.</p>
+
+<h3>
+<a id="tpc_get_template_variables" class="anchor" href="#tpc_get_template_variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_variables</h3>
+
+<p><em>Parameters:</em> <code>$variables</code> Array One-dimensional array with extracted and handled template-level variables.
+           <code>$template</code> String Name of the template from which are extracted variables.
+Allows filter template-level variables after extracting and handling.</p>
+
+<h3>
+<a id="tpc_get_params" class="anchor" href="#tpc_get_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_params</h3>
+
+<p><em>Parameters:</em> <code>$params</code> Array Associative array with parameters that will be accessible in template.
+One of key filters, using in function <code>getParams()</code>. Allows filter accessible in template parameters and vaeiables. For example, you can change <code>$caller</code>, <code>$instance</code> or any another parameter.</p>
+
+<h3>
+<a id="tpc_get_admin_params" class="anchor" href="#tpc_get_admin_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_admin_params</h3>
+
+<p><em>Parameters:</em> <code>$params</code> Array Associative array with parameters that will be accessible in admin template.
+Allows filter accessible in admin template (widget or shortcode UI) parameters and variables.</p>
+
+<h3>
+<a id="tpc_page_variables_raw" class="anchor" href="#tpc_page_variables_raw" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_page_variables_raw</h3>
+
+<p><em>Parameters:</em> <code>$query_string</code> String Page-level variables in url-encoded format.
+           <code>$entry_id</code> Int ID of current page for which we extract variables.
+This filter allows change unhandled string with page-level variables just before parse of it.</p>
+
+<h3>
+<a id="tpc_page_variables" class="anchor" href="#tpc_page_variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_page_variables</h3>
+
+<p><em>Parameters:</em> <code>$page_variables</code> Array One-dimensional array with all handled page-level variables.
+           <code>$entry_id</code> Int ID of current page for which we extract variables.
+Allows change extracted and handled variables just before passing it in the template.</p>
+
+<h3>
+<a id="tpc_template_directories" class="anchor" href="#tpc_template_directories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_template_directories</h3>
+
+<p><em>Parameters:</em> <code>$directories</code> Array One-dimensional array with path to the directories with templates.
+Allows modify list of the directories where can be template files (and custom too). Using in admin-part.</p>
+
+<h3>
+<a id="tpc_get_templates" class="anchor" href="#tpc_get_templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_templates</h3>
+
+<p><em>Parameters:</em> <code>$templates</code> Array One-dimensional array with names of templates.
+Allows manage list of finded templates. Using in admin-part.</p>
+
+<h3>
+<a id="tpc_template_name" class="anchor" href="#tpc_template_name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_template_name</h3>
+
+<p><em>Parameters:</em> <code>$template</code> String Template name
+Allows modify template in widget just before getting path to template and render of it.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Tsjuder/tea-page-content">Tea Page Widget &amp; Content</a> is maintained by <a href="https://github.com/Tsjuder">Tsjuder</a>.</span>
