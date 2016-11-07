@@ -31,8 +31,8 @@
 <li><a href="#page-level-variables">Page-level Variables</a></li>
 <li><a href="#templates-overview">Templates Overview</a></li>
 <li><a href="#options">Options</a></li>
-<li><a href="#creating-custom-templates">Creating custom templates</a></li>
 <li><a href="#parameters-in-template">Parameters \ Variables in template</a></li>
+<li><a href="#creating-custom-templates">Creating custom templates</a></li>
 <li><a href="#filters">Filters</a></li>
 </ol>
 
@@ -58,6 +58,8 @@
 
 <p>Templates is a powerful tool for full flexibility. Don't need create filters in your functions.php, just change built-in template or create your own! Every template is a simple php file which defines how will be look every post what you select. Since version 1.1.x, templates have a special variables that I call <strong>template-level variables</strong>.</p>
 
+<p><a name="template-level-variables"></a></p>
+
 <h2>
 <a id="template-level-variables" class="anchor" href="#template-level-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template-Level Variables</h2>
 
@@ -75,6 +77,8 @@
 
 <p>Please note that all variables exists. This means that you don't need check property in <code>$template_variables</code> with <code>isset()</code>.</p>
 
+<p><a name="page-level-variables"></a></p>
+
 <h2>
 <a id="page-level-variables" class="anchor" href="#page-level-variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Page-level variables</h2>
 
@@ -84,8 +88,10 @@
 
 <p>In template will be available variable <code>$entries</code>, combined with page-level variables that you set before. In other words, you can not get the original title if it has been overwritten by you earlier. You can change this behavior by using filters.</p>
 
+<p><a name="templates-overview"></a></p>
+
 <h2>
-<a id="template-overview" class="anchor" href="#template-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Template Overview</h2>
+<a id="templates-overview" class="anchor" href="#templates-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Templates Overview</h2>
 
 <h3>
 <a id="default" class="anchor" href="#default" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default</h3>
@@ -116,6 +122,8 @@
 
 <p>Flexible multi-column template.</p>
 
+<p><a name="options"></a></p>
+
 <h2>
 <a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
 
@@ -145,6 +153,8 @@
 <p>Independent options (depends of plugin) is: <code>order</code>, <code>template</code>, <code>posts</code>.</p>
 
 <p><strong>Also note</strong> that in shortcode you should always specify the desired options explicitly. This means that if you do not write <code>show_page_content="true"</code>, the value of this option will be considered false, regardless of its default value.</p>
+
+<p><a name="parameters-in-template"></a></p>
 
 <h2>
 <a id="parameters--variables-in-template" class="anchor" href="#parameters--variables-in-template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters \ Variables in template</h2>
@@ -179,6 +189,8 @@
 <strong>$caller</strong> - A special flag that indicates where the template was called: from the widget or shortcode. May have values <code>widget</code> or <code>shortcode</code>.</li>
 </ul>
 
+<p><a name="creating-custom-templates"></a></p>
+
 <h2>
 <a id="creating-custom-templates" class="anchor" href="#creating-custom-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating custom templates</h2>
 
@@ -199,6 +211,8 @@
 <span class="pl-pse">&lt;?php</span><span class="pl-s1"> <span class="pl-k">endif</span>; </span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 
 <p>Very well! Now you can select your template via selectbox (in widget), or type <code>template="tpc-test-template"</code> in shortcode.</p>
+
+<p><a name="filters"></a></p>
 
 <h2>
 <a id="filters" class="anchor" href="#filters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Filters</h2>
