@@ -270,8 +270,6 @@ var TeaPageContent_API = {
 				}
 
 				setTimeout(function() {
-					//send_to_editor('Nie wieder stress mit');
-
 					$preloader.addClass('is-hidden');
 					
 					$button.removeProp('disabled');
@@ -279,8 +277,6 @@ var TeaPageContent_API = {
 					$dialog.dialog('close');
 				}, 500);
 			});
-
-			
 		},
 
 		'dialog_cancel_button_click': function() {
@@ -327,6 +323,17 @@ var TeaPageContent_API = {
 			$dialog.dialog('option', 'title', '');
 
 			$dialog.get(0).reset();
+		},
+
+		'dialog_on_open': function(event, ui) {
+			var $dialogWrapper = TeaPageContent_API.storage.get('dialog').parent();
+			var $window = jQuery(window);
+
+			var topMargin = 30;
+
+			if($window.height() >= $dialogWrapper.height() - topMargin) {
+				$dialogWrapper.css('margin-top', topMargin + 'px');
+			}
 		},
 
 		'media_on_select': function() {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.1
+ * @version 1.2.2
  */
 
 class TeaPageContent_Shortcode {
@@ -103,8 +103,7 @@ class TeaPageContent_Shortcode {
 				$current_posts = explode(',', $innerAttrs['posts']);
 
 				foreach ($current_posts as $current_post_id) {
-
-					$pageVariables[(int)$current_post_id] = $helper->extractPageVariables($innerAttrs);
+					$pageVariables[(int)$current_post_id] = $helper->extractPageVariables($innerAttrs, (int)$current_post_id);
 				}
 
 				// make dis shit dry {3}
@@ -129,9 +128,9 @@ class TeaPageContent_Shortcode {
 
 			$params = array_merge($params, $helper->getParams($attrs, 'flatten'));
 
-			
 
 		} else { // If we haven't content. It means that this is usual shortcode
+
 			
 			// Pre-create template variables, if exists
 			// @todo вынести в отдельную функцию, be DRY

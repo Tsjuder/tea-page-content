@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.0
+ * @version 1.2.2
  */
 
 return array(
@@ -36,7 +36,11 @@ return array(
 			'caller' => 'shortcode',
 		),
 		'post-types' => array(
-			'public' => true
+			'public' => true,
+		),
+		'posts' => array(
+			'post_status' => 'publish', // may be an array too
+			'has_password' => false,
 		),
 		'template-variables' => array(
 			'type' => 'text',
@@ -61,7 +65,7 @@ return array(
 	// Predefined system values, e.g. logical operators, needly constants or system paths
 	'system' => array(
 		'posts' => array(
-			'types-operator' => 'or'
+			'types-operator' => 'or',
 		),
 		'predefined-templates' => array(
 			// @deprecated default-padded template, since 1.1
@@ -77,12 +81,16 @@ return array(
 		),
 		'template-directories' => array(
 			'plugin' => TEA_PAGE_CONTENT_PATH . '/templates/',
-			'theme' => get_template_directory() . '/templates/'
+			'theme' => get_stylesheet_directory() . '/templates/'
 		),
 		'versions' => array(
-			'plugin' => '1.2.0',
-			'scripts' => '1.2',
-			'styles' => '1.2'
-		)
+			'plugin' => '1.2.2',
+			'scripts' => '1.2.2',
+			'styles' => '1.2.2'
+		),
+
+		'settings' => array(
+			'include-css' => true,
+		),
 	)
 );
