@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.1
+ * @version 1.2.2
  */
 
 class TeaPageContent_Helper {
@@ -127,6 +127,16 @@ class TeaPageContent_Helper {
 			if(count($post__in) && array_filter($post__in)) {
 				$params['post__in'] = $post__in;
 			}
+		}
+
+		// Filter by post status...
+		if(!isset($params['post_status'])) {
+			$params['post_status'] = $this->_config->get_current('defaults.posts.post_status');
+		}
+
+		// ...and by protected settings too
+		if(!isset($params['has_password'])) {
+			$params['has_password'] = $this->_config->get_current('defaults.posts.has_password');
 		}
 
 		// Filter param array
@@ -352,6 +362,13 @@ class TeaPageContent_Helper {
 		return $params;
 	}
 
+	/**
+	 * Get page variables from global (passed) array for one specified entry.
+	 * 
+	 * @param array $page_variables
+	 * @param int|null $entry_id 
+	 * @return array
+	 */
 	public function getPageVariables($page_variables, $entry_id = null) {
 		$result = array();
 
@@ -380,6 +397,13 @@ class TeaPageContent_Helper {
 		return $result;
 	}
 
+	/**
+	 * Remove prefix before merging page variables with entry properties.
+	 * Need this because page variables should override some properties of entry.
+	 * 
+	 * @param array $page_variables 
+	 * @return array
+	 */
 	public function preparePageVariablesForMerge($page_variables) {
 		$page_var_prefix = $this->_config->get('system.page-variables.prefix');
 
@@ -467,7 +491,10 @@ class TeaPageContent_Helper {
 									if(is_admin()) {
 										$exploded[1] = wp_get_attachment_url($exploded[1]);
 									} else {
-										$exploded[1] = wp_get_attachment_image($exploded[1], 'post-thumbnail'); // @todo в конфиг
+										$thumbnail_size = 'post-thumbnail'; // @todo в конфиг
+										$thumbnail_size = apply_filters('tpc_thumbnail_size', $thumbnail_size, $exploded[1], $entry_id);
+
+										$exploded[1] = wp_get_attachment_image($exploded[1], $thumbnail_size);
 									}
 								}
 							break;
@@ -491,7 +518,7 @@ class TeaPageContent_Helper {
 	 * @param array $attrs 
 	 * @return array
 	 */
-	public function extractPageVariables($attrs, $apply_rules = true) {
+	public function extractPageVariables($attrs, $entry_id = null, $apply_rules = true) {
 		$existed_variables = $this->_config->get('defaults.page-variables');
 
 		$extracted_variables = array_intersect_key($attrs, $existed_variables);
@@ -505,7 +532,10 @@ class TeaPageContent_Helper {
 							if(is_admin()) {
 								$value = wp_get_attachment_url($value);
 							} else {
-								$value = wp_get_attachment_image($value, 'post-thumbnail'); // @todo в конфиг
+								$thumbnail_size = 'post-thumbnail'; // @todo в конфиг
+								$thumbnail_size = apply_filters('tpc_thumbnail_size', $thumbnail_size, $value, $entry_id);
+
+								$value = wp_get_attachment_image($value, $thumbnail_size);
 							}
 						}
 					break;
@@ -549,5 +579,50 @@ class TeaPageContent_Helper {
 		$templates = apply_filters('tpc_get_templates', $templates);
 
 		return $templates;
+	}
+
+	public function getMappedSettings() {
+		$result = array();
+
+		$map = $this->_config->get_config_map();
+
+		foreach ($map as $config_path => $params) {
+			$alias = $this->convertConfigPathToSetting($config_path);
+
+			$default_value = $this->_config->get_current($config_path);
+
+			$params['default'] = $default_value;
+
+			$result[$alias] = $params;
+		}
+
+		return $result;
+	}
+
+	public function convertSettingToConfigPath($setting) {
+		if(!is_string($setting)) {
+			return false;
+		}
+
+		return str_replace(array('tpc_', '__'), array('', '.'), $setting); // @todo make dis shit dry {4}
+		// get tpc_ via config
+	}
+
+	public function convertConfigPathToSetting($config_path) {
+		if(!is_string($config_path)) {
+			return false;
+		}
+
+		return 'tpc_' . str_replace('.', '__', $config_path);
+	}
+
+	public function updateDeprecatedNoticeOption() {
+		$version = $this->_config->get('system.versions.plugin');
+
+		if(!get_option('tpc_deprecated_notice')) {
+			add_option('tpc_deprecated_notice', $version, '', 'no');
+		} else {
+			update_option('tpc_deprecated_notice', $version, 'no');
+		}
 	}
 }

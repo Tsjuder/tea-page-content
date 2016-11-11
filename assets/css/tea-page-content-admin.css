@@ -379,3 +379,32 @@ textarea.tpc-modal-ui-element {
 .tpc-dashicons-middled {
 	vertical-align: middle;
 }
+
+.tpc-settings-page {
+
+}
+.tpc-settings-page h2 {
+	margin-bottom: 30px !important;
+}
+.tpc-form-group {
+	display: block;
+	margin-top: 10px;
+}
+.tpc-form-group:first-child {
+	margin-top: 0;
+}
+
+.tpc-form-group {
+	font-size: 1.2em;
+}
+
+.tpc-form-group span {
+	margin: 10px 0;
+}
+.tpc-form-group small {
+}
+.tpc-form-group input,
+.tpc-form-group select {
+	margin-top: 10px;
+	min-width: 250px;
+}

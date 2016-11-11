@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tea-page-content\n"
 "Report-Msgid-Bugs-To: Translator Name <saquad@hotmail.com>\n"
-"POT-Creation-Date: 2016-08-29 00:27+0400\n"
+"POT-Creation-Date: 2016-11-11 20:13+0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -24,20 +24,31 @@ msgstr ""
 "X-Generator: Poedit 1.8.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: config.php:48 templates/default-widget-admin-dialog-insert-shortcode.php:6
+#: config.map.php:9
+msgid "Enable plugin's CSS?"
+msgstr "Включить CSS плагина?"
+
+#: config.map.php:10
+msgid ""
+"You can exclude css of plugin from output if you do not use default "
+"templates."
+msgstr ""
+"Вы можете отключить css плагина, если вы не используете стандартные шаблоны."
+
+#: config.php:52 templates/default-widget-admin-dialog-insert-shortcode.php:6
 #: templates/default-widget-admin.php:5
 msgid "Title"
 msgstr "Заголовок"
 
-#: config.php:52
+#: config.php:56
 msgid "Content"
 msgstr "Контент"
 
-#: config.php:56
+#: config.php:60
 msgid "Thumbnail"
 msgstr "Миниатюра"
 
-#: modules/widget.php:27
+#: modules/widget.php:27 tea-page-content.class.php:110
 msgid "Tea Page Content"
 msgstr "Tea Page Content"
 
@@ -45,20 +56,39 @@ msgstr "Tea Page Content"
 msgid "Allows display any content of any page or post."
 msgstr "Позволяет отображать любой контент любой записи."
 
-#: tea-page-content.class.php:67
+#: tea-page-content.class.php:88 templates/default-settings-page.php:2
+msgid "Settings"
+msgstr "Настройки"
+
+#: tea-page-content.class.php:101
 msgid "Tea Page Content Shortcode"
 msgstr "Шорткод Tea Page Content"
 
-#: tea-page-content.class.php:377
-msgid ""
-"Thanks for update! In Tea Page Content 1.2 was added some new features. We "
-"recommend you check out the <a href=\"https://wordpress.org/plugins/tea-page-"
-"content/changelog/\">changelog</a>. <b>This notice appears only once!</b>"
+#: tea-page-content.class.php:110
+msgid "Tea Page Content - Settings"
 msgstr ""
-"Спасибо за обновление! В Tea Page Content 1.2 были добавлены новые "
-"возможности. Мы рекомендуем ознакомиться с ними в <a href=\"https://"
-"wordpress.org/plugins/tea-page-content/changelog/\">логе изменений</a>. "
-"<b>Это сообщение появляется только один раз!</b>"
+
+#: tea-page-content.class.php:437
+msgid ""
+"Thanks for update! We recommend you check out the <a href=\"https://"
+"wordpress.org/plugins/tea-page-content/changelog/\">changelog</a>. <b>This "
+"notice appears only one time.</b>"
+msgstr ""
+"Спасибо за обновление! Мы рекомендуем просмотреть <a href=\"https://"
+"wordpress.org/plugins/tea-page-content/changelog/\">список обновлений</a>. "
+"<b>Это уведомление появляется лишь один раз.</b>"
+
+#: templates/default-settings-page.php:27
+msgid "Yes"
+msgstr "Да"
+
+#: templates/default-settings-page.php:28
+msgid "No"
+msgstr "Нет"
+
+#: templates/default-settings-page.php:51
+msgid "Submit"
+msgstr "Отправить"
 
 #: templates/default-widget-admin-dialog-insert-shortcode.php:16
 #: templates/default-widget-admin.php:17
@@ -132,6 +162,17 @@ msgstr "Выберите изображение..."
 #: templates/default-widget-admin-variables-area.php:4
 msgid "Template Variables"
 msgstr "Переменные шаблона"
+
+#~ msgid ""
+#~ "Thanks for update! In Tea Page Content 1.2 was added some new features. "
+#~ "We recommend you check out the <a href=\"https://wordpress.org/plugins/"
+#~ "tea-page-content/changelog/\">changelog</a>. <b>This notice appears only "
+#~ "once!</b>"
+#~ msgstr ""
+#~ "Спасибо за обновление! В Tea Page Content 1.2 были добавлены новые "
+#~ "возможности. Мы рекомендуем ознакомиться с ними в <a href=\"https://"
+#~ "wordpress.org/plugins/tea-page-content/changelog/\">логе изменений</a>. "
+#~ "<b>Это сообщение появляется только один раз!</b>"
 
 #~ msgid ""
 #~ "Warning! Since Tea Page Content 1.1 some parameters is <b>deprecated</b>, "

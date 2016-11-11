@@ -1,9 +1,9 @@
-=== Tea Page Widget & Content ===
+=== Tea Page Content ===
 Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
 Requires at least: 4.0, PHP 5.3
 Tested up to: 4.6
-Stable tag: 1.2.0
+Stable tag: 1.2.2
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
@@ -129,6 +129,8 @@ Above you can see very simple example of custom template with `title` and `conte
 
 * **$count** - Count of all passed entries
 * **$instance** - Array with user defined and default parameters. There is all list of options from self-titled section above.
+* **$template_variables** - Array with template-level variables.
+* **$caller** - Special flag that determine a module that called template: from widget or from shortcode. Can be `widget` or `shortcode`.
 * **$entries** - List of posts, pages, etc.
 	* **title** - Title of current entry
 	* **content** - Content of current entry. When page have more tag, will be used `the_content` function, in other cases will be used `the_excerpt`
@@ -136,5 +138,5 @@ Above you can see very simple example of custom template with `title` and `conte
 	* **link** - Link of entry
 	* **id** - Entry ID
 
-= Details =
+= Details & Filters =
 Because full manual is too long, you can see it at <a href="http://tsjuder.github.io/tea-page-content/">Github Page</a>. Get details and updating information about new features includes filters, template-level variables and more.

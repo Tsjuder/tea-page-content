@@ -34,7 +34,7 @@
 
 									<input type="hidden" name="page_variables[<?php echo $postData['id'] ?>]" id="tpc-page_variables-<?php echo $postData['id'] ?>" value="" data-thumbnail-url="" autocomplete="off" />
 
-									<span class="tpc-item-title"><?php echo $postData['title'] ?></span>
+									<span class="tpc-item-title" title="<?php echo $postData['title'] ?>"><?php echo $postData['title'] ?></span>
 								</label>
 							<?php endforeach; ?>
 							</div>

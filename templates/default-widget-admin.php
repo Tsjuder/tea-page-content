@@ -40,7 +40,7 @@
 
 								<input type="hidden" name="<?php echo $bind->get_field_name('page_variables') ?>[<?php echo $postData['id'] ?>]" id="<?php echo $bind->get_field_id('page_variables') . '-' . $postData['id'] ?>" value="<?php echo $raw_page_variables ?>" data-thumbnail-url="<?php echo $data_thumbnail_url ?>" autocomplete="off" />
 
-								<span class="tpc-item-title"><?php echo $postData['title'] ?></span>
+								<span class="tpc-item-title" title="<?php echo $postData['title'] ?>"><?php echo $postData['title'] ?></span>
 							</label>
 						<?php endforeach; ?>
 						</div>

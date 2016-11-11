@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.0
+ * @version 1.2.2
  */
 
 class TeaPageContent {
@@ -28,6 +28,8 @@ class TeaPageContent {
 		add_action('init', array($this, 'registerShortcodes'));
 		add_action('widgets_init', array($this, 'registerWidgets'));
 
+		add_action('init', array($this, 'updateSettings'));
+
 		// Modify Admin page
 		add_action('admin_footer-widgets.php', array($this, 'addPageVariablesModal'));
 		add_action('admin_footer-edit.php', array($this, 'addPageVariablesModal'));
@@ -50,21 +52,62 @@ class TeaPageContent {
 
 		add_action('media_buttons', array($this, 'add_my_media_button'), 1000);
 
-		// At first time notice user about possible migration
-		if(!get_option('tpc_deprecated_notice')) {
-			add_action('admin_notices', array($this, 'displayDeprecatedNotice'));
-		}
+		add_action('admin_menu', array($this, 'addMenu'), 100);
+
+		add_filter('plugin_row_meta', array($this, 'addPluginMetaLinks'), 100, 2);
+
 
 		// Create new helper instance
 		$this->_helper = new TeaPageContent_Helper;
 
 		// Gets instance of the config class
 		$this->_config = TeaPageContent_Config::getInstance();
+
+
+		// At first time notice user about possible migration
+		if
+			(
+				($last_version = get_option('tpc_deprecated_notice'))
+				&&
+				$last_version !== $this->_config->get('system.versions.plugin')
+			) 
+		{
+			add_action('admin_notices', array($this, 'displayDeprecatedNotice'));
+		}
 	}
 
+	/**
+	 * Add meta-link in plugin description on plugin list page.
+	 * 
+	 * @param array $links 
+	 * @param string $file 
+	 * @return array
+	 */
+	public function addPluginMetaLinks($links, $file) {
+		if($file == plugin_basename(TEA_PAGE_CONTENT_FILE)) {
+			$links[] = '<a href="options-general.php?page=tea-page-content">' . __('Settings', 'tea-page-content') . '</a>';
+		}
+
+		return $links;
+	}
+
+	/**
+	 * Add button for inserting shortcode above text editor on admin pages.
+	 * 
+	 * @return void
+	 */
 	public function add_my_media_button() {
 		$mask = '<a href="#" id="tpc-insert-shortcode" data-modal="tpc-call-shortcode-modal" data-button="insert" class="button tpc-button tpc-call-modal-button">%s</a>';
     	echo sprintf($mask, __('Tea Page Content Shortcode', 'tea-page-content'));
+	}
+
+	/**
+	 * Add sub-menu for Options level.
+	 * 
+	 * @return void
+	 */
+	public function addMenu() {
+		add_submenu_page('options-general.php', __('Tea Page Content - Settings', 'tea-page-content'), __('Tea Page Content', 'tea-page-content'), 'edit_dashboard', 'tea-page-content', array($this, 'renderSettingsPage'));
 	}
 
 	/**
@@ -95,7 +138,7 @@ class TeaPageContent {
 	public function includeAdminAssets($hook) {
 		$url = plugins_url('/assets', TEA_PAGE_CONTENT_FILE);
 
-		if($hook === 'post.php' || $hook === 'post-new.php' || $hook === 'edit.php') {
+		if($hook === 'post.php' || $hook === 'post-new.php' || $hook === 'edit.php' || $hook === 'settings_page_tea-page-content') {
 			
 			wp_enqueue_script(
 				'tea-page-content-js-api',
@@ -149,7 +192,13 @@ class TeaPageContent {
 			);
 		}
 
-		if(!get_option('tpc_deprecated_notice')) {
+		if
+			(
+				($last_version = get_option('tpc_deprecated_notice'))
+				&&
+				$last_version !== $this->_config->get('system.versions.plugin')
+			) 
+		{
 			wp_enqueue_script(
 				'tea-page-content-notices-js',
 				$url . '/js/tea-page-content-admin-notices.js',
@@ -169,13 +218,15 @@ class TeaPageContent {
 	public function includeAssets() {
 		$url = plugins_url('/assets', TEA_PAGE_CONTENT_FILE);
 	
-		wp_enqueue_style(
-			'tea-page-content-css',
-			$url . '/css/tea-page-content-main.css',
-			array(),
-			$this->_config->get('system.versions.styles'),
-			'all'
-		);
+		if($this->_config->get_current('system.settings.include-css')) {
+			wp_enqueue_style(
+				'tea-page-content',
+				$url . '/css/tea-page-content-main.css',
+				array(),
+				$this->_config->get('system.versions.styles'),
+				'all'
+			);
+		}
 	}
 
 	/**
@@ -192,32 +243,43 @@ class TeaPageContent {
 		foreach ($data as $index => $pair) {
 			$pair = explode('=', $pair);
 
-			$keys = preg_split('/[\[\]]+/', urldecode($pair[0]), -1, PREG_SPLIT_NO_EMPTY);
-
 			if(!trim($pair[1])) {
 				continue;
 			}
 
+			$keys = preg_split('/[\[\]]+/', urldecode($pair[0]), -1, PREG_SPLIT_NO_EMPTY);
+			
+			// $keys[0] is property name (order, page_variables, etc.)
+			// $keys[1] is a page id (as usual)
+			// So, if we haven't property in prepared data, set it up
 			if(!array_key_exists($keys[0], $prepared_data)) {
 				
 				if(isset($keys[1])) {
+					// page variables, set it
 					$prepared_data[$keys[0]] = array(
 						$keys[1] => $pair[1]
 					);
 				} else {
+					// just post id, set it too
 					$prepared_data[$keys[0]] = array(
 						$pair[1]
 					);
 				}
 
-			} elseif(isset($keys[1]) && array_key_exists($keys[1], $prepared_data[$keys[0]])) {
+			// But, if we have it already and post_id is not in $prepared_data, it means, we set up page variables
+			} elseif(isset($keys[1]) && !array_key_exists($keys[1], $prepared_data[$keys[0]])) {
 
+				// page variables in raw format stored in $pair array
 				$prepared_data[$keys[0]][$keys[1]] = $pair[1];
 
+			// And finally, if we haven't property and $keys[1] isn't set...
 			} else {
 
+				// ...it means, this is just post id that we need set separately
+				// $pair[1] in these times can be just post_id integer
+				// so $keys[0] now is `posts`
 				$prepared_data[$keys[0]][] = $pair[1];
-
+				
 			}
 		}
 
@@ -358,11 +420,7 @@ class TeaPageContent {
 	 * @return void
 	 */
 	public function setNoticeSeenCallback() {
-		$version = $_POST['version']; // @todo get version from config
-
-		if(!get_option('tpc_deprecated_notice')) {
-			add_option('tpc_deprecated_notice', $version, '', 'no');
-		}
+		$this->_helper->updateDeprecatedNoticeOption();
 	}
 
 	/**
@@ -374,10 +432,27 @@ class TeaPageContent {
 	 * @return void
 	 */
 	public function displayDeprecatedNotice() {
-		$message = __('Thanks for update! In Tea Page Content 1.2 was added some new features. We recommend you check out the <a href="https://wordpress.org/plugins/tea-page-content/changelog/">changelog</a>. <b>This notice appears only once!</b>');
+		$message = __('Thanks for update! We recommend you check out the <a href="https://wordpress.org/plugins/tea-page-content/changelog/">changelog</a>. <b>This notice disappear after closing.</b>');
 		$content = '<div id="tpc-deprecated-notice" class="error notice tpc-deprecated-notice is-dismissible"><p>' . $message . '</p></div>';
 
 		echo $content;
+	}
+
+	/**
+	 * Render settings page.
+	 * 
+	 * @return void
+	 */
+	public function renderSettingsPage() {
+		$params = array(
+			'settings' => $this->_helper->getMappedSettings(),
+		);
+
+		$template = 'default-settings-page'; // @todo via config
+
+		$templatePath = $this->_helper->getTemplatePath($template);
+
+		echo $this->_helper->renderTemplate($params, $templatePath);
 	}
 
 	/**
@@ -400,6 +475,11 @@ class TeaPageContent {
 		}
 	}
 
+	/**
+	 * Print in footer modal window html for inserting shortcode
+	 * 
+	 * @return void
+	 */
 	public function addInsertShortcodeModal() {
 		$template = 'default-widget-admin-dialog-insert-shortcode'; // @todo через конфиг
 
@@ -433,5 +513,44 @@ class TeaPageContent {
 		$content = $this->_helper->renderTemplate($params, $templatePath);
 
 		echo $content;
+	}
+
+	/**
+	 * Update settings if POST is not empty
+	 * 
+	 * @return void
+	 */
+	public function updateSettings() {
+		if(!is_admin() || empty($_POST) || !isset($_POST['tpc_settings_update'])) {
+			return;
+		}
+
+		unset($_POST['tpc_settings_update']);
+
+		foreach ($_POST as $setting_name => $setting_value) {
+			if
+				(
+					strpos($setting_name, 'tpc_') === false // @todo make dis shit dry {4}
+					||
+					preg_match('/[^\w-]/', $setting_name)
+					||
+					!is_scalar($setting_value)
+				)
+			{
+				continue;
+			}
+
+			$config_path = $this->_helper->convertSettingToConfigPath($setting_name);
+
+			$initial = $this->_config->get_default($config_path);
+
+			if(is_null(get_option($setting_name, null))) {
+				add_option($setting_name, $setting_value, '', 'no');
+			} elseif($initial == $setting_value) {
+				delete_option($setting_name);
+			} else {
+				update_option($setting_name, $setting_value, 'no');
+			}
+		}
 	}
 }

@@ -3,10 +3,10 @@
 Plugin Name: Tea Page Widget & Content
 Plugin URI: http://tsjuder.github.io/tea-page-content
 Description: This plugin allows create blocks with content of any post, and customize look of blocks via templates. Widget, shortcode, all post types is supported.
-Version: 1.2.0
+Version: 1.2.1
 Text Domain: tea-page-content
 Domain Path: /languages/
-Author: Danil Kosterin
+Author: Raymond Costner
 Author URI: https://github.com/Tsjuder
 GitHub Plugin URI: https://github.com/Tsjuder/tea-page-content
 GitHub Branch: master
@@ -30,7 +30,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-Copyright 2015 Danil Kosterin
+Copyright 2016 Raymond Costner
 */
 
 // Necessary constants

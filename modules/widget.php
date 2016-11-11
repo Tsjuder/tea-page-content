@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.1
+ * @version 1.2.2
  */
 
 class TeaPageContent_Widget extends WP_Widget {
@@ -125,17 +125,20 @@ class TeaPageContent_Widget extends WP_Widget {
 					}
 
 					foreach ($newInstance[$param] as $page_id => $variable_data) {
-						
-						if(trim($variable_data)) {
-							$parsed_data = $this->_helper->decodePageVariables($variable_data, null, false);
-
-							if(empty($parsed_data)) {
-								continue;
-							}
-
-							$instance['page_variables'][$page_id] = $variable_data;
+						if(!trim($variable_data)) { // If raw variable data is not empty...
+							continue;
 						}
-						
+
+						// try to parse it for check values of every variable...
+						$parsed_data = $this->_helper->decodePageVariables($variable_data, null, false);
+
+						// ... and, if parsed data is not empty, save page vars
+						if(!empty($parsed_data)) {
+							$instance['page_variables'][$page_id] = $variable_data;
+						} else { 
+							// if empty, unset page vars
+							unset($instance['page_variables'][$page_id]);
+						}
 					}
 				}
 			}
@@ -145,8 +148,7 @@ class TeaPageContent_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Creates and render a form for
-	 * admin part of this widget
+	 * Creates and render a form for admin part of this widget
 	 * 
 	 * @param array $instance 
 	 * @return void

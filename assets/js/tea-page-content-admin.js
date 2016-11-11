@@ -47,6 +47,7 @@
 					'modal': true,
 					'resizable': false,
 					'closeText': '',
+					'class': 'tpc-ui-modal-wrapper',
 					'buttons': [
 						{
 							text: _buttons[modal_button].title,
@@ -58,7 +59,8 @@
 							click: API.listeners.dialog_cancel_button_click
 						}
 					],
-					'close': API.callbacks.dialog_on_close
+					'close': API.callbacks.dialog_on_close,
+					'open': API.callbacks.dialog_on_open,
 				};
 
 				API.storage.set('dialog-' + modal, $dialog);
