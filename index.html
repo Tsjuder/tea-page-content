@@ -220,115 +220,223 @@
 <h3>
 <a id="tpc_config_array" class="anchor" href="#tpc_config_array" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_config_array</h3>
 
-<p><em>Parameters:</em> <code>$config</code> Array Store itself loaded config associative array.
-This filter allows change config before its using, if config was loaded correctly.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$config</code> <em>Array</em> (Store itself loaded config associative array)
+This filter allows change config before its using, if config was loaded correctly.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_template_path" class="anchor" href="#tpc_get_template_path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_path</h3>
 
-<p><em>Parameters:</em> <code>$template_path</code> String Store itself full calculated path to template file.
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$template_path</code> <em>String</em> (Store itself full calculated path to template file)
 Allows change path to template file, and therefore change template in admin-part or entire site.
-This filter is universal and applying in all places where plugin getting path to template file.</p>
+This filter is universal and applying in all places where plugin getting path to template file.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_admin_template" class="anchor" href="#tpc_get_admin_template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_admin_template</h3>
 
-<p><em>Parameters:</em> <code>$template_title</code> String Title of the template for admin-part.
-Allows replace template for admin-part on your one. Actual for widget and shortcode UI.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$template_title</code> <em>String</em> (Title of the template for admin-part)
+Allows replace template for admin-part on your one. Actual for widget and shortcode UI.</li>
+</ul>
 
 <h3>
 <a id="tpc_render_template" class="anchor" href="#tpc_render_template" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_render_template</h3>
 
-<p><em>Parameters:</em> <code>$content</code> String Loaded content of the template.
-Allows change content of rendered template just before it's display. For example, you can change some separate tags via regexp. This filter is universal and works great in admin-part and entire site.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$content</code> <em>String</em> (Loaded content of the template)
+Allows change content of rendered template just before it's display. For example, you can change some separate tags via regexp. This filter is universal and works great in admin-part and entire site.</li>
+</ul>
 
 <h3>
 <a id="tpc_post_types_operator" class="anchor" href="#tpc_post_types_operator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types_operator</h3>
 
-<p><em>Parameters:</em> <code>$operator</code> String Comparsion operator for function <code>get_post_types</code>. Value can be OR or AND.
-Allows change comparsion operator for function <code>get_post_types</code>. Using in admin-part for getting list of availaibe post types.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$operator</code> <em>String</em> (Comparsion operator for function <code>get_post_types</code>. Value can be OR or AND)
+Allows change comparsion operator for function <code>get_post_types</code>. Using in admin-part for getting list of availaibe post types.</li>
+</ul>
 
 <h3>
 <a id="tpc_post_types_args" class="anchor" href="#tpc_post_types_args" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types_args</h3>
 
-<p><em>Parameters:</em> <code>$args</code> Array Array with attributes for function <code>get_post_types</code>.
-Filter for changing list of attributes for post types query. With help of this filter you can, f.e., exclude some types from final result. Using in admin-part for getting list of available post types.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$args</code> <em>Array</em> (Array with attributes for function <code>get_post_types</code>)
+Filter for changing list of attributes for post types query. With help of this filter you can, f.e., exclude some types from final result. Using in admin-part for getting list of available post types.</li>
+</ul>
 
 <h3>
 <a id="tpc_post_types" class="anchor" href="#tpc_post_types" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_types</h3>
 
-<p><em>Parameters:</em> <code>$types</code> Array Array with received post types.
-Allows change final result with post types after its have been received.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$types</code> <em>Array</em> (Array with received post types)
+Allows change final result with post types after its have been received.</li>
+</ul>
 
 <h3>
 <a id="tpc_post_params" class="anchor" href="#tpc_post_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_post_params</h3>
 
-<p><em>Parameters:</em> <code>$params</code> Array Associative array with attributes for function <code>get_posts</code>.
-One of key filters, using in function <code>getPosts()</code>. Allows filter input array for getting list of entries and subsequent output of this list in template. This filter is universal, and using in admin-part and in entire site.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$params</code> <em>Array</em> (Associative array with attributes for function <code>get_posts</code>)
+One of key filters, using in function <code>getPosts()</code>. Allows filter input array for getting list of entries and subsequent output of this list in template. This filter is universal, and using in admin-part and in entire site.</li>
+</ul>
 
 <h3>
 <a id="tpc_prepared_posts" class="anchor" href="#tpc_prepared_posts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_prepared_posts</h3>
 
-<p><em>Parameters:</em> <code>$prepared_posts</code> Array Associative array with result of function <code>get_posts</code>.
-One of key filters, using in function <code>getPosts()</code>. Allows filter entries that was received before. The <code>$prepared_posts</code> parameter represents either one-dimensional array that stores list of <code>WP_Post</code> objects; or two-dimensional array that stores entries which divided by its post type. This filter is universal, and using in admin-part and in entire site.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$prepared_posts</code> <em>Array</em> (Associative array with result of function <code>get_posts</code>)
+One of key filters, using in function <code>getPosts()</code>. Allows filter entries that was received before. The <code>$prepared_posts</code> parameter represents either one-dimensional array that stores list of <code>WP_Post</code> objects; or two-dimensional array that stores entries which divided by its post type. This filter is universal, and using in admin-part and in entire site.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_template_variable" class="anchor" href="#tpc_get_template_variable" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_variable</h3>
 
-<p><em>Parameters:</em> <code>$variable</code> Array Associative array with currently handling template-level variable.
-           <code>$template</code> String Name of the template from which are extracted variables.
-Allows filter template-level variables at the stage of variables extraction from template. The <code>$variable</code> parameter represent an array with some elements that set in config at address <code>system.template-variables.mask</code>.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$variable</code> <em>Array</em> (Associative array with currently handling template-level variable)</li>
+<li>
+<code>$template</code> <em>String</em> (Name of the template from which are extracted variables)
+Allows filter template-level variables at the stage of variables extraction from template. The <code>$variable</code> parameter represent an array with some elements that set in config at address <code>system.template-variables.mask</code>.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_template_variables" class="anchor" href="#tpc_get_template_variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_template_variables</h3>
 
-<p><em>Parameters:</em> <code>$variables</code> Array One-dimensional array with extracted and handled template-level variables.
-           <code>$template</code> String Name of the template from which are extracted variables.
-Allows filter template-level variables after extracting and handling.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$variables</code> <em>Array</em> (One-dimensional array with extracted and handled template-level variables)</li>
+<li>
+<code>$template</code> <em>String</em> (Name of the template from which are extracted variables)
+Allows filter template-level variables after extracting and handling.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_params" class="anchor" href="#tpc_get_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_params</h3>
 
-<p><em>Parameters:</em> <code>$params</code> Array Associative array with parameters that will be accessible in template.
-One of key filters, using in function <code>getParams()</code>. Allows filter accessible in template parameters and vaeiables. For example, you can change <code>$caller</code>, <code>$instance</code> or any another parameter.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$params</code> <em>Array</em> (Associative array with parameters that will be accessible in template)
+One of key filters, using in function <code>getParams()</code>. Allows filter accessible in template parameters and vaeiables. For example, you can change <code>$caller</code>, <code>$instance</code> or any another parameter.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_admin_params" class="anchor" href="#tpc_get_admin_params" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_admin_params</h3>
 
-<p><em>Parameters:</em> <code>$params</code> Array Associative array with parameters that will be accessible in admin template.
-Allows filter accessible in admin template (widget or shortcode UI) parameters and variables.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$params</code> <em>Array</em> (Associative array with parameters that will be accessible in admin template)
+Allows filter accessible in admin template (widget or shortcode UI) parameters and variables.</li>
+</ul>
 
 <h3>
 <a id="tpc_page_variables_raw" class="anchor" href="#tpc_page_variables_raw" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_page_variables_raw</h3>
 
-<p><em>Parameters:</em> <code>$query_string</code> String Page-level variables in url-encoded format.
-           <code>$entry_id</code> Int ID of current page for which we extract variables.
-This filter allows change unhandled string with page-level variables just before parse of it.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$query_string</code> <em>String</em> (Page-level variables in url-encoded format)</li>
+<li>
+<code>$entry_id</code> <em>Int</em> (ID of current page for which we extract variables)
+This filter allows change unhandled string with page-level variables just before parse of it.</li>
+</ul>
 
 <h3>
 <a id="tpc_page_variables" class="anchor" href="#tpc_page_variables" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_page_variables</h3>
 
-<p><em>Parameters:</em> <code>$page_variables</code> Array One-dimensional array with all handled page-level variables.
-           <code>$entry_id</code> Int ID of current page for which we extract variables.
-Allows change extracted and handled variables just before passing it in the template.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$page_variables</code> <em>Array</em> (One-dimensional array with all handled page-level variables)</li>
+<li>
+<code>$entry_id</code> <em>Int</em> (ID of current page for which we extract variables)
+Allows change extracted and handled variables just before passing it in the template.</li>
+</ul>
 
 <h3>
 <a id="tpc_template_directories" class="anchor" href="#tpc_template_directories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_template_directories</h3>
 
-<p><em>Parameters:</em> <code>$directories</code> Array One-dimensional array with path to the directories with templates.
-Allows modify list of the directories where can be template files (and custom too). Using in admin-part.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$directories</code> <em>Array</em> (One-dimensional array with path to the directories with templates)
+Allows modify list of the directories where can be template files (and custom too). Using in admin-part.</li>
+</ul>
 
 <h3>
 <a id="tpc_get_templates" class="anchor" href="#tpc_get_templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_get_templates</h3>
 
-<p><em>Parameters:</em> <code>$templates</code> Array One-dimensional array with names of templates.
-Allows manage list of finded templates. Using in admin-part.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$templates</code> <em>Array</em> (One-dimensional array with names of templates)
+Allows manage list of finded templates. Using in admin-part.</li>
+</ul>
 
 <h3>
 <a id="tpc_template_name" class="anchor" href="#tpc_template_name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_template_name</h3>
 
-<p><em>Parameters:</em> <code>$template</code> String Template name
-Allows modify template in widget just before getting path to template and render of it.</p>
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$template</code> <em>String</em> (Template name)</li>
+</ul>
+
+<h3>
+<a id="tpc_thumbnail_size" class="anchor" href="#tpc_thumbnail_size" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>tpc_thumbnail_size</h3>
+
+<p><em>Parameters:</em> </p>
+
+<ul>
+<li>
+<code>$thumbnail_size</code> <em>String</em> (Name of the predefined thumbnail size. You can use built-in Wordpress thumbnail sizes (f.e. post-thumbnail) or create your own)</li>
+<li>
+<code>$thumbnail_id</code> <em>Int</em> (ID of attachment that used as thumbnail)</li>
+<li>
+<code>$entry_id</code> <em>Int</em> (ID of current entry)
+Allows modify template in widget just before getting path to template and render of it.</li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/Tsjuder/tea-page-content">Tea Page Widget &amp; Content</a> is maintained by <a href="https://github.com/Tsjuder">Tsjuder</a>.</span>
