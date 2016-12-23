@@ -2,8 +2,8 @@
 Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
 Requires at least: 4.0, PHP 5.3
-Tested up to: 4.6
-Stable tag: 1.2.2
+Tested up to: 4.7
+Stable tag: 1.2.3
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
@@ -33,8 +33,9 @@ You can find primary description at <a href="https://wordpress.org/plugins/tea-p
 2. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Screenshots ==
-1. First screen with list of posts and basic parameters
-2. Second screen after choosing template and list of template variables
+1. Widget UI. Click by gear for open page level variables modal
+2. Page level variables window (opens after clicking by gear)
+3. Insert shortcode modal window
 
 == Frequently Asked Questions ==
 
@@ -58,10 +59,27 @@ Links to full entry appears automatically - this feature depends of theme settin
 You can create new topic in forum at wordpress.org, or send me email. I will answer you as soon as possible.
 
 == Changelog ==
-= 1.2.1
+= 1.2.3 =
+* \+ New template "Waterfall" added
+* \+ New template "Bootstrap 4" added
+* \+ New type of page variables - jquery ui spinner
+* \+ Added filters for changing column count in "Bootstrap X" templates
+* \* Template "Bootstrap 3" was improved
+* \* Checked for Wordpress 4.7 support
+
+= 1.2.2 =
+* \+ Added child themes support
+* \+ Added possibility to change thumbnail size via filter tpc_thumbnail_size
+* \+ Added settings page
+* \* Added popup notices for long titles in UI
+* \* Private, protected or draft entries not showing anymore in lists of entries
+* \* Fix bug with incorrect shortcode generate
+* \* Fix bug with incorrect page-level variables handling
+
+= 1.2.1 =
 * \* Fix bug with non-opening modal window of page level variables
 
-= 1.2.0
+= 1.2.0 =
 * \+ New feature - page-level variables
 * \+ Added button for inserting shortcode in editor
 * \+ New availaibe property in templates - `caller`. Value of caller maybe `widget` or `shortcode` if template in this moment using in shortcode or widget resp.

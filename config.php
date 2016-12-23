@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 return array(
@@ -69,7 +69,7 @@ return array(
 		),
 		'predefined-templates' => array(
 			// @deprecated default-padded template, since 1.1
-			'default', 'default-padded', 'bootstrap-3'
+			'default', 'default-padded', 'bootstrap-3', 'bootstrap-4', 'waterfall'
 		),
 		'template-variables' => array(
 			'mask' => array(
@@ -84,9 +84,9 @@ return array(
 			'theme' => get_stylesheet_directory() . '/templates/'
 		),
 		'versions' => array(
-			'plugin' => '1.2.2',
-			'scripts' => '1.2.2',
-			'styles' => '1.2.2'
+			'plugin' => '1.2.3',
+			'scripts' => '1.2.3',
+			'styles' => '1.2.3'
 		),
 
 		'settings' => array(

@@ -13,7 +13,6 @@
 	};
 
 	$(document).ready(function() {
-
 		var $document = $(this);
 		var $widgets_area = $('#widgets-right');
 
@@ -23,9 +22,7 @@
 
 		// tpc-call-shortcode-modal
 		// tpc-call-item-options-modal
-
-		//$('.tpc-call-modal-button[data-modal]').each();
-// 
+ 
 		$document.on('click', '.tpc-call-modal-button[data-modal]', function(e) {
 			var $this = $(this);
 			var modal = $this.attr('data-modal');
@@ -67,14 +64,31 @@
 
 				$dialog.dialog(params);
 
-				TeaPageContent_API.storage.set('dialog', $dialog);
+				API.storage.set('dialog', $dialog);
 
-				if(modal in TeaPageContent_API.handlers.modals) {
-					TeaPageContent_API.handlers.modals[modal](e, $this);
+				if(modal in API.handlers.modals) {
+					API.handlers.modals[modal](e, $this);
 				}
 			}
 
 			e.preventDefault();
+		});
+
+		// Init spinners
+		API.handlers.widgets.spinners_init($('.tpc-spinner'));
+
+		// Update spinners after widget add or update
+		$document.on({
+			'widget-updated': function(e, widget) {
+				API.handlers.widgets.spinners_init($(widget).find('.tpc-spinner'));
+			},
+			'widget-added': function(e, widget) {
+				API.handlers.widgets.spinners_init($(widget).find('.tpc-spinner'));
+			}
+		});
+
+		$document.ajaxSuccess(function(event, xhr, options, data) {
+			//alert('!!');
 		});
 
 		// Exit if widgets area is empty

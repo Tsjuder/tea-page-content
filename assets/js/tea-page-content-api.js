@@ -115,6 +115,22 @@ var TeaPageContent_API = {
 					$dialog.dialog('open');
 				}
 			}
+		},
+
+		'widgets': {
+			'spinners_init': function($collection) {
+				$collection.each(function() {
+					var $spinner = jQuery(this);
+
+					var min = $spinner.data('spinner-min');
+					var max = $spinner.data('spinner-max');
+
+					$spinner.spinner({
+						min: min ? min : null,
+						max: max ? max : null,
+					});
+				});
+			}
 		}
 	},
 
@@ -155,7 +171,10 @@ var TeaPageContent_API = {
 				if(jQuery.trim(response)) {
 					$variablesArea.html(response).slideDown('fast');	
 				}
-				
+
+				// Spinners set {1} make dis shit dry
+				TeaPageContent_API.handlers.widgets.spinners_init($variablesArea.find('.tpc-spinner'));
+
 				$preloader.removeClass('is-loading');
 
 				setTimeout(function() {

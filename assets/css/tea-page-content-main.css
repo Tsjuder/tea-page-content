@@ -88,3 +88,30 @@
 .tpc-bootstrap .row:last-child .tpc-entry-block:last-child {
 	margin-bottom: 0;
 }
+
+/* Waterfall Template */
+.tpc-waterfall {}
+.tpc-waterfall:before,
+.tpc-waterfall:after {
+  display: table;
+  content: " ";
+}
+.tpc-waterfall:after {
+  clear: both;
+}
+.tpc-waterfall-col {
+	float: left;
+
+	padding: 0.5em 1em;
+
+	display: block;
+	box-sizing: border-box;
+
+	max-width: 100%;
+}
+.tpc-waterfall .tpc-entry-block {
+	width: 100%;
+}
+.tpc-waterfall .tpc-entry-block:last-child {
+	margin-bottom: 0;
+}

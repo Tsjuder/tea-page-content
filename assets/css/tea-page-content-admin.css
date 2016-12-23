@@ -375,6 +375,34 @@ textarea.tpc-modal-ui-element {
 	border-top-right-radius: 0px;
 }
 
+/* Spinner */
+.tpc-columns-wrapper label + .ui-spinner {
+	display: block;
+}
+.tpc-columns-wrapper .ui-spinner {
+	display: inline-block;
+	position: relative;
+}
+.tpc-columns-wrapper .ui-spinner .ui-spinner-button {
+	position: absolute;
+	cursor: pointer;
+
+	user-select: none;
+
+	right: 3px;
+}
+.tpc-columns-wrapper .ui-spinner .ui-spinner-up {
+	top: -3px;
+	z-index: 10;
+}
+.tpc-columns-wrapper .ui-spinner .ui-spinner-down {
+	bottom: -3px;
+}
+.tpc-columns-wrapper .ui-spinner-input {
+	padding-right: 14px;
+}
+
+
 /* TPC Dashicons */
 .tpc-dashicons-middled {
 	vertical-align: middle;

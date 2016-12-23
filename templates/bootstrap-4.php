@@ -1,12 +1,13 @@
 <?php 
 /**
- * @param caption caption "Flexible template for sites builted on Bootstrap 3. <b>Important:</b> if you set column count greater than 12, do not forget increase max column count via <code>tpc_bootstrap3_max_columns</code> filter manually."
+ * @param caption caption "Flexible template for sites builted on Bootstrap 4. <b>Important:</b> if you set column count greater than 12, do not forget increase max column count via <code>tpc_bootstrap4_max_columns</code> filter manually."
  * 
  * @param container-type select container-fluid|container
  * @param ordering-type select horizontal|transposed
  * 
  * @param use-rows checkbox 1
- * 
+ *
+ * @param column-count-extra-large jqueryui:spinner 1-24
  * @param column-count-large jqueryui:spinner 1-24
  * @param column-count-medium jqueryui:spinner 1-24
  * @param column-count-small jqueryui:spinner 1-24
@@ -17,16 +18,17 @@ if(!$count) return; // @todo check for empty entries in backend
 
 // Template Logic
 $maxColumns = 12;
-$maxColumns = apply_filters('tpc_bootstrap3_max_columns', $maxColumns);
+$maxColumns = apply_filters('tpc_bootstrap4_max_columns', $maxColumns);
 
 $columns = array(
+	'xl' => 'col-xl-' . $maxColumns / $template_variables['column-count-extra-large'],
 	'lg' => 'col-lg-' . $maxColumns / $template_variables['column-count-large'],
 	'md' => 'col-md-' . $maxColumns / $template_variables['column-count-medium'],
 	'sm' => 'col-sm-' . $maxColumns / $template_variables['column-count-small'],
 	'xs' => 'col-xs-' . $maxColumns / $template_variables['column-count-extra-small'],
 );
 
-$itemsPerRow = $template_variables['column-count-large']; // by default, @todo make it configurable
+$itemsPerRow = $template_variables['column-count-extra-large']; // by default, @todo make it configurable
 $itemsCount = count($entries);
 
 $counter = 0;

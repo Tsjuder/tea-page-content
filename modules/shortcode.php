@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 class TeaPageContent_Shortcode {

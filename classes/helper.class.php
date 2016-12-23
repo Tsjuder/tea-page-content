@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 class TeaPageContent_Helper {
@@ -237,7 +237,13 @@ class TeaPageContent_Helper {
 						}
 
 						if($item === 'defaults') {
-							$variable[$item] = explode('|', $variable[$item]);
+							if(preg_match('/.\|./', $variable[$item])) { // value list
+								$variable[$item] = explode('|', $variable[$item]);
+							} elseif(preg_match('/^(\d-|-\d)/', $variable[$item])) { // int range
+								$variable[$item] = explode('-', $variable[$item]);
+							} else {
+								$variable[$item] = array($variable[$item]);
+							}
 						}
 
 						if($is_index) {

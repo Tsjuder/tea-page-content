@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Tea Page Content
- * @version 1.2.2
+ * @version 1.2.3
  */
 
 class TeaPageContent {
@@ -62,7 +62,6 @@ class TeaPageContent {
 
 		// Gets instance of the config class
 		$this->_config = TeaPageContent_Config::getInstance();
-
 
 		// At first time notice user about possible migration
 		if
@@ -143,7 +142,7 @@ class TeaPageContent {
 			wp_enqueue_script(
 				'tea-page-content-js-api',
 				$url . '/js/tea-page-content-api.js',
-				array('jquery', 'jquery-ui-dialog'),
+				array('jquery', 'jquery-ui-dialog', 'jquery-ui-spinner'),
 				$this->_config->get('system.versions.scripts'),
 				true
 			);
@@ -151,7 +150,7 @@ class TeaPageContent {
 			wp_enqueue_script(
 				'tea-page-content-js',
 				$url . '/js/tea-page-content-admin.js',
-				array('jquery', 'jquery-ui-dialog'),
+				array('jquery', 'jquery-ui-dialog', 'jquery-ui-spinner'),
 				$this->_config->get('system.versions.scripts'),
 				true
 			);
@@ -170,7 +169,7 @@ class TeaPageContent {
 			wp_enqueue_script(
 				'tea-page-content-js-api',
 				$url . '/js/tea-page-content-api.js',
-				array('jquery', 'jquery-ui-dialog'),
+				array('jquery', 'jquery-ui-dialog', 'jquery-ui-spinner'),
 				$this->_config->get('system.versions.scripts'),
 				true
 			);
@@ -178,7 +177,7 @@ class TeaPageContent {
 			wp_enqueue_script(
 				'tea-page-content-js',
 				$url . '/js/tea-page-content-admin.js',
-				array('jquery', 'jquery-ui-dialog'),
+				array('jquery', 'jquery-ui-dialog', 'jquery-ui-spinner'),
 				$this->_config->get('system.versions.scripts'),
 				true
 			);

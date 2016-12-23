@@ -68,6 +68,12 @@
 					</select>
 				<?php break; ?>
 
+				<?php case 'jqueryui:spinner': ?>
+					<?php if(!trim($variableValue)) $variableValue = 0; ?>
+					
+					<input type="text" class="widefat tpc-spinner" id="<?php echo $variableID ?>" name="<?php echo $variableName ?>" value="<?php echo $variableValue ?>" data-spinner-min="<?php echo reset($variable['defaults']) ?>" data-spinner-max="<?php echo end($variable['defaults']) ?>" />
+				<?php break; ?>
+
 			<?php endswitch; ?>
 		</p>
 
