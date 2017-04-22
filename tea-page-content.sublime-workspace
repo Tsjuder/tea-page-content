@@ -1,0 +1,1404 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Tem",
+				"TemplatesRenderer"
+			],
+			[
+				"Te",
+				"TemplatesResolver"
+			],
+			[
+				"get_pa",
+				"get_page_variables"
+			],
+			[
+				"Params",
+				"ParamsExtractor"
+			],
+			[
+				"Widge",
+				"WidgetTemplatesExtractor"
+			],
+			[
+				"Template",
+				"TemplatesExtractor"
+			],
+			[
+				"Wid",
+				"WidgetTemplatesExtractor"
+			],
+			[
+				"Pag",
+				"PageVariablesRepository"
+			],
+			[
+				"Wi",
+				"WidgetExtractor"
+			],
+			[
+				"is_a",
+				"is_array"
+			],
+			[
+				"Templ",
+				"Templates"
+			],
+			[
+				"Config",
+				"ConfigCombiner"
+			],
+			[
+				"Shortco",
+				"ShortcodeGenerator"
+			],
+			[
+				"Notic",
+				"NoticeManager"
+			],
+			[
+				"No",
+				"NoticeManager"
+			],
+			[
+				"en",
+				"enqueue_assets"
+			],
+			[
+				"Tea",
+				"TeaPageContent"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"cn",
+				"config"
+			],
+			[
+				"filter_te",
+				"filter_template_by_filename"
+			],
+			[
+				"get_po",
+				"get_post_types_args"
+			],
+			[
+				"qu",
+				"query_string"
+			],
+			[
+				"apply",
+				"apply_rules_to_parsed_variable"
+			],
+			[
+				"pa",
+				"parsed_ids"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"parse",
+				"parsed_param"
+			],
+			[
+				"comb",
+				"combine_custom_templates_with_defaults"
+			],
+			[
+				"Repos",
+				"Repository"
+			],
+			[
+				"Ent",
+				"EntriesRepository"
+			],
+			[
+				"build_pa",
+				"build_page_variables"
+			],
+			[
+				"templa",
+				"template_variables"
+			],
+			[
+				"build",
+				"build_template_variables"
+			],
+			[
+				"clas",
+				"class_name"
+			],
+			[
+				"name",
+				"namespace"
+			],
+			[
+				"Widget",
+				"WidgetRenderer"
+			],
+			[
+				"Shortcoe",
+				"Shortcode"
+			],
+			[
+				"is_s",
+				"is_string"
+			],
+			[
+				"se",
+				"settings_for_class"
+			],
+			[
+				"depend",
+				"dependencies"
+			],
+			[
+				"depe",
+				"dependencies"
+			],
+			[
+				"cla",
+				"class_name"
+			],
+			[
+				"dep",
+				"deps_map"
+			],
+			[
+				"expl",
+				"exploded_name"
+			],
+			[
+				"resolve",
+				"resolved_name"
+			],
+			[
+				"get_cl",
+				"get_class"
+			],
+			[
+				"dee",
+				"dependency_name"
+			],
+			[
+				"depen",
+				"dependency_name"
+			],
+			[
+				"deps",
+				"deps_map"
+			],
+			[
+				"Param",
+				"ParamsRepository"
+			],
+			[
+				"Templa",
+				"TemplateVariables"
+			],
+			[
+				"Reposi",
+				"RepositoryCollection"
+			],
+			[
+				"ins",
+				"instance"
+			],
+			[
+				"instance",
+				"instance_new"
+			],
+			[
+				"buil",
+				"build_iteration_for_updated_instance"
+			],
+			[
+				"in",
+				"instance_new"
+			],
+			[
+				"inst",
+				"instance"
+			],
+			[
+				"get_posts",
+				"get_posts_in_flatten_mode"
+			],
+			[
+				"para",
+				"param_value"
+			],
+			[
+				"param",
+				"param_name"
+			],
+			[
+				"paar",
+				"param_name"
+			],
+			[
+				"bs",
+				"box-sizing"
+			],
+			[
+				"paddi",
+				"padding-left"
+			],
+			[
+				"va",
+				"variable_value"
+			],
+			[
+				"page_va",
+				"page_variable"
+			],
+			[
+				"vari",
+				"variable_title"
+			],
+			[
+				"query_",
+				"query_string"
+			],
+			[
+				"que",
+				"query_string"
+			],
+			[
+				"apply_",
+				"apply_rules"
+			],
+			[
+				"entry",
+				"entry_id"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"border-bottom-le",
+				"border-bottom-left-radius"
+			],
+			[
+				"butt",
+				"button_text"
+			],
+			[
+				"gform_",
+				"gform_submit_button"
+			],
+			[
+				"raw",
+				"raw_variables"
+			],
+			[
+				"page",
+				"page_variables"
+			],
+			[
+				"entr",
+				"entry_id"
+			],
+			[
+				"ent",
+				"entry_id"
+			],
+			[
+				"attr",
+				"attr_value"
+			],
+			[
+				"post",
+				"post__in"
+			],
+			[
+				"extra",
+				"extract_page_variables_from"
+			],
+			[
+				"filter_vari",
+				"filter_variable_defaults"
+			],
+			[
+				"item",
+				"item_name"
+			],
+			[
+				"get_vari",
+				"get_variable_int_range"
+			],
+			[
+				"is_va",
+				"is_variable_defaults_int_range"
+			],
+			[
+				"filter_va",
+				"filter_variable_item"
+			],
+			[
+				"is_he",
+				"is_header_ends_at_current_line"
+			],
+			[
+				"ext",
+				"extract_variable_from_current_line"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"load",
+				"load_template_content"
+			],
+			[
+				"temp",
+				"templatePath"
+			],
+			[
+				"get_te",
+				"get_template_path_if_exists"
+			],
+			[
+				"spl_auto",
+				"spl_autoload_unregister"
+			],
+			[
+				"PLUGIN",
+				"PLUGIN_FILE"
+			],
+			[
+				"MYCONST",
+				"MYCONST3"
+			],
+			[
+				"res",
+				"resolved_name"
+			],
+			[
+				"dep_",
+				"dep_name"
+			],
+			[
+				"crea",
+				"created_deps"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"menu",
+				"menu_offset"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"accorde",
+				"accordeon-data"
+			],
+			[
+				"w",
+				"window"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"clu",
+				"column"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"p",
+				"padding-right"
+			],
+			[
+				"quote",
+				"quote-box"
+			],
+			[
+				"fnt",
+				"font-size"
+			],
+			[
+				"border-to",
+				"border-top-color"
+			],
+			[
+				"language-",
+				"language-selector-dropdown"
+			],
+			[
+				"td",
+				"td-u\ttext-decoration: underline;"
+			],
+			[
+				"promo",
+				"promo-banner-quote-box"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"bc",
+				"background-color"
+			],
+			[
+				"class",
+				"class_deps"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"Page",
+				"PageVariables"
+			],
+			[
+				"get_cla",
+				"get_called_class"
+			],
+			[
+				"grid",
+				"grid-breakpoints"
+			],
+			[
+				"ba",
+				"background-position"
+			],
+			[
+				"text",
+				"text-indent"
+			],
+			[
+				"font-fa",
+				"font-family-sans-serif"
+			],
+			[
+				"ob_ge",
+				"ob_get_contents"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Яна, здравствуй.",
+			"settings":
+			{
+				"buffer_size": 16,
+				"line_ending": "Windows",
+				"name": "Яна, здравствуй."
+			}
+		},
+		{
+			"file": "/C/Users/Heian/Desktop/Mindflow/bands-reviews.txt",
+			"settings":
+			{
+				"buffer_size": 16630,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по php.txt",
+			"settings":
+			{
+				"buffer_size": 53607,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по webdev.txt",
+			"settings":
+			{
+				"buffer_size": 54022,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 111.0,
+		"last_filter": "Snippet: ",
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: li",
+				"Package Control: List Packages"
+			],
+			[
+				"package control install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"phpfmt",
+				"phpfmt: toggle auto align"
+			],
+			[
+				"php",
+				"phpfmt: toggle PSR2"
+			],
+			[
+				"phpfm",
+				"phpfmt: toggle auto align"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 414.0
+	},
+	"console":
+	{
+		"height": 302.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content"
+	],
+	"file_history":
+	[
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/maps/dependencies.map.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/config.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/DependencyInjector.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/Settings.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/ShortcodeGenerator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/Modals.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/Registrator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/ConfigHandler.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/Callbacks.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/Assets.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/AdminNotices.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Main/AdminElements.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/Renderer.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/Filtrator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/Renderer.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/Builder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/ParamsBuilder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/InstanceBuilder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/Combiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/Appender.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/TemplatesExtractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/VariablesExtractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/ParamsExtractor.php",
+		"/C/Users/Heian/Desktop/Mindflow/sport/training.txt",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content_old/tea-page-content.class.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/tea-page-content.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/uninstall.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/templates/default-settings-page.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Combiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Sanitizer.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Mapper.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Map/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/maps/config.map.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content_old/classes/helper.class.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateVariables/Parser.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Notices/Manager.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Notices/Notices.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateVariables/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateVariables/Filtrator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateVariables/Extractor.php",
+		"/C/OpenServer/domains/dumper/lizatstopu.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Resolver.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Renderer.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Filtrator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Reader.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/themes/twentyfifteen/templates/tpc-test-template.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Params/Builder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Combiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Combiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PostTypes/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Params/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Params/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/RulesActuator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Formatter.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Decoder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Builder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/Params.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/Formatter.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Directories/Repository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Map/Loader.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Filtrator.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Loader.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/RepositoryCollection.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Notices.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/Extractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/Combiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Traits/Predicats.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Directories/Directories.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/Remapper.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/Map/Map.php",
+		"/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по php.txt",
+		"/C/Users/Heian/Desktop/Mindflow/first.txt",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Params/ParamsExtractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/EntryParams.php",
+		"/C/Users/Heian/Desktop/Mindflow/friends.txt",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/EntryFormatter.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Templates/Directories.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables/PageVariablesCombiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries/PostTypesRepository.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config/ConfigCombiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Shortcode/ShortcodeExtractor.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/WidgetCombiner.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/WidgetInstanceBuilder.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Modules/Widget/WidgetExtractor.php",
+		"/C/Users/Heian/Desktop/Mindflow/citates.txt",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content_old/modules/widget.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/templates/default-widget-admin.php",
+		"/C/OpenServer/domains/dumper/lizatstopu2.php",
+		"/C/Users/Heian/Desktop/Шпаргалка HTML/toolbox.txt",
+		"/C/Users/Heian/Desktop/Mindflow/Тьма, космос и звезды",
+		"/C/Users/Heian/Desktop/Mindflow/Маленький маг и дух Водопада",
+		"/C/Users/Heian/Desktop/Mindflow/rap-song.txt",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Config.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/Entries.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/ParamsProvider.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/PageVariables.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateVariables.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/TemplateRenderer.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/Main.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/DependencyInjector.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/modules/Widget.php",
+		"/C/OpenServer/domains/testest.jpp/wp-content/plugins/tea-page-content/app/modules/Shortcode.php",
+		"/C/Repositories/tea-page-content/tpc-structure.txt",
+		"/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка html.txt",
+		"/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по webdev.txt",
+		"/C/Users/Heian/Desktop/Mindflow/psy.txt",
+		"/C/Users/Heian/Desktop/Mindflow/bands-reviews.txt",
+		"/C/Users/Heian/Desktop/Mindflow/remSerials.txt",
+		"/C/Users/Heian/Desktop/Шпаргалка HTML/learning.txt",
+		"/C/OpenServer/domains/ihibupa.loc/wp-content/themes/ihibupa/sidebar-left.php",
+		"/C/OpenServer/domains/ihibupa.loc/wp-content/themes/ihibupa/sidebar.php",
+		"/C/OpenServer/domains/ihibupa.loc/wp-content/themes/ihibupa/style.css",
+		"/C/OpenServer/domains/ihibupa.loc/wp-content/themes/ihibupa/functions.php",
+		"/C/Repositories/tea-page-content/classes/helper.class.php",
+		"/C/Users/Heian/AppData/Local/Microsoft/CLR_v4.0_32/ngen.log",
+		"/C/Users/Heian/AppData/Local/CEF/User Data/WidevineCDM/1.4.8.903/manifest.json"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 130.0,
+		"where_history":
+		[
+			"C:\\OpenServer\\domains\\testest.jpp\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\cignatheme.ru.loc\\assets\\styles",
+			"C:\\OpenServer\\domains\\cigna-global.ru.loc\\wp-content\\themes\\cigna-global\\assets\\styles",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\plugins\\tea-page-content,C:\\Repositories\\tea-page-content",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\cigna-global.ru.loc\\wp-content\\themes\\cigna-global\\assets\\styles",
+			"C:\\OpenServer\\domains\\yii.local\\advanced\\vendor\\yiisoft\\yii2",
+			"C:\\OpenServer\\domains\\laravel.local\\app\\vendor\\laravel",
+			"",
+			"C:\\OpenServer\\domains\\_php.source",
+			"C:\\OpenServer\\domains\\golden-line.loc\\",
+			"C:\\OpenServer\\domains\\golden-line.loc\\protected",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-includes",
+			"C:\\Repositories\\wordpress-avcadvisory-sage",
+			"C:\\Repositories\\avchealth-theme,C:\\Repositories\\multi-office-theme-dev",
+			"C:\\Repositories\\avchealth-theme",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\themes\\hansard\\assets\\styles",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\themes\\hansard\\assets",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\themes\\hansard",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-includes",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\themes\\hansard\\assets",
+			"C:\\OpenServer\\domains\\hansard.ru.loc\\wp-content\\themes\\hansard\\assets\\styles",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\__propably_desinfected_backup",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc",
+			"C:\\OpenServer\\domains\\matthewmaly.loc,-*.sql",
+			"C:\\OpenServer\\domains\\matthewmaly.loc",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\__original_infected",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\archive",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad\\assets\\scss",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\administrator",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\administrator\\components\\com_scatalog",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\libraries\\",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\administrator\\",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad\\assets",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\Repositories\\gforms-greenrope",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\plugins\\gravityforms",
+			"C:\\Repositories\\avc-bupacalc",
+			"C:\\OpenServer\\domains",
+			"C:\\Repositories",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad\\assets\\scss",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\plugins\\gravityforms",
+			"C:\\Repositories\\gforms-bitrix24-integration",
+			"C:\\Repositories Subversion\\tea-page-content\\tags\\1.2.2",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\google-sitemap-generator",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\Repositories\\gforms-bitrix24-integration",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\CherryFramework,C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910,C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\CherryFramework",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910",
+			"C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\themes\\arlo",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910,C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\CherryFramework",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910",
+			"C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\themes\\arlo,C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\plugins\\select-core,C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\plugins\\js_composer",
+			"C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\themes\\arlo,C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\plugins\\select-core",
+			"C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\themes\\arlo",
+			"C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\theme44910,C:\\OpenServer\\domains\\avchealth.com.loc\\wp-content\\themes\\CherryFramework",
+			"C:\\OpenServer\\domains\\dynastycapital.loc\\wp-content\\themes\\dynastycapital",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\plugins\\events-manager",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-includes",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-include",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-content\\plugins\\lightbox-plus",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-content\\plugins",
+			"assets\\styles",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\assets\\styles",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-content\\plugins\\google-analyticator",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\avcadvisory-site-v4-files-20160322\\wp-content\\plugins\\google-analytics-for-wordpress",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\plugins\\",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\corp.avc.ru.loc\\wp-content\\themes\\avccorp\\assets\\styles",
+			"C:\\OpenServer\\domains\\avc-tests.loc\\wp-content\\themes\\novellite",
+			"C:\\OpenServer\\domains\\avc-tests.loc\\wp-content\\themes\\novelgreen",
+			"C:\\OpenServer\\domains\\avcannounce.ru.loc\\___4.6core\\wordpress",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\tea-page-content",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-content\\plugins\\pods",
+			"C:\\OpenServer\\domains\\frenchleaseback.ru.loc\\__desinfected\\wp-content\\themes\\travelgrunge",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-includes",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-admin",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\assets",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc",
+			"C:\\OpenServer\\domains\\generali.loc\\wp-content\\plugins\\dynamic-widgets",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\assets\\",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\assets\\styles",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\lib",
+			"C:\\OpenServer\\domains\\inmedstrah.ru.loc\\wp-content\\themes\\lifestyle",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\profile-builder",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\themes\\iconicone",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\profile-builder",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\themes\\iconicone",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\themes\\iconicone",
+			"C:\\OpenServer\\modules,C:\\OpenServer\\userdata,C:\\OpenServer\\data",
+			"C:\\OpenServer\\",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\themes\\iconicone",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\profile-builder",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-includes",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-admin",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-includes",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\profile-builder",
+			"C:\\OpenServer\\domains\\wp.loc\\",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc\\assets\\styles",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\plugins",
+			"C:\\OpenServer\\domains\\www.avcadvisory.ru.loc\\wp-content\\themes\\avc",
+			"C:\\Repositories\\wordpress-theme-roots-avc",
+			"C:\\OpenServer\\domains\\wp.loc\\wp-includes",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad\\html",
+			"C:\\OpenServer\\domains\\ism-fasad.ru.loc\\templates\\ismfasad\\assets\\scss",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\themes\\bupa3\\assets\\styles",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\plugins\\gravityforms",
+			"C:\\Repositories",
+			"C:\\OpenServer\\domains\\bupa-intl.loc\\wp-content\\themes\\bupa3",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\dev3",
+			"C:\\OpenServer\\domains\\matthewmaly.loc\\v3",
+			"C:\\OpenServer\\domains\\advancequities.com.loc\\wp-content\\plugins\\related-posts-lite"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"inject_created_deps",
+			"layoutPath",
+			"templatePath",
+			"add_my_media_button",
+			"addMenu",
+			"addPluginMetaLinks",
+			"WidgetEx",
+			"get_actual_template_path",
+			"get_actual_template",
+			"WidgetTemplatesExtractor",
+			"get_partials",
+			"get_widget_markup",
+			"->get_template_variables(",
+			"->get_page_variables(",
+			"->get_page_variables",
+			"get_page_variables",
+			"get_actual_params",
+			"get_template_variables",
+			"get_page_variables",
+			"get_widget_markup",
+			"get_actual_template",
+			"get_partials",
+			"Widget\\\\Ex",
+			"templatePath",
+			"render",
+			"combine_defaults_with_mapped",
+			"->get_map",
+			"get_map",
+			"NoticeMana",
+			"generate",
+			"ModalPresenter",
+			"addPageVariablesModal",
+			"$this->Notices",
+			"Notices\\\\Notices",
+			"Notices",
+			"displayDeprecatedNotice",
+			"updateDeprecatedNoticeOption",
+			"setNoticeSeenCallback",
+			"false",
+			"иначе - ",
+			"extract_param_from",
+			"Reader",
+			"Directories",
+			"templatePath",
+			"get_combined_templates",
+			"Templates\\\\",
+			"remap_page_variable_keys",
+			"decodePageVariables",
+			"get_formatted_page_variables",
+			"PageV",
+			"Modules\\\\Shortcode",
+			"Combiner",
+			"Shortcode\\\\Com",
+			"',\n",
+			"remove_page_variable_prefix_from",
+			"preparePageVariablesForMerge",
+			"combine_page_variables",
+			"get_all_post_types",
+			"PostTypes\\\\Repository",
+			"Entries\\\\PostTypesRepository",
+			"PostTypes\\\\Repository",
+			"Entries\\\\Repository",
+			"PostTypesRepository",
+			"Map\\\\Repository",
+			"Config\\\\Map'",
+			"Config\\\\Map",
+			"onfig\\\\Re",
+			"по ссылке",
+			"ParamsBuilder",
+			"get_actual_widget_data",
+			"\\\\Appender",
+			"Params\\\\Extractor",
+			"ParamsExtractor",
+			"PageVariables\\\\Combiner",
+			"PageVariablesCombiner",
+			"PageVariablesBuilder",
+			"EntryParams",
+			"Entries\\\\Formatter",
+			"EntryFormatter",
+			"EntryExtractor",
+			"ConfigExtractor",
+			"Config\\\\Extractor",
+			"ConfigExtractor",
+			"Config\\\\Combiner",
+			"ConfigCombiner",
+			"Config\\\\Repository",
+			"Config\\\\Config'",
+			"Config\\\\Config",
+			"Shortcode\\\\Filtrator",
+			"ShortcodeFiltrator",
+			"Shortcode\\\\Extractor",
+			"ShortcodeExtractor",
+			"Shortcode\\\\Combiner",
+			"ShortcodeCombiner",
+			"ShortcodeCom",
+			"Config",
+			"Shortcode\\\\Renderer",
+			"ShortcodeRenderer",
+			"Shortcode\\\\Builder",
+			"ShortcodeBuilder",
+			"ParamsB",
+			"Params",
+			"Renderer",
+			"Widget\\\\Renderer",
+			"WidgetRenderer",
+			"Shortcode",
+			"array_keys",
+			"$this->",
+			"ConfigConfig",
+			"$this->",
+			"dependencies",
+			"WidgetExtractor",
+			"WidgetCombiner",
+			"WidgetParamsBuilder",
+			"WidgetAppender",
+			"WidgetInstanceBuilder",
+			"Config",
+			"PageVariables\\\\Repository",
+			"PageVariablesRepository",
+			"TemplateVariables\\\\Repository",
+			"TemplateVariablesRepository",
+			"Params\\\\Repository",
+			"ParamsRepository",
+			"Entries\\\\Repository",
+			"EntriesRepository",
+			"\\\\TeaPageContent\\\\App\\\\",
+			"build_pa",
+			"$defaults + $template_variables"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"inject_dependencies_to",
+			"layout_path",
+			"template_path",
+			"add_media_button_for_shortcode_insert",
+			"add_menu",
+			"add_plugin_metalinks",
+			"template_path",
+			"Modals",
+			"$this->NoticeManager",
+			"Notices\\\\Manager",
+			"display_deprecated_notice",
+			"set_notice_seen_callback",
+			"template_path",
+			"decode_page_variables",
+			"PostTypes\\\\Repository",
+			"Repository",
+			"Config\\\\Map\\\\Repository'",
+			"Extractor",
+			"Combiner",
+			"Builder",
+			"Params",
+			"Formatter",
+			"Extractor",
+			"Combiner",
+			"Config\\\\Repository'",
+			"Config\\\\Repository",
+			"Filtrator",
+			"Extractor",
+			"Combiner",
+			"Renderer",
+			"Config",
+			"Extractor",
+			"Combiner",
+			"Appender",
+			"Repository",
+			"",
+			"add_template_variables_storage_if_not_exists",
+			"sanitize_option",
+			":",
+			"",
+			"$dependencies->",
+			"$this->Config",
+			"$this->Config->",
+			"$this->Config",
+			"dev.cigna-global.ru",
+			"$font-family-sans-serif",
+			"Config",
+			"",
+			"url('",
+			"dev.cigna-global.ru",
+			"(max-width",
+			"cigna",
+			"$cigna",
+			"$sprite-path",
+			"rem",
+			"cigna_",
+			"_cigna",
+			"cigna-global.ru.loc",
+			"--bg-color",
+			"",
+			"http://hansard.com/~",
+			"",
+			"http://hansard.com/~",
+			"",
+			".hansard-modal",
+			"modal-title h3-like",
+			"h4-like",
+			"</h4>",
+			"<h4>",
+			"/",
+			"http://www.hansard.com/~/",
+			"",
+			">",
+			"<",
+			"",
+			"<li>",
+			"matthew-maly.ru",
+			"dev.hansard.ru",
+			"<?php",
+			"matthew-maly.ru",
+			"matthewmaly.loc",
+			"http://matthewmaly.loc",
+			"hansard.ru.loc",
+			"",
+			"<header class=\"entry-header\"",
+			"<em class=\"entry-subtitle\">",
+			"entry-half",
+			"entry-half blog-item-img",
+			"review",
+			"",
+			"items_per_row",
+			"items_count",
+			"itemsCount",
+			"1.2.3",
+			",",
+			" ",
+			"$3",
+			",",
+			" ",
+			"$2",
+			",",
+			" ",
+			"$1",
+			"$1 ",
+			",",
+			" ",
+			"$1",
+			"",
+			",",
+			" ",
+			"$3",
+			",",
+			" ",
+			"$2",
+			",",
+			" ",
+			"$1",
+			"$1 ",
+			",",
+			" ",
+			"$1",
+			"",
+			",",
+			" ",
+			"$3",
+			",",
+			" ",
+			"$2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16,
+								16
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Яна, здравствуй.",
+							"default_dir": "C:\\OpenServer\\domains\\testest.jpp\\wp-content\\plugins\\tea-page-content",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Heian/Desktop/Mindflow/bands-reviews.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16630,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11453,
+								11453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6988.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по php.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 53607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2167,
+								2172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/Heian/Desktop/Шпаргалка HTML/Шпаргалка по webdev.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 54022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32995,
+								32995
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 13932.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tea-page-content.sublime-project",
+	"replace":
+	{
+		"height": 90.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Heian\\Desktop\\tea-page-content.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
