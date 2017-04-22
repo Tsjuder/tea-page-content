@@ -10,7 +10,7 @@ use TeaPageContent\App\Traits;
 class Parser {
     use Traits\Predicates\TemplateVariables;
 
-    private $regexp = '/(?![@param*])((?:"[^"]+")|(?:[\S]+))/i';
+    private $regexp = '/(?=@|\*)(?:@|\*)\w*?\s|((?:"[^"]+")|(?:[\S]+))/i';
 
     private $Filtrator = null;
 

@@ -85,19 +85,4 @@ Above you can see very simple example of custom template with `title` and `conte
 * **$instance** - Array with user defined and default parameters. There is all list of options from self-titled section above.
 
 ## Filters and actions
-Will be very soon...
-
-## What's next?
-In next versions will be released these features:
-* Page-level variables
-* Waterfall template
-* Customize ordering
-* UI improvements
-* **And more!**
-
-## Migration Guide
-### From 1.0.x to 1.1.x
-Since 1.1.x, nothing was deleted. But some options was marked as deprecated. We recommend do these steps:
-1. If you're using **default padded** template, change it on **default** with layout what you prefer.
-2. If you're using shortcodes, replace parameter `id` to `posts`.
-3. If you're using widgets with **turned off** thumbnail option, re-save each of it.
+See documentation.

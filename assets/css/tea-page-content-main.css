@@ -1,92 +1,91 @@
 .tpc-shortcode-main-title {
-	margin-bottom: 1.5em;
-	color: inherit;
-	font-size: 2em;
+    margin-bottom: 1.5em;
+    color: inherit;
+    font-size: 2em;
 }
 
 .tpc-block {
-	margin: 1em auto;
-	font-size: inherit;
+    margin: 1em auto;
+    font-size: inherit;
 }
 
 .tpc-body .tpc-title {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 .tpc-body .tpc-title:first-child {
-	margin-top: 0;
+    margin-top: 0;
 }
 .tpc-body .tpc-title:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .tpc-thumbnail {
-	font-size: 0; /* Need for fix spaces between inline-block elements */
-	padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
 }
 .tpc-thumbnail:last-child {
-	padding-bottom: 0;
+    padding-bottom: 0;
 }
 
 /* Need cascade here */
 .tpc-thumbnail .tpc-thumbnail-link {
-	display: inline-block;
-	text-decoration: none;
-	border-bottom: 0 none;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 0 none;
 }
 .tpc-thumbnail .tpc-thumbnail-link:hover {
-	opacity: 0.85;
+    opacity: 0.85;
 }
 
 .tpc-entry-block {}
 .tpc-entry-block {
-	padding-bottom: 1.5em;
+    padding-bottom: 1.5em;
 }
 
 
 .tpc-widget-title {
-	padding: 0.5em 0;
+    padding: 0.5em 0;
 }
 
 .tpc-widget-title + .tpc-entry-block .tpc-body {}
 
 .tpc-widget-title h3 {
-	font-size: 1.5em;
-	font-weight: bold;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 /* Styles for blocks that embed in page */
 .entry-content .tpc-title {
-	margin-top: 0;
+    margin-top: 0;
 }
 .entry-content .tpc-entry-block + .tpc-entry-block {
-	margin-top: 1em;
+    margin-top: 1em;
 }
 .entry-content .tpc-body {
-	padding-right: 0;
-	padding-left: 0;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 /* Default Template */
 .tpc-default + .tpc-default {
-	margin-top: 1.5em;
+    margin-top: 1.5em;
 }
 
 /* Padded Template */
 .tpc-default-padded .tpc-body,
 .tpc-default-padded .tpc-thumbnail {
-	padding-left: 1em;
-	padding-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .tpc-default-padded .tpc-thumbnail {
-	padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 /* Bootstrap Template */
 .tpc-bootstrap .tpc-entry-block {
-	margin-bottom: 30px; /* default bootstrap gutter width */
+    margin-bottom: 30px; /* default bootstrap gutter width */
 }
 .tpc-bootstrap .row:last-child .tpc-entry-block:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 /* Waterfall Template */
@@ -100,18 +99,18 @@
   clear: both;
 }
 .tpc-waterfall-col {
-	float: left;
+    float: left;
 
-	padding: 0.5em 1em;
+    padding: 0.5em 1em;
 
-	display: block;
-	box-sizing: border-box;
+    display: block;
+    box-sizing: border-box;
 
-	max-width: 100%;
+    max-width: 100%;
 }
 .tpc-waterfall .tpc-entry-block {
-	width: 100%;
+    width: 100%;
 }
 .tpc-waterfall .tpc-entry-block:last-child {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
