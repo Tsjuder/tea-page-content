@@ -1,9 +1,9 @@
 === Tea Page Content ===
 Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
-Requires at least: 4.0, PHP 5.3
+Requires at least: 4.0, PHP 5.6
 Tested up to: 4.7
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
@@ -63,6 +63,18 @@ Stay tuned with new versions. For make updates safe and fast, check changelog at
 Вы можете создать новый топик на форуме, или отправить мне email. Я отвечу вас так быстро, как только смогу.
 
 == Changelog ==
+= 1.3.0 =
+* \! **минимально совместимая версия PHP - PHP 5.6**
+* \+ устранен баг с неработающим фильтром `tpc_config_array`
+* \+ добавлена возможность выбирать поле, по которому сортируем
+* \+ изменение в поведении: проверка количества постов в клиентском шаблоне производится нативным образом
+* \+  шаблоны bootstrap x.x внесена возможность выбирать, на основе какого breakpoint будет производиться вычисление стартовых элементов в строке
+* \- удалены все deprecated (default-padded, id параметр у шорткода, thumbnail параметр)
+* \* совместимость с PHP7
+* \* повышена производительность
+* \* исправлен баг с некорректной обработкой некоторых имен переменных уровня шаблона
+* \* global refactoring
+
 = 1.2.3 =
 * \+ New template "Waterfall" added
 * \+ New template "Bootstrap 4" added

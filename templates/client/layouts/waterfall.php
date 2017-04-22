@@ -99,7 +99,6 @@ $counter = 0; ?>
             $entry = $entries[$index - 1];
          ?>
             <article class="tpc-entry-block">
-                <?php var_dump($index); ?>
                 <?php if(isset($instance['show_page_thumbnail']) && $instance['show_page_thumbnail'] && $entry['thumbnail']) : ?>
                     <div class="tpc-thumbnail">
                         <?php if($instance['linked_page_thumbnail'] && $entry['link']) : ?>

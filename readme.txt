@@ -3,7 +3,7 @@ Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
 Requires at least: WP 4.0, PHP 5.6
 Tested up to: 4.7
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
@@ -59,6 +59,18 @@ Links to full entry appears automatically - this feature depends of theme settin
 You can create new topic in forum at wordpress.org, or send me email. I will answer you as soon as possible.
 
 == Changelog ==
+= 1.3.0 =
+* \! **Bump minimal required PHP version to PHP 5.6**
+* \+ Now you can select `sortby` natively
+* \+ Added native validation of entries count. No more checks in templates!
+* \+ In Bootstrap templates added possibility to choose base breakpoint
+* \- Removed support of all deprecated features (`default-padded` template, `id` shortcode param, `thumbnail` param)
+* \* Full compatibility with PHP7
+* \* Improved performance
+* \* Fix bug with "dead" filter `tpc_config_array`
+* \* Fix bug with incorrect handling names of template-level variables in some cases
+* \* Global code refactoring. Clean and shiny!
+
 = 1.2.3 =
 * \+ New template "Waterfall" added
 * \+ New template "Bootstrap 4" added
