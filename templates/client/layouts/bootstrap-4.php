@@ -28,7 +28,7 @@ $columns = array(
     'xs' => 'col-xs-' . $maxColumns / $template_variables['column-count-extra-small'],
 );
 
-$itemsPerRowBase = $template_variables['items-per-row-based-on'];
+$itemsPerRowBase = isset($template_variables['items-per-row-based-on']) ? $template_variables['items-per-row-based-on'] : 'column-count-large';
 $itemsPerRow = $template_variables[$itemsPerRowBase];
 $itemsCount = count($entries);
 

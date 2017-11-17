@@ -157,7 +157,7 @@ return array(
             ],
         ),
         'versions' => array(
-            'plugin' => '1.3.0',
+            'plugin' => '1.3.1',
             'scripts' => '1.2.3',
             'styles' => '1.2.3',
         ),

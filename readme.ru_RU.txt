@@ -1,9 +1,9 @@
 === Tea Page Content ===
 Contributors: Tsjuder
 Tags: plugin, widget, shortcode, posts, post, pages, page, content, template, templates
-Requires at least: 4.0, PHP 5.6
-Tested up to: 4.7
-Stable tag: 1.3.0
+Requires at least: WP 4.0, PHP 5.6
+Tested up to: 4.9
+Stable tag: 1.3.1
 Author URI: https://github.com/Tsjuder
 Plugin URI: http://tsjuder.github.io/tea-page-content/
 License: GPLv2 or later
