@@ -3,7 +3,7 @@
 Plugin Name: Tea Page Content
 Plugin URI: http://tsjuder.github.io/tea-page-content
 Description: This plugin allows create blocks with content of any post, and customize look of blocks via templates. Widget, shortcode, all post types is supported.
-Version: 1.3.0
+Version: 1.3.1
 Text Domain: tea-page-content
 Domain Path: /languages/
 Author: Raymond Costner
